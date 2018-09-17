@@ -4,7 +4,8 @@
   "description": "Libreria de funciones basicas para rxMap",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env BABEL_ENV=test mocha -c \"test/**/*.spec.js\" --require @babel/register -r jsdom-global/register -r @babel/polyfill",
+    "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/istanbul cover -x \"lib/**\" ./node_modules/mocha/bin/_mocha -- \"test/**/*.spec.js\"  --recursive --require @babel/register -r jsdom-global/register -r @babel/polyfill",
     "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm"
   },
   "author": "Victor Rubinat",
@@ -52,6 +53,7 @@
     "eslint-plugin-babel": "^5.2.0",
     "eslint-plugin-import": "^2.14.0",
     "glob": "^7.1.3",
+    "google-maps": "^3.3.0",
     "html-webpack-plugin": "^3.2.0",
     "istanbul": "^1.1.0-alpha.1",
     "jsdom-global": "^3.0.2",
@@ -72,7 +74,8 @@
     "@babel/runtime": "^7.0.0",
     "@rxmap/rxmap": "0.0.4",
     "core-js": "^2.5.7",
-    "url-polyfill": "^1.1.0",
-    "rxjs": "^6.3.2"
+    "jsdom": "^12.0.0",
+    "rxjs": "^6.3.2",
+    "url-polyfill": "^1.1.0"
   }
 }
