@@ -1,0 +1,86 @@
+{
+  "source": ".",
+  "destination": "./docs",
+  "includes": [
+    "src",
+    "lib"
+  ],
+  "excludes": [
+    "node_modules",
+    "dist",
+    "examples",
+    "coverage",
+    "docs"
+  ],
+  "index": "./README.md",
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "undocumentIdentifier": {
+          "enable": true
+        },
+        "unexportedIdentifier": {
+          "enable": false
+        },
+        "coverage": {
+          "enable": true
+        },
+        "lint": {
+          "enable": true
+        },
+        "brand": {
+          "logo": "./manual/asset/logo-xlab.png",
+          "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
+        },
+        "manual": {
+          "index": "./README.md",
+          "globalIndex": true,
+          "asset": "./manual/asset",
+          "files": [
+            "./manual/overview.md",
+            "./manual/install.md",
+            "./manual/howItWorks.md",
+            "./manual/make.md",
+            "./manual/build.md",
+            "./manual/examples.md",
+            "./manual/libs.md"
+          ]
+        },
+        "accessor": {
+          "access": [
+            "public",
+            "protected"
+          ],
+          "autoPrivate": true
+        },
+        "test": {
+          "source": "./test/",
+          "includes": [
+            "(spec)\\.js$"
+          ]
+        }
+      }
+    },
+    {
+      "name": "esdoc-importpath-plugin",
+      "option": {
+        "stripPackageName": false,
+        "replaces": [
+        ]
+      }
+    },
+    {
+      "name": "esdoc-lint-plugin",
+      "option": {
+        "enable": true
+      }
+    },
+    {
+      "name": "esdoc-ecmascript-proposal-plugin",
+      "option": {
+        "all": true
+      }
+    }
+  ]
+}
