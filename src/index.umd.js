@@ -6,8 +6,8 @@
  * @private
  */
 const getOrigin = (src) => {
-    const url = new URL(src);
-    return `${url.origin}/`;
+  const url = new URL(src);
+  return `${url.origin}/`;
 };
 
 /**
@@ -15,11 +15,11 @@ const getOrigin = (src) => {
  * @private
  */
 const getPath = () => {
-    if (document.currentScript) {
-        return getOrigin(document.currentScript.src);
-    }
-    const scripts = document.getElementsByTagName('script');
-    return getOrigin(scripts[scripts.length - 1]);
+  if (document.currentScript) {
+    return getOrigin(document.currentScript.src);
+  }
+  const scripts = document.getElementsByTagName('script');
+  return getOrigin(scripts[scripts.length - 1]);
 };
 
 // eslint-disable-next-line
@@ -29,13 +29,17 @@ __webpack_public_path__ = getPath();
 export const name = 'rxmap';
 export const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];
 export const observers = ['gps', 'center', 'click'];
-export const func = (type, mapLib, version, key) => import(/* webpackMode: "lazy" */ `./${type}/${mapLib}@${version}/${key}`);
+export const func = (type, mapLib, version, key) => import(
+  /* webpackMode: "lazy" */
+  /* webpackInclude: /(actions|observers).+@/ */
+  `./${type}/${mapLib}@${version}/${key}`,
+);
 
 export default [
-    name,
-    {
-        observers,
-        actions,
-    },
-    func,
+  name,
+  {
+    observers,
+    actions,
+  },
+  func,
 ];

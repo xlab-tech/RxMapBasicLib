@@ -1,12 +1,13 @@
 {
-  "name": "rxmapbasiclib",
+  "name": "@rxmap/basiclib",
   "version": "1.0.0",
   "description": "Libreria de funciones basicas para rxMap",
-  "main": "index.js",
+  "main": "dist/umd/basiclib.min.js",
+  "module": "dist/esm/index.js",
   "scripts": {
     "test": "cross-env BABEL_ENV=test mocha -c \"test/**/*.spec.js\" --require @babel/register -r jsdom-global/register -r @babel/polyfill",
     "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/istanbul cover -x \"lib/**\" ./node_modules/mocha/bin/_mocha -- \"test/**/*.spec.js\"  --recursive --require @babel/register -r jsdom-global/register -r @babel/polyfill",
-    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm"
+    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm --ignore './src/index.umd.js'"
   },
   "author": "Victor Rubinat",
   "license": "GPL-3.0",
@@ -52,7 +53,6 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-babel": "^5.2.0",
     "eslint-plugin-import": "^2.14.0",
-    "glob": "^7.1.3",
     "google-maps": "^3.3.0",
     "html-webpack-plugin": "^3.2.0",
     "istanbul": "^1.1.0-alpha.1",
