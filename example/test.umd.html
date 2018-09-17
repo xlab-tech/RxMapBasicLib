@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script src="http://localhost:8090/umd/RxMap.min.js"></script>
+    <script src="http://localhost:8070/umd/basiclib.min.js"> </script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+      console.log(window.RxMapBasicLib);
+    </script>
+    <div id="map"></div>
+    <button id="addData" style="top:10px;left: 200px;position: absolute;z-index: 1000;width: 100px">Add Data</button>
+    <script src="map.umd.js"></script>
+  </body>
+</html>
