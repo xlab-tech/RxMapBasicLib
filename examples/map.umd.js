@@ -1,6 +1,6 @@
 
 const config = {
-  type: 'google',
+  type: 'leaflet',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
   },
