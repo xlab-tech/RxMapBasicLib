@@ -1,8 +1,9 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const package = require('./package.json');
-const name = package.name.split('/').pop();
+const packageFile = require('./package.json');
+
+const name = packageFile.name.split('/').pop();
 
 module.exports = [
   {
@@ -13,7 +14,7 @@ module.exports = [
       libraryTarget: 'umd',
       libraryExport: 'default',
       filename: `umd/${name}.src.js`,
-      chunkFilename: `umd/chunk/[name].src.js`,
+      chunkFilename: 'umd/chunk/[name].src.js',
       path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',
@@ -29,7 +30,7 @@ module.exports = [
       libraryTarget: 'umd',
       libraryExport: 'default',
       filename: `umd/${name}.min.js`,
-      chunkFilename: `umd/chunk/[name].min.js`,
+      chunkFilename: 'umd/chunk/[name].min.js',
       path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'source-map',
