@@ -7,7 +7,10 @@
   "scripts": {
     "test": "cross-env BABEL_ENV=test mocha -c \"test/**/*.spec.js\" --require @babel/register -r jsdom-global/register -r @babel/polyfill",
     "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/istanbul cover -x \"lib/**\" ./node_modules/mocha/bin/_mocha -- \"test/**/*.spec.js\"  --recursive --require @babel/register -r jsdom-global/register -r @babel/polyfill",
-    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm --ignore './src/index.umd.js'"
+    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm --ignore './src/index.umd.js'",
+    "lint": "eslint \"./**/*.js\" --fix",
+    "doc": "./node_modules/.bin/esdoc",
+    "prepare": "npm run doc && npm run build"
   },
   "author": "Victor Rubinat",
   "license": "GPL-3.0",
