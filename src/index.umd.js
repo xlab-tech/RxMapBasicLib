@@ -1,4 +1,4 @@
-
+import * as lib from './index';
 
 /**
  * Recupera el path de una url
@@ -26,14 +26,12 @@ const getPath = () => {
 __webpack_public_path__ = getPath();
 
 
-export const name = 'rxmap';
-export const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];
-export const observers = ['gps', 'center', 'click'];
-export const func = (type, mapLib, version, key) => import(
-  /* webpackMode: "lazy" */
-  /* webpackInclude: /(actions|observers).+@/ */
-  `./${type}/${mapLib}@${version}/${key}`,
-);
+export const {
+  name,
+  actions,
+  observers,
+  func,
+} = lib;
 
 export default [
   name,
