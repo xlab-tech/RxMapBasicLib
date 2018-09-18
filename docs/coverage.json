@@ -1,0 +1,178 @@
+{
+  "coverage": "44.89%",
+  "expectCount": 49,
+  "actualCount": 22,
+  "files": {
+    "RxMapBasicLib/src/actions/common/addData.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "RxMapBasicLib/src/actions/google@latest/addData.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/actions/google@latest/create.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/actions/google@latest/marker.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/actions/google@latest/point.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "RxMapBasicLib/src/actions/google@latest/popup.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        3,
+        14
+      ]
+    },
+    "RxMapBasicLib/src/actions/google@latest/setCenter.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/addData.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/create.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/marker.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/point.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/popup.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        2,
+        11
+      ]
+    },
+    "RxMapBasicLib/src/actions/leaflet@latest/setCenter.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/index.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "RxMapBasicLib/src/index.umd.js": {
+      "expectCount": 6,
+      "actualCount": 2,
+      "undocumentLines": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "RxMapBasicLib/src/observers/common/gps.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/observers/google@latest/center.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/observers/google@latest/click.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/observers/google@latest/gps.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/observers/leaflet@latest/center.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/observers/leaflet@latest/click.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
+    "RxMapBasicLib/src/observers/leaflet@latest/gps.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "RxMapBasicLib/src/utils/extractProperties.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "RxMapBasicLib/src/utils/transformPointGoogle.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "RxMapBasicLib/src/utils/transformPointLeaflet.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    }
+  }
+}

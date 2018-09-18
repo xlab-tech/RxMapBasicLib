@@ -2,6 +2,19 @@
 import googlePoint from '../../utils/transformPointGoogle';
 import extractProperties from '../../utils/extractProperties';
 
+/**
+ * Funcion que permite crear un marcador en el mapa
+ *
+ * @param {Object} context contexto de la ejeución
+ * @param {Object|Array} point Posicion del mapa
+ * @param {Object} [options] opcions del Marcador
+ * @param {String} [options.icon] icono del Marcador
+ * @param {Object} [options.size] tamaño del Marcador
+ * @param {Number} [options.size.with] alto del Marcador
+ * @param {Number} [options.size.height] ancho del Marcador
+ * @param {Object} [properties] propiedades / features del marcador
+ * @returns {Object} Marcador
+ */
 const drawMarker = (context, point, options = {}, properties = {}) => {
   const googleMaps = context.library.maps;
   const map = context.source.getMap();
