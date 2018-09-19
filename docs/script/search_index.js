@@ -2,163 +2,145 @@ window.esdocSearchIndex = [
   [
     "@rxmap/basiclib/rxmapbasiclib/src/index.js~actions",
     "variable/index.html#static-variable-actions",
-    "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/basiclib/rxmapbasiclib/src/index.umd.js~actions",
-    "variable/index.html#static-variable-actions",
-    "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.umd.js</span>",
+    "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
     "variable"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/common/adddata.js~adddata",
     "function/index.html#static-function-addData",
-    "<span>addData</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/common/addData.js</span>",
+    "<span>addData</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/common/addData.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/google@latest/center.js~center",
     "function/index.html#static-function-center",
-    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/observers/google@latest/center.js</span>",
+    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/google@latest/center.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/leaflet@latest/center.js~center",
     "function/index.html#static-function-center",
-    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/observers/leaflet@latest/center.js</span>",
+    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/leaflet@latest/center.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/google@latest/click.js~click",
     "function/index.html#static-function-click",
-    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/observers/google@latest/click.js</span>",
+    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/google@latest/click.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/leaflet@latest/click.js~click",
     "function/index.html#static-function-click",
-    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/observers/leaflet@latest/click.js</span>",
+    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/leaflet@latest/click.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/create.js~create",
     "function/index.html#static-function-create",
-    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/google@latest/create.js</span>",
+    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/create.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/create.js~create",
     "function/index.html#static-function-create",
-    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/leaflet@latest/create.js</span>",
+    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/create.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/marker.js~drawmarker",
     "function/index.html#static-function-drawMarker",
-    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/google@latest/marker.js</span>",
+    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/marker.js~drawmarker",
     "function/index.html#static-function-drawMarker",
-    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/leaflet@latest/marker.js</span>",
+    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/marker.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/point.js~drawpoint",
     "function/index.html#static-function-drawPoint",
-    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/google@latest/point.js</span>",
+    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/point.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/point.js~drawpoint",
     "function/index.html#static-function-drawPoint",
-    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/leaflet@latest/point.js</span>",
+    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/point.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/utils/extractproperties.js~extractproperties",
     "function/index.html#static-function-extractProperties",
-    "<span>extractProperties</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/utils/extractProperties.js</span>",
+    "<span>extractProperties</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/extractProperties.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/index.js~func",
     "function/index.html#static-function-func",
-    "<span>func</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/basiclib/rxmapbasiclib/src/index.umd.js~func",
-    "function/index.html#static-function-func",
-    "<span>func</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.umd.js</span>",
+    "<span>func</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/utils/transformpointgoogle.js~googlepoint",
     "function/index.html#static-function-googlePoint",
-    "<span>googlePoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/utils/transformPointGoogle.js</span>",
+    "<span>googlePoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/transformPointGoogle.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/common/gps.js~gps",
     "function/index.html#static-function-gps",
-    "<span>gps</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/observers/common/gps.js</span>",
+    "<span>gps</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/common/gps.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/utils/transformpointleaflet.js~leafletpoint",
     "function/index.html#static-function-leafletPoint",
-    "<span>leafletPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/utils/transformPointLeaflet.js</span>",
+    "<span>leafletPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/transformPointLeaflet.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/index.js~name",
     "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.js</span>",
+    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
     "variable"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/index.umd.js~name",
     "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.umd.js</span>",
+    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.umd.js</span>",
     "variable"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/index.js~observers",
     "variable/index.html#static-variable-observers",
-    "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/basiclib/rxmapbasiclib/src/index.umd.js~observers",
-    "variable/index.html#static-variable-observers",
-    "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/index.umd.js</span>",
+    "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
     "variable"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/popup.js~popup",
     "function/index.html#static-function-popup",
-    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/google@latest/popup.js</span>",
+    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/popup.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/popup.js~popup",
     "function/index.html#static-function-popup",
-    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/leaflet@latest/popup.js</span>",
+    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/popup.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/setcenter.js~setcenter",
     "function/index.html#static-function-setCenter",
-    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/google@latest/setCenter.js</span>",
+    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/setCenter.js</span>",
     "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/setcenter.js~setcenter",
     "function/index.html#static-function-setCenter",
-    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/RxMapBasicLib/src/actions/leaflet@latest/setCenter.js</span>",
+    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/setCenter.js</span>",
     "function"
   ],
   [
@@ -192,180 +174,6 @@ window.esdocSearchIndex = [
     "test"
   ],
   [
-    "rxmapbasiclib/src/actions/common/adddata.js",
-    "file/RxMapBasicLib/src/actions/common/addData.js.html",
-    "RxMapBasicLib/src/actions/common/addData.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/adddata.js",
-    "file/RxMapBasicLib/src/actions/google@latest/addData.js.html",
-    "RxMapBasicLib/src/actions/google@latest/addData.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "RxMapBasicLib/src/actions/google@latest/addData.js~addData",
-    "external"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/create.js",
-    "file/RxMapBasicLib/src/actions/google@latest/create.js.html",
-    "RxMapBasicLib/src/actions/google@latest/create.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/marker.js",
-    "file/RxMapBasicLib/src/actions/google@latest/marker.js.html",
-    "RxMapBasicLib/src/actions/google@latest/marker.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/point.js",
-    "file/RxMapBasicLib/src/actions/google@latest/point.js.html",
-    "RxMapBasicLib/src/actions/google@latest/point.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/popup.js",
-    "file/RxMapBasicLib/src/actions/google@latest/popup.js.html",
-    "RxMapBasicLib/src/actions/google@latest/popup.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/google@latest/setcenter.js",
-    "file/RxMapBasicLib/src/actions/google@latest/setCenter.js.html",
-    "RxMapBasicLib/src/actions/google@latest/setCenter.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/adddata.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/addData.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/addData.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "RxMapBasicLib/src/actions/leaflet@latest/addData.js~addData",
-    "external"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/create.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/create.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/create.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/marker.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/marker.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/marker.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/point.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/point.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/point.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/popup.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/popup.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/popup.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/actions/leaflet@latest/setcenter.js",
-    "file/RxMapBasicLib/src/actions/leaflet@latest/setCenter.js.html",
-    "RxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/index.js",
-    "file/RxMapBasicLib/src/index.js.html",
-    "RxMapBasicLib/src/index.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/index.umd.js",
-    "file/RxMapBasicLib/src/index.umd.js.html",
-    "RxMapBasicLib/src/index.umd.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/common/gps.js",
-    "file/RxMapBasicLib/src/observers/common/gps.js.html",
-    "RxMapBasicLib/src/observers/common/gps.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/google@latest/center.js",
-    "file/RxMapBasicLib/src/observers/google@latest/center.js.html",
-    "RxMapBasicLib/src/observers/google@latest/center.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/google@latest/click.js",
-    "file/RxMapBasicLib/src/observers/google@latest/click.js.html",
-    "RxMapBasicLib/src/observers/google@latest/click.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/google@latest/gps.js",
-    "file/RxMapBasicLib/src/observers/google@latest/gps.js.html",
-    "RxMapBasicLib/src/observers/google@latest/gps.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/google@latest/gps.js~gps",
-    "function/index.html#static-function-gps",
-    "RxMapBasicLib/src/observers/google@latest/gps.js~gps",
-    "external"
-  ],
-  [
-    "rxmapbasiclib/src/observers/leaflet@latest/center.js",
-    "file/RxMapBasicLib/src/observers/leaflet@latest/center.js.html",
-    "RxMapBasicLib/src/observers/leaflet@latest/center.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/leaflet@latest/click.js",
-    "file/RxMapBasicLib/src/observers/leaflet@latest/click.js.html",
-    "RxMapBasicLib/src/observers/leaflet@latest/click.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/leaflet@latest/gps.js",
-    "file/RxMapBasicLib/src/observers/leaflet@latest/gps.js.html",
-    "RxMapBasicLib/src/observers/leaflet@latest/gps.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/observers/leaflet@latest/gps.js~gps",
-    "function/index.html#static-function-gps",
-    "RxMapBasicLib/src/observers/leaflet@latest/gps.js~gps",
-    "external"
-  ],
-  [
-    "rxmapbasiclib/src/utils/extractproperties.js",
-    "file/RxMapBasicLib/src/utils/extractProperties.js.html",
-    "RxMapBasicLib/src/utils/extractProperties.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/utils/transformpointgoogle.js",
-    "file/RxMapBasicLib/src/utils/transformPointGoogle.js.html",
-    "RxMapBasicLib/src/utils/transformPointGoogle.js",
-    "file"
-  ],
-  [
-    "rxmapbasiclib/src/utils/transformpointleaflet.js",
-    "file/RxMapBasicLib/src/utils/transformPointLeaflet.js.html",
-    "RxMapBasicLib/src/utils/transformPointLeaflet.js",
-    "file"
-  ],
-  [
     "",
     "test-file/test/utils/extractProperties.spec.js.html#lineNumber5",
     "extractProperties",
@@ -394,6 +202,180 @@ window.esdocSearchIndex = [
     "test-file/test/utils/extractProperties.spec.js.html#lineNumber6",
     "extractProperties properties",
     "test"
+  ],
+  [
+    "rxmapbasiclib/src/actions/common/adddata.js",
+    "file/rxMapBasicLib/src/actions/common/addData.js.html",
+    "rxMapBasicLib/src/actions/common/addData.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/adddata.js",
+    "file/rxMapBasicLib/src/actions/google@latest/addData.js.html",
+    "rxMapBasicLib/src/actions/google@latest/addData.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/adddata.js~adddata",
+    "function/index.html#static-function-addData",
+    "rxMapBasicLib/src/actions/google@latest/addData.js~addData",
+    "external"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/create.js",
+    "file/rxMapBasicLib/src/actions/google@latest/create.js.html",
+    "rxMapBasicLib/src/actions/google@latest/create.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/marker.js",
+    "file/rxMapBasicLib/src/actions/google@latest/marker.js.html",
+    "rxMapBasicLib/src/actions/google@latest/marker.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/point.js",
+    "file/rxMapBasicLib/src/actions/google@latest/point.js.html",
+    "rxMapBasicLib/src/actions/google@latest/point.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/popup.js",
+    "file/rxMapBasicLib/src/actions/google@latest/popup.js.html",
+    "rxMapBasicLib/src/actions/google@latest/popup.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/setcenter.js",
+    "file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html",
+    "rxMapBasicLib/src/actions/google@latest/setCenter.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/adddata.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/addData.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/addData.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/adddata.js~adddata",
+    "function/index.html#static-function-addData",
+    "rxMapBasicLib/src/actions/leaflet@latest/addData.js~addData",
+    "external"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/create.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/create.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/create.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/marker.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/marker.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/point.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/point.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/point.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/popup.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/popup.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/popup.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/setcenter.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/setCenter.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/index.js",
+    "file/rxMapBasicLib/src/index.js.html",
+    "rxMapBasicLib/src/index.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/index.umd.js",
+    "file/rxMapBasicLib/src/index.umd.js.html",
+    "rxMapBasicLib/src/index.umd.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/common/gps.js",
+    "file/rxMapBasicLib/src/observers/common/gps.js.html",
+    "rxMapBasicLib/src/observers/common/gps.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/google@latest/center.js",
+    "file/rxMapBasicLib/src/observers/google@latest/center.js.html",
+    "rxMapBasicLib/src/observers/google@latest/center.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/google@latest/click.js",
+    "file/rxMapBasicLib/src/observers/google@latest/click.js.html",
+    "rxMapBasicLib/src/observers/google@latest/click.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/google@latest/gps.js",
+    "file/rxMapBasicLib/src/observers/google@latest/gps.js.html",
+    "rxMapBasicLib/src/observers/google@latest/gps.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/google@latest/gps.js~gps",
+    "function/index.html#static-function-gps",
+    "rxMapBasicLib/src/observers/google@latest/gps.js~gps",
+    "external"
+  ],
+  [
+    "rxmapbasiclib/src/observers/leaflet@latest/center.js",
+    "file/rxMapBasicLib/src/observers/leaflet@latest/center.js.html",
+    "rxMapBasicLib/src/observers/leaflet@latest/center.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/leaflet@latest/click.js",
+    "file/rxMapBasicLib/src/observers/leaflet@latest/click.js.html",
+    "rxMapBasicLib/src/observers/leaflet@latest/click.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/leaflet@latest/gps.js",
+    "file/rxMapBasicLib/src/observers/leaflet@latest/gps.js.html",
+    "rxMapBasicLib/src/observers/leaflet@latest/gps.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/leaflet@latest/gps.js~gps",
+    "function/index.html#static-function-gps",
+    "rxMapBasicLib/src/observers/leaflet@latest/gps.js~gps",
+    "external"
+  ],
+  [
+    "rxmapbasiclib/src/utils/extractproperties.js",
+    "file/rxMapBasicLib/src/utils/extractProperties.js.html",
+    "rxMapBasicLib/src/utils/extractProperties.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/utils/transformpointgoogle.js",
+    "file/rxMapBasicLib/src/utils/transformPointGoogle.js.html",
+    "rxMapBasicLib/src/utils/transformPointGoogle.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/utils/transformpointleaflet.js",
+    "file/rxMapBasicLib/src/utils/transformPointLeaflet.js.html",
+    "rxMapBasicLib/src/utils/transformPointLeaflet.js",
+    "file"
   ],
   [
     "test/actions/create.spec.js",
