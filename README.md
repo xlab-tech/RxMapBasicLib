@@ -1,6 +1,9 @@
 # @RxMap/basicLib
+[![Build Status](https://travis-ci.org/xlab-tech/RxMapBasicLib.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMapBasicLib)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bdfe588c855944a983847719b102f2f6)](https://www.codacy.com/app/xlab/RxMapBasicLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMapBasicLib&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMapBasicLib/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMapBasicLib?branch=master)
+[![dependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib)
+[![devDependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/dev-status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib?type=dev)
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)
 
