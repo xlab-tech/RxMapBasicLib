@@ -13,7 +13,7 @@ describe('Create', () => {
     const context = {};
     context.library = google;
     it('google', async () => {
-      const map = createGoogle(context, 'test', 5, 4, 10);
+      const map = createGoogle(context)('test', 5, 4, 10);
       expect(map.center.lat).to.have.eq(5);
       expect(map.center.lng).to.have.eq(4);
       expect(map.id).to.have.eq(document.getElementById('test'));
@@ -24,7 +24,7 @@ describe('Create', () => {
     const context = {};
     context.library = leaflet;
     it('leaflet', () => {
-      const map = createLeafet(context, 'test', 5, 4, 10);
+      const map = createLeafet(context)('test', 5, 4, 10);
       expect(map.getCenter().lat).to.have.eq(5);
       expect(map.getCenter().lng).to.have.eq(4);
       expect(document.getElementById('test').children.length).to.have.eq(2);

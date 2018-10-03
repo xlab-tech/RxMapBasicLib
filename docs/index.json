@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/common/addData.js",
-    "content": "\nconst addData = (context, typeId, data) => {\n  const { source } = context;\n  const type = source.getDataType(typeId);\n  if (!type) {\n    throw new Error(`Not type ${typeId} register`);\n  }\n  switch (type.geomType) {\n    case 'point':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.point(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n    case 'marker':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.marker(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n\n    default:\n      return null;\n  }\n};\n\nexport default addData;\n",
+    "content": "\nconst addData = context => (typeId, data) => {\n  const { source } = context;\n  const type = source.getDataType(typeId);\n  if (!type) {\n    throw new Error(`Not type ${typeId} register`);\n  }\n  switch (type.geomType) {\n    case 'point':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.point(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n    case 'marker':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.marker(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n\n    default:\n      return null;\n  }\n};\n\nexport default addData;\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/common/addData.js",
     "access": "public",
@@ -29,18 +29,6 @@
     "params": [
       {
         "name": "context",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "typeId",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "data",
         "types": [
           "*"
         ]
@@ -99,7 +87,7 @@
     "__docId__": 5,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/create.js",
-    "content": "\n/**\n * Acción para crear el mapa\n * @param {Object} context Contexto de la ejecucion\n * @param {String} id Id del elemento sobre el que se creara el mapa\n * @param {Number} lat Latitud\n * @param {Number} lng Longitud\n * @param {Number} zoom Zoom\n * @returns {Object} devuelve el mapa creado\n */\nconst create = (context, id, lat, lng, zoom) => {\n  const googleMaps = context.library.maps;\n  const _map = new googleMaps.Map(document.getElementById(id), {\n    center: { lat, lng },\n    zoom,\n  });\n  return _map;\n};\n\nexport default create;\n/**\n * @private\n*/\nexport const name = 'create';\n",
+    "content": "\n/**\n * Acción para crear el mapa\n * @param {String} id Id del elemento sobre el que se creara el mapa\n * @param {Number} lat Latitud\n * @param {Number} lng Longitud\n * @param {Number} zoom Zoom\n * @returns {Object} devuelve el mapa creado\n */\nconst create = context => (id, lat, lng, zoom) => {\n  const googleMaps = context.library.maps;\n  const _map = new googleMaps.Map(document.getElementById(id), {\n    center: { lat, lng },\n    zoom,\n  });\n  return _map;\n};\n\nexport default create;\n/**\n * @private\n*/\nexport const name = 'create';\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/create.js",
     "access": "public",
@@ -118,7 +106,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/create.js",
     "importStyle": "{name}",
     "description": "",
-    "lineNumber": 24,
+    "lineNumber": 23,
     "ignore": true,
     "type": {
       "types": [
@@ -140,7 +128,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/create.js",
     "importStyle": "create",
     "description": "Acción para crear el mapa",
-    "lineNumber": 11,
+    "lineNumber": 10,
     "unknown": [
       {
         "tagName": "@returns",
@@ -148,16 +136,6 @@
       }
     ],
     "params": [
-      {
-        "nullable": null,
-        "types": [
-          "Object"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "context",
-        "description": "Contexto de la ejecucion"
-      },
       {
         "nullable": null,
         "types": [

@@ -5,7 +5,6 @@ import extractProperties from '../../utils/extractProperties';
 /**
  * Funcion que permite crear un marcador en el mapa
  *
- * @param {Object} context contexto de la ejeución
  * @param {Object|Array} point Posicion del mapa
  * @param {Object} [options] opcions del Marcador
  * @param {String} [options.icon] icono del Marcador
@@ -15,7 +14,7 @@ import extractProperties from '../../utils/extractProperties';
  * @param {Object} [properties] propiedades / features del marcador
  * @returns {Object} Marcador
  */
-const drawMarker = (context, point, options = {}, properties = {}) => {
+const drawMarker = context => (point, options = {}, properties = {}) => {
   const googleMaps = context.library.maps;
   const map = context.source.getMap();
   const markerOptions = {

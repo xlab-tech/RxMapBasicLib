@@ -1,7 +1,7 @@
 
 import googlePoint from '../../utils/transformPointGoogle';
 
-const setCenter = (context, options) => {
+const setCenter = context => (options) => {
   const { zoom } = options;
   const map = context.source.getMap();
   const oldCenter = map.getCenter();

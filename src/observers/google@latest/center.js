@@ -1,7 +1,7 @@
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
 
-const center = (context) => {
+const center = context => () => {
   const googleMaps = context.library.maps;
   const map_ = context.source.getMap();
 

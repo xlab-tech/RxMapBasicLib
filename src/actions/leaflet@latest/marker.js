@@ -2,7 +2,7 @@
 import leafletPoint from '../../utils/transformPointLeaflet';
 import extractProperties from '../../utils/extractProperties';
 
-const drawMarker = (context, point, options = {}, properties = {}) => {
+const drawMarker = context => (point, options = {}, properties = {}) => {
   const L = context.library;
   const center = leafletPoint(point);
   const _map = context.source.getMap();

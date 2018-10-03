@@ -2,7 +2,7 @@
 import googlePoint from '../../utils/transformPointGoogle';
 import extractProperties from '../../utils/extractProperties';
 
-const drawPoint = (context, point, style, properties) => {
+const drawPoint = context => (point, style, properties) => {
   // TODO: calcular el radio desde pixels a metros
   const googleMaps = context.library.maps;
   const _map = context.source.getMap();

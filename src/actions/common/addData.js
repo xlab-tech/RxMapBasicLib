@@ -1,5 +1,5 @@
 
-const addData = (context, typeId, data) => {
+const addData = context => (typeId, data) => {
   const { source } = context;
   const type = source.getDataType(typeId);
   if (!type) {

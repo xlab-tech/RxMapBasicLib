@@ -2,7 +2,7 @@
 import leafletPoint from '../../utils/transformPointLeaflet';
 import extractProperties from '../../utils/extractProperties';
 
-const drawPoint = (context, point, style, properties) => {
+const drawPoint = context => (point, style, properties) => {
   const L = context.library;
   // TODO: fixed default styles
   const center = leafletPoint(point);

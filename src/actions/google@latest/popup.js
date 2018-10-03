@@ -11,7 +11,7 @@ const addPopup = (googleMaps, marker, content) => {
   });
 };
 
-const popup = (context, content) => {
+const popup = context => (content) => {
   const googleMaps = context.library.maps;
   const map = context.source.getMap();
   const { value, name } = context.lastExecution;

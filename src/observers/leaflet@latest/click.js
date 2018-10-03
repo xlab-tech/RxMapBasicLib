@@ -1,7 +1,7 @@
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
 
-const click = (context) => {
+const click = context => () => {
   const L = context.library;
   const map_ = context.source.getMap();
   const { value, name } = context.lastExecution;

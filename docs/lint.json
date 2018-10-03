@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "name": "create",
+    "filePath": "rxMapBasicLib/src/actions/google@latest/create.js",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 2,
+        "line": " * Acción para crear el mapa"
+      },
+      {
+        "lineNumber": 3,
+        "line": " * @param {String} id Id del elemento sobre el que se creara el mapa"
+      },
+      {
+        "lineNumber": 4,
+        "line": " * @param {Number} lat Latitud"
+      },
+      {
+        "lineNumber": 5,
+        "line": " * @param {Number} lng Longitud"
+      },
+      {
+        "lineNumber": 6,
+        "line": " * @param {Number} zoom Zoom"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * @returns {Object} devuelve el mapa creado"
+      },
+      {
+        "lineNumber": 8,
+        "line": " */"
+      },
+      {
+        "lineNumber": 9,
+        "line": "const create = context => (id, lat, lng, zoom) => {"
+      }
+    ],
+    "codeParams": [
+      "context"
+    ],
+    "docParams": [
+      "id",
+      "lat",
+      "lng",
+      "zoom"
+    ]
+  }
+]

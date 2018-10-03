@@ -63,7 +63,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/actions/common/addData.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-const addData = (context, typeId, data) =&gt; {
+const addData = context =&gt; (typeId, data) =&gt; {
   const { source } = context;
   const type = source.getDataType(typeId);
   if (!type) {

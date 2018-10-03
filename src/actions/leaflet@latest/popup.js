@@ -8,7 +8,7 @@ const addPopup = (marker, content) => {
   marker.bindPopup(contentString);
 };
 
-const popup = (context, content) => {
+const popup = context => (content) => {
   const { value, name } = context.lastExecution;
   if (name === 'marker') {
     addPopup(value, content);
