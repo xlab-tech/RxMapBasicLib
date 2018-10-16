@@ -10,6 +10,7 @@
     "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm --ignore './src/index.umd.js'",
     "lint": "eslint \"./**/*.js\" --fix",
     "doc": "./node_modules/.bin/esdoc",
+    "start": "webpack-dev-server --open",
     "prepare": "npm run doc && npm run build"
   },
   "author": "Victor Rubinat",
@@ -40,12 +41,14 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-stage-1": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@rxmap/rxmap": "^0.3.2",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-dynamic-import-node": "^2.1.0",
     "chai": "^4.1.2",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
+    "dotenv-webpack": "^1.5.7",
     "esdoc": "^1.1.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-importpath-plugin": "^1.0.2",
@@ -70,12 +73,11 @@
   "peerDependencies": {
     "google-maps": "^3.3.0",
     "leaflet": "^1.3.4",
-    "@rxmap/rxmap": "^0.0.4"
+    "@rxmap/rxmap": "^0.3.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
-    "@rxmap/rxmap": "0.0.4",
     "core-js": "^2.5.7",
     "jsdom": "^12.0.0",
     "rxjs": "^6.3.2",

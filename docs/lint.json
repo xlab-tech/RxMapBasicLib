@@ -1,6 +1,57 @@
 [
   {
     "name": "create",
+    "filePath": "rxMapBasicLib/src/actions/esri@latest/create.js",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 2,
+        "line": " * Acción para crear el mapa"
+      },
+      {
+        "lineNumber": 3,
+        "line": " * @param {String} id Id del elemento sobre el que se creara el mapa"
+      },
+      {
+        "lineNumber": 4,
+        "line": " * @param {Number} lat Latitud"
+      },
+      {
+        "lineNumber": 5,
+        "line": " * @param {Number} lng Longitud"
+      },
+      {
+        "lineNumber": 6,
+        "line": " * @param {Number} zoom Zoom"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * @returns {Object} devuelve el mapa creado"
+      },
+      {
+        "lineNumber": 8,
+        "line": " */"
+      },
+      {
+        "lineNumber": 9,
+        "line": "const create = context => (id, lat, lng, zoom) => {"
+      }
+    ],
+    "codeParams": [
+      "context"
+    ],
+    "docParams": [
+      "id",
+      "lat",
+      "lng",
+      "zoom"
+    ]
+  },
+  {
+    "name": "create",
     "filePath": "rxMapBasicLib/src/actions/google@latest/create.js",
     "lines": [
       {
@@ -48,6 +99,72 @@
       "lat",
       "lng",
       "zoom"
+    ]
+  },
+  {
+    "name": "drawMarker",
+    "filePath": "rxMapBasicLib/src/actions/google@latest/marker.js",
+    "lines": [
+      {
+        "lineNumber": 4,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 5,
+        "line": " * Funcion que permite crear un marcador en el mapa"
+      },
+      {
+        "lineNumber": 6,
+        "line": " *"
+      },
+      {
+        "lineNumber": 7,
+        "line": " * @param {Object|Array} point Posicion del mapa"
+      },
+      {
+        "lineNumber": 8,
+        "line": " * @param {Object} [options] opcions del Marcador"
+      },
+      {
+        "lineNumber": 9,
+        "line": " * @param {String} [options.icon] icono del Marcador"
+      },
+      {
+        "lineNumber": 10,
+        "line": " * @param {Object} [options.size] tamaño del Marcador"
+      },
+      {
+        "lineNumber": 11,
+        "line": " * @param {Number} [options.size.with] alto del Marcador"
+      },
+      {
+        "lineNumber": 12,
+        "line": " * @param {Number} [options.size.height] ancho del Marcador"
+      },
+      {
+        "lineNumber": 13,
+        "line": " * @param {Object} [properties] propiedades / features del marcador"
+      },
+      {
+        "lineNumber": 14,
+        "line": " * @returns {Object} Marcador"
+      },
+      {
+        "lineNumber": 15,
+        "line": " */"
+      },
+      {
+        "lineNumber": 16,
+        "line": "const drawMarker = context => (point, options = {}, properties = {}) => {"
+      }
+    ],
+    "codeParams": [
+      "context"
+    ],
+    "docParams": [
+      "point",
+      "options",
+      "properties"
     ]
   }
 ]

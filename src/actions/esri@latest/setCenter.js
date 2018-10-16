@@ -4,16 +4,17 @@ import leafletPoint from '../../utils/transformPointLeaflet';
 
 const setCenter = context => (options) => {
   const { zoom } = options;
-  const point = leafletPoint(options);
+  const point = leafletPoint(options, true);
   const esriLoader = context.library;
-  const map = context.source.getMap();
 
-  return esriLoader.require(['esri/geometry/Point']).then((Point) => {
+
+  return esriLoader.loadModules(['esri/geometry/Point']).then(([Point]) => {
+    const esri = context.source.getMap();
     if (point) {
-      map.centerAt(new Point(point[0], point[1]));
+      esri.view.center = new Point(point[1], point[0]);
     }
     if (zoom) {
-      map.setZoom(zoom);
+      esri.view.zoom = zoom;
     }
     return context.lastExecution.value;
   });

@@ -5,15 +5,14 @@ import extractProperties from '../../utils/extractProperties';
 const drawPoint = context => (point, style = {}, properties = {}) => {
   const esriLoader = context.library;
   const center = leafletPoint(point);
-  const _map = context.source.getMap();
 
-  return esriLoader.require([
+  return esriLoader.loadModules([
     'esri/symbols/SimpleMarkerSymbol',
     'esri/Graphic',
-    'esri/layers/GraphicsLayer',
     'esri/geometry/Point',
     'esri/Color',
-  ]).then((SimpleMarkerSymbol, Graphic, GraphicsLayer, Point, Color) => {
+  ]).then(([SimpleMarkerSymbol, Graphic, Point, Color]) => {
+    const esri = context.source.getMap();
     const fillColor = new Color(style.fillColor || '#FF0000');
     fillColor.a = style.fillOpacity || 0.35;
     const color = new Color(style.color || '#FF0000');
@@ -21,7 +20,7 @@ const drawPoint = context => (point, style = {}, properties = {}) => {
 
     const markerSymbol = new SimpleMarkerSymbol({
       color: fillColor,
-      style: 'square',
+      style: 'point',
       size: style.radius || 5,
       outline: {
         color,
@@ -29,18 +28,13 @@ const drawPoint = context => (point, style = {}, properties = {}) => {
       },
     });
 
-    let layer = _map.getLayer('rxMap@Graphics');
-    if (!layer) {
-      layer = new GraphicsLayer({ id: 'rxMap@Graphics' });
-      _map.addLater(layer);
-    }
     const graphic = new Graphic({
-      geometry: new Point(center[0], center[1]),
+      geometry: new Point(center[1], center[0]),
       symbol: markerSymbol,
       attributes: extractProperties(properties),
     });
+    esri.view.graphics.add(graphic);
 
-    layer.add(graphic);
     return graphic;
   });
 };

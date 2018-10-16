@@ -35,6 +35,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-observers">observers</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-name">name</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-common">src/actions/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-esri-latest">src/actions/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-google-latest">src/actions/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
@@ -249,7 +254,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, id: <span>*</span>, lat: <span>*</span>, lng: <span>*</span>, zoom: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -277,13 +282,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, options: {}, properties: {}): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span><span class="code" data-ice="signature">(id: <span>String</span>, lat: <span>Number</span>, lng: <span>Number</span>, zoom: <span>Number</span>): <span>Object</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Acci&#xF3;n para crear el mapa</p>
+</div>
       </div>
     </td>
     <td>
@@ -305,7 +311,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span><span class="code" data-ice="signature">(context: <span>Object</span>, point: <span>Object</span> | <span>Array</span>, options: <span>Object</span>, properties: <span>Object</span>): <span>Object</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span><span class="code" data-ice="signature">(point: <span>Object</span> | <span>Array</span>, options: <span>Object</span>, properties: <span>Object</span>): <span>Object</span></span>
         </p>
       </div>
       <div>
@@ -334,7 +340,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, style: <span>*</span>, properties: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -362,7 +368,91 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, style: <span>*</span>, properties: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -530,7 +620,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, content: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -558,7 +648,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, content: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -586,7 +676,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, options: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -614,7 +704,35 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>, options: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -716,11 +834,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/observers/leaflet@latest/center.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/observers/google@latest/center.js.html#lineNumber4">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import center from &apos;<span><a href="file/rxMapBasicLib/src/observers/leaflet@latest/center.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/observers/leaflet@latest/center.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import center from &apos;<span><a href="file/rxMapBasicLib/src/observers/google@latest/center.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/observers/google@latest/center.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -787,11 +905,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/observers/google@latest/center.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/observers/leaflet@latest/center.js.html#lineNumber4">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import center from &apos;<span><a href="file/rxMapBasicLib/src/observers/google@latest/center.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/observers/google@latest/center.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import center from &apos;<span><a href="file/rxMapBasicLib/src/observers/leaflet@latest/center.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/observers/leaflet@latest/center.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -1091,7 +1209,7 @@
     
     
     
-    <span class="code" data-ice="name">create</span><span class="code" data-ice="signature">(context: <span>*</span>, id: <span>*</span>, lat: <span>*</span>, lng: <span>*</span>, zoom: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">create</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
@@ -1120,30 +1238,6 @@
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">id</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">lat</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">lng</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">zoom</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
 </tbody>
   </table>
 </div>
@@ -1179,25 +1273,26 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-drawMarker">
+  <h3 data-ice="anchor" id="static-function-create">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">drawMarker</span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, options: {}, properties: {}): <span>*</span></span>
+    <span class="code" data-ice="name">create</span><span class="code" data-ice="signature">(id: <span>String</span>, lat: <span>Number</span>, lng: <span>Number</span>, zoom: <span>Number</span>): <span>Object</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/esri@latest/create.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawMarker from &apos;<span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/marker.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import create from &apos;<span><a href="file/rxMapBasicLib/src/actions/esri@latest/create.js.html#lineNumber10">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/create.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Acci&#xF3;n para crear el mapa</p>
+</div>
 
   
 
@@ -1210,30 +1305,32 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">context</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="name" class="code" data-depth="0">id</td>
+      <td data-ice="type" class="code"><span>String</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Id del elemento sobre el que se creara el mapa</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">point</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="name" class="code" data-depth="0">lat</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Latitud</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code">{}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">lng</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Longitud</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">properties</td>
-      <td data-ice="type" class="code">{}</td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {}</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="name" class="code" data-depth="0">zoom</td>
+      <td data-ice="type" class="code"><span>Number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Zoom</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1245,8 +1342,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>Object</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>devuelve el mapa creado</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -1277,15 +1375,15 @@
     
     
     
-    <span class="code" data-ice="name">drawMarker</span><span class="code" data-ice="signature">(context: <span>Object</span>, point: <span>Object</span> | <span>Array</span>, options: <span>Object</span>, properties: <span>Object</span>): <span>Object</span></span>
+    <span class="code" data-ice="name">drawMarker</span><span class="code" data-ice="signature">(point: <span>Object</span> | <span>Array</span>, options: <span>Object</span>, properties: <span>Object</span>): <span>Object</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/google@latest/marker.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/google@latest/marker.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawMarker from &apos;<span><a href="file/rxMapBasicLib/src/actions/google@latest/marker.js.html#lineNumber18">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawMarker from &apos;<span><a href="file/rxMapBasicLib/src/actions/google@latest/marker.js.html#lineNumber17">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Funcion que permite crear un marcador en el mapa</p>
@@ -1302,13 +1400,6 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">context</td>
-      <td data-ice="type" class="code"><span>Object</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>contexto de la ejeuci&#xF3;n</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">point</td>
       <td data-ice="type" class="code"><span>Object</span> | <span>Array</span></td>
       <td data-ice="appendix"></td>
@@ -1393,22 +1484,22 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-drawPoint">
+  <h3 data-ice="anchor" id="static-function-drawMarker">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">drawPoint</span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, style: <span>*</span>, properties: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">drawMarker</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/point.js.html#lineNumber5">source</a></span></span>
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/esri@latest/marker.js.html#lineNumber5">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawPoint from &apos;<span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/point.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/point.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawMarker from &apos;<span><a href="file/rxMapBasicLib/src/actions/esri@latest/marker.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js</a></span>&apos;</code></pre></div>
   
   
   
@@ -1429,20 +1520,73 @@
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">point</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">style</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">properties</td>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-drawMarker">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">drawMarker</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html#lineNumber5">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawMarker from &apos;<span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/marker.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">context</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
@@ -1489,7 +1633,149 @@
     
     
     
-    <span class="code" data-ice="name">drawPoint</span><span class="code" data-ice="signature">(context: <span>*</span>, point: <span>*</span>, style: <span>*</span>, properties: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">drawPoint</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/esri@latest/point.js.html#lineNumber5">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawPoint from &apos;<span><a href="file/rxMapBasicLib/src/actions/esri@latest/point.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">context</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-drawPoint">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">drawPoint</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/point.js.html#lineNumber5">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import drawPoint from &apos;<span><a href="file/rxMapBasicLib/src/actions/leaflet@latest/point.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/point.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">context</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-drawPoint">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">drawPoint</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
@@ -1514,24 +1800,6 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">context</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">point</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">style</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">properties</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
@@ -1935,7 +2203,7 @@
     
     
     
-    <span class="code" data-ice="name">popup</span><span class="code" data-ice="signature">(context: <span>*</span>, content: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">popup</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
@@ -1960,12 +2228,6 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">context</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">content</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
@@ -2012,7 +2274,7 @@
     
     
     
-    <span class="code" data-ice="name">popup</span><span class="code" data-ice="signature">(context: <span>*</span>, content: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">popup</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
@@ -2041,12 +2303,6 @@
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">content</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
 </tbody>
   </table>
 </div>
@@ -2089,84 +2345,7 @@
     
     
     
-    <span class="code" data-ice="name">setCenter</span><span class="code" data-ice="signature">(context: <span>*</span>, options: <span>*</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html#lineNumber4">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import setCenter from &apos;<span><a href="file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/setCenter.js</a></span>&apos;</code></pre></div>
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">context</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">options</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-setCenter">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">setCenter</span><span class="code" data-ice="signature">(context: <span>*</span>, options: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">setCenter</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
@@ -2195,8 +2374,144 @@
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">options</td>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-setCenter">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setCenter</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html#lineNumber4">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import setCenter from &apos;<span><a href="file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html#lineNumber4">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/setCenter.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">context</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-setCenter">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setCenter</span><span class="code" data-ice="signature">(context: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/rxMapBasicLib/src/actions/esri@latest/setCenter.js.html#lineNumber5">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import setCenter from &apos;<span><a href="file/rxMapBasicLib/src/actions/esri@latest/setCenter.js.html#lineNumber5">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/setCenter.js</a></span>&apos;</code></pre></div>
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">context</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>

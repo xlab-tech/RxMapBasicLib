@@ -5,31 +5,23 @@ import extractProperties from '../../utils/extractProperties';
 const drawMarker = context => (point, options = {}, properties = {}) => {
   const esriLoader = context.library;
   const center = leafletPoint(point);
-  const _map = context.source.getMap();
-
-  return esriLoader.require([
+  return esriLoader.loadModules([
     'esri/symbols/PictureMarkerSymbol',
     'esri/Graphic',
-    'esri/layers/GraphicsLayer',
     'esri/geometry/Point',
-  ]).then((PictureMarkerSymbol, Graphic, GraphicsLayer, Point) => {
-    const iconUrl = options.icon || 'http://www.esri.com/graphics/aexicon.jpg';
-    const iconWidth = options.size ? options.size.width : 51;
-    const iconHeight = options.size ? options.size.height : 51;
+  ]).then(([PictureMarkerSymbol, Graphic, Point]) => {
+    const esri = context.source.getMap();
+    const iconUrl = options.icon || 'https://unpkg.com/leaflet@1.3.4/dist/images/marker-icon.png';
+    const iconWidth = options.size ? options.size.width : 20;
+    const iconHeight = options.size ? options.size.height : 25;
     const pictureMarkerSymbol = new PictureMarkerSymbol(iconUrl, iconWidth, iconHeight);
 
-    let layer = _map.getLayer('rxMap@Graphics');
-    if (!layer) {
-      layer = new GraphicsLayer({ id: 'rxMap@Graphics' });
-      _map.addLater(layer);
-    }
     const graphic = new Graphic({
-      geometry: new Point(center[0], center[1]),
+      geometry: new Point(center[1], center[0]),
       symbol: pictureMarkerSymbol,
       attributes: extractProperties(properties),
     });
-
-    layer.add(graphic);
+    esri.view.graphics.add(graphic);
     return graphic;
   });
 };

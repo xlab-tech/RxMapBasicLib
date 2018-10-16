@@ -1,13 +1,44 @@
 {
-  "coverage": "47.82%",
-  "expectCount": 46,
-  "actualCount": 22,
+  "coverage": "50.9%",
+  "expectCount": 55,
+  "actualCount": 28,
   "files": {
     "rxMapBasicLib/src/actions/common/addData.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
         2
+      ]
+    },
+    "rxMapBasicLib/src/actions/esri@latest/addData.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "rxMapBasicLib/src/actions/esri@latest/create.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "rxMapBasicLib/src/actions/esri@latest/marker.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "rxMapBasicLib/src/actions/esri@latest/point.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
+    "rxMapBasicLib/src/actions/esri@latest/setCenter.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
       ]
     },
     "rxMapBasicLib/src/actions/google@latest/addData.js": {

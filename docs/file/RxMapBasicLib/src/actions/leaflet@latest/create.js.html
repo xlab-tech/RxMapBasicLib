@@ -35,6 +35,11 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-observers">observers</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-name">name</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-common">src/actions/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-esri-latest">src/actions/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-google-latest">src/actions/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
@@ -63,14 +68,15 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/actions/leaflet@latest/create.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-const create = (context, id, lat, lng, zoom) =&gt; {
+const create = context =&gt; {debugger; return (id, lat, lng, zoom) =&gt; {
+  debugger;
   const L = context.library;
   const map = L.map(id).setView([lat, lng], zoom);
   L.tileLayer(&apos;http://{s}.tile.osm.org/{z}/{x}/{y}.png&apos;, {
     attribution: &apos;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&apos;,
   }).addTo(map);
   return map;
-};
+}};
 
 export default create;
 /**

@@ -14,13 +14,13 @@ const create = context => (id, lat, lng, zoom) => {
       const map = new Map({
         basemap: 'streets',
       });
-      MapView({
+      const view = new MapView({
         container: id,
         map,
         zoom,
-        center: [lat, lng],
+        center: [lng, lat],
       });
-      return map;
+      return { map, view };
     });
 };
 

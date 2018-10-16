@@ -36,6 +36,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/create.js~create",
+    "function/index.html#static-function-create",
+    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/create.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/create.js~create",
     "function/index.html#static-function-create",
     "<span>create</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/create.js</span>",
@@ -48,6 +54,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/marker.js~drawmarker",
+    "function/index.html#static-function-drawMarker",
+    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/marker.js~drawmarker",
     "function/index.html#static-function-drawMarker",
     "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js</span>",
@@ -57,6 +69,12 @@ window.esdocSearchIndex = [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/marker.js~drawmarker",
     "function/index.html#static-function-drawMarker",
     "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/marker.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/point.js~drawpoint",
+    "function/index.html#static-function-drawPoint",
+    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js</span>",
     "function"
   ],
   [
@@ -129,6 +147,12 @@ window.esdocSearchIndex = [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/popup.js~popup",
     "function/index.html#static-function-popup",
     "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/popup.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/setcenter.js~setcenter",
+    "function/index.html#static-function-setCenter",
+    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/setCenter.js</span>",
     "function"
   ],
   [
@@ -207,6 +231,48 @@ window.esdocSearchIndex = [
     "rxmapbasiclib/src/actions/common/adddata.js",
     "file/rxMapBasicLib/src/actions/common/addData.js.html",
     "rxMapBasicLib/src/actions/common/addData.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/adddata.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/addData.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/addData.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/adddata.js~adddata",
+    "function/index.html#static-function-addData",
+    "rxMapBasicLib/src/actions/esri@latest/addData.js~addData",
+    "external"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/create.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/create.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/create.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/marker.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/marker.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/point.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/point.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/popup.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/popup.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/popup.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/setcenter.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/setCenter.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/setCenter.js",
     "file"
   ],
   [
