@@ -1,6 +1,6 @@
 {
   "name": "@rxmap/basiclib",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Libreria de funciones basicas para rxMap",
   "main": "dist/umd/basiclib.min.js",
   "module": "dist/esm/index.js",
