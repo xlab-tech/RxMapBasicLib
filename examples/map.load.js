@@ -60,10 +60,18 @@ const positions = [
 ];
 
 const load = async () => {
-  debugger;
-  const Map = await RxMap.load('esri', {});
+  const Map = await RxMap.load('leaflet', {});
   const t = await Map.create('map', 42, 2.4, 12).wait();
+  Map.observer('center')
+    .subscribe(data => console.log('subscribe Center', data));
+
   Map.marker({ lat: 51.5, lng: -0.09 }).popup(' Esto es una prieba');
+
+  Map.marker({ lat: 51.53270552998373, lng: -0.08368492126464844 })
+    .marker({ lat: 51.53270552998373, lng: -0.08368492126464844 })
+    .observer('click')
+    .subscribe(data => console.log('subscribe CLICK MARKER', data));
+
   Map.point({
     lat: 42.1,
     lng: 2.42,
@@ -76,7 +84,8 @@ const load = async () => {
       weight: 1,
     });
   Map.setCenter({ zoom: 8, lat: 51.53270552998373, lng: -0.08368492126464844 });
-
+  Map.observer('click')
+    .subscribe(data => console.log('subscribe Click', data));
 };
 
 load();
