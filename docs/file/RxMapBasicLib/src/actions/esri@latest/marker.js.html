@@ -38,6 +38,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-esri-latest">src/actions/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-google-latest">src/actions/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
@@ -53,6 +54,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-common">src/observers/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-esri-latest">src/observers/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-center">center</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-click">click</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-google-latest">src/observers/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-center">center</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-click">click</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
@@ -74,31 +78,23 @@ import extractProperties from &apos;../../utils/extractProperties&apos;;
 const drawMarker = context =&gt; (point, options = {}, properties = {}) =&gt; {
   const esriLoader = context.library;
   const center = leafletPoint(point);
-  const _map = context.source.getMap();
-
-  return esriLoader.require([
+  return esriLoader.loadModules([
     &apos;esri/symbols/PictureMarkerSymbol&apos;,
     &apos;esri/Graphic&apos;,
-    &apos;esri/layers/GraphicsLayer&apos;,
     &apos;esri/geometry/Point&apos;,
-  ]).then((PictureMarkerSymbol, Graphic, GraphicsLayer, Point) =&gt; {
-    const iconUrl = options.icon || &apos;http://www.esri.com/graphics/aexicon.jpg&apos;;
-    const iconWidth = options.size ? options.size.width : 51;
-    const iconHeight = options.size ? options.size.height : 51;
+  ]).then(([PictureMarkerSymbol, Graphic, Point]) =&gt; {
+    const esri = context.source.getMap();
+    const iconUrl = options.icon || &apos;https://unpkg.com/leaflet@1.3.4/dist/images/marker-icon.png&apos;;
+    const iconWidth = options.size ? options.size.width : 20;
+    const iconHeight = options.size ? options.size.height : 25;
     const pictureMarkerSymbol = new PictureMarkerSymbol(iconUrl, iconWidth, iconHeight);
 
-    let layer = _map.getLayer(&apos;rxMap@Graphics&apos;);
-    if (!layer) {
-      layer = new GraphicsLayer({ id: &apos;rxMap@Graphics&apos; });
-      _map.addLater(layer);
-    }
     const graphic = new Graphic({
-      geometry: new Point(center[0], center[1]),
+      geometry: new Point(center[1], center[0]),
       symbol: pictureMarkerSymbol,
       attributes: extractProperties(properties),
     });
-
-    layer.add(graphic);
+    esri.view.graphics.add(graphic);
     return graphic;
   });
 };

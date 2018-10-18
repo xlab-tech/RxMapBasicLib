@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 706,
+  "end": 733,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 706,
+    "end": 733,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "Identifier",
         "start": 244,
-        "end": 632,
+        "end": 659,
         "loc": {
           "start": {
             "line": 10,
@@ -46,7 +46,7 @@
           {
             "type": "VariableDeclarator",
             "start": 250,
-            "end": 631,
+            "end": 658,
             "loc": {
               "start": {
                 "line": 10,
@@ -78,7 +78,7 @@
             "init": {
               "type": "ArrowFunctionExpression",
               "start": 259,
-              "end": 631,
+              "end": 658,
               "loc": {
                 "start": {
                   "line": 10,
@@ -115,7 +115,7 @@
               "body": {
                 "type": "ArrowFunctionExpression",
                 "start": 270,
-                "end": 631,
+                "end": 658,
                 "loc": {
                   "start": {
                     "line": 10,
@@ -203,7 +203,7 @@
                 "body": {
                   "type": "BlockStatement",
                   "start": 294,
-                  "end": 631,
+                  "end": 658,
                   "loc": {
                     "start": {
                       "line": 10,
@@ -318,7 +318,7 @@
                     {
                       "type": "ReturnStatement",
                       "start": 336,
-                      "end": 629,
+                      "end": 656,
                       "loc": {
                         "start": {
                           "line": 12,
@@ -332,7 +332,7 @@
                       "argument": {
                         "type": "CallExpression",
                         "start": 343,
-                        "end": 628,
+                        "end": 655,
                         "loc": {
                           "start": {
                             "line": 12,
@@ -504,7 +504,7 @@
                           {
                             "type": "ArrowFunctionExpression",
                             "start": 412,
-                            "end": 627,
+                            "end": 654,
                             "loc": {
                               "start": {
                                 "line": 13,
@@ -575,7 +575,7 @@
                             "body": {
                               "type": "BlockStatement",
                               "start": 432,
-                              "end": 627,
+                              "end": 654,
                               "loc": {
                                 "start": {
                                   "line": 13,
@@ -744,9 +744,9 @@
                                   "kind": "const"
                                 },
                                 {
-                                  "type": "ExpressionStatement",
+                                  "type": "VariableDeclaration",
                                   "start": 506,
-                                  "end": 603,
+                                  "end": 620,
                                   "loc": {
                                     "start": {
                                       "line": 17,
@@ -757,310 +757,345 @@
                                       "column": 9
                                     }
                                   },
-                                  "expression": {
-                                    "type": "CallExpression",
-                                    "start": 506,
-                                    "end": 602,
-                                    "loc": {
-                                      "start": {
-                                        "line": 17,
-                                        "column": 6
-                                      },
-                                      "end": {
-                                        "line": 22,
-                                        "column": 8
-                                      }
-                                    },
-                                    "callee": {
-                                      "type": "Identifier",
-                                      "start": 506,
-                                      "end": 513,
+                                  "declarations": [
+                                    {
+                                      "type": "VariableDeclarator",
+                                      "start": 512,
+                                      "end": 619,
                                       "loc": {
                                         "start": {
                                           "line": 17,
-                                          "column": 6
+                                          "column": 12
                                         },
                                         "end": {
-                                          "line": 17,
-                                          "column": 13
-                                        },
-                                        "identifierName": "MapView"
+                                          "line": 22,
+                                          "column": 8
+                                        }
                                       },
-                                      "name": "MapView"
-                                    },
-                                    "arguments": [
-                                      {
-                                        "type": "ObjectExpression",
-                                        "start": 514,
-                                        "end": 601,
+                                      "id": {
+                                        "type": "Identifier",
+                                        "start": 512,
+                                        "end": 516,
                                         "loc": {
                                           "start": {
                                             "line": 17,
-                                            "column": 14
+                                            "column": 12
+                                          },
+                                          "end": {
+                                            "line": 17,
+                                            "column": 16
+                                          },
+                                          "identifierName": "view"
+                                        },
+                                        "name": "view"
+                                      },
+                                      "init": {
+                                        "type": "NewExpression",
+                                        "start": 519,
+                                        "end": 619,
+                                        "loc": {
+                                          "start": {
+                                            "line": 17,
+                                            "column": 19
                                           },
                                           "end": {
                                             "line": 22,
-                                            "column": 7
+                                            "column": 8
                                           }
                                         },
-                                        "properties": [
-                                          {
-                                            "type": "ObjectProperty",
-                                            "start": 524,
-                                            "end": 537,
-                                            "loc": {
-                                              "start": {
-                                                "line": 18,
-                                                "column": 8
-                                              },
-                                              "end": {
-                                                "line": 18,
-                                                "column": 21
-                                              }
+                                        "callee": {
+                                          "type": "Identifier",
+                                          "start": 523,
+                                          "end": 530,
+                                          "loc": {
+                                            "start": {
+                                              "line": 17,
+                                              "column": 23
                                             },
-                                            "method": false,
-                                            "shorthand": false,
-                                            "computed": false,
-                                            "key": {
-                                              "type": "Identifier",
-                                              "start": 524,
-                                              "end": 533,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 18,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 18,
-                                                  "column": 17
-                                                },
-                                                "identifierName": "container"
-                                              },
-                                              "name": "container"
+                                            "end": {
+                                              "line": 17,
+                                              "column": 30
                                             },
-                                            "value": {
-                                              "type": "Identifier",
-                                              "start": 535,
-                                              "end": 537,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 18,
-                                                  "column": 19
-                                                },
-                                                "end": {
-                                                  "line": 18,
-                                                  "column": 21
-                                                },
-                                                "identifierName": "id"
-                                              },
-                                              "name": "id"
-                                            }
+                                            "identifierName": "MapView"
                                           },
+                                          "name": "MapView"
+                                        },
+                                        "arguments": [
                                           {
-                                            "type": "ObjectProperty",
-                                            "start": 547,
-                                            "end": 550,
+                                            "type": "ObjectExpression",
+                                            "start": 531,
+                                            "end": 618,
                                             "loc": {
                                               "start": {
-                                                "line": 19,
-                                                "column": 8
+                                                "line": 17,
+                                                "column": 31
                                               },
                                               "end": {
-                                                "line": 19,
-                                                "column": 11
+                                                "line": 22,
+                                                "column": 7
                                               }
                                             },
-                                            "method": false,
-                                            "shorthand": true,
-                                            "computed": false,
-                                            "key": {
-                                              "type": "Identifier",
-                                              "start": 547,
-                                              "end": 550,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 19,
-                                                  "column": 8
+                                            "properties": [
+                                              {
+                                                "type": "ObjectProperty",
+                                                "start": 541,
+                                                "end": 554,
+                                                "loc": {
+                                                  "start": {
+                                                    "line": 18,
+                                                    "column": 8
+                                                  },
+                                                  "end": {
+                                                    "line": 18,
+                                                    "column": 21
+                                                  }
                                                 },
-                                                "end": {
-                                                  "line": 19,
-                                                  "column": 11
-                                                },
-                                                "identifierName": "map"
-                                              },
-                                              "name": "map"
-                                            },
-                                            "value": {
-                                              "type": "Identifier",
-                                              "start": 547,
-                                              "end": 550,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 19,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 19,
-                                                  "column": 11
-                                                },
-                                                "identifierName": "map"
-                                              },
-                                              "name": "map"
-                                            },
-                                            "extra": {
-                                              "shorthand": true
-                                            }
-                                          },
-                                          {
-                                            "type": "ObjectProperty",
-                                            "start": 560,
-                                            "end": 564,
-                                            "loc": {
-                                              "start": {
-                                                "line": 20,
-                                                "column": 8
-                                              },
-                                              "end": {
-                                                "line": 20,
-                                                "column": 12
-                                              }
-                                            },
-                                            "method": false,
-                                            "shorthand": true,
-                                            "computed": false,
-                                            "key": {
-                                              "type": "Identifier",
-                                              "start": 560,
-                                              "end": 564,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 20,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 20,
-                                                  "column": 12
-                                                },
-                                                "identifierName": "zoom"
-                                              },
-                                              "name": "zoom"
-                                            },
-                                            "value": {
-                                              "type": "Identifier",
-                                              "start": 560,
-                                              "end": 564,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 20,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 20,
-                                                  "column": 12
-                                                },
-                                                "identifierName": "zoom"
-                                              },
-                                              "name": "zoom"
-                                            },
-                                            "extra": {
-                                              "shorthand": true
-                                            }
-                                          },
-                                          {
-                                            "type": "ObjectProperty",
-                                            "start": 574,
-                                            "end": 592,
-                                            "loc": {
-                                              "start": {
-                                                "line": 21,
-                                                "column": 8
-                                              },
-                                              "end": {
-                                                "line": 21,
-                                                "column": 26
-                                              }
-                                            },
-                                            "method": false,
-                                            "shorthand": false,
-                                            "computed": false,
-                                            "key": {
-                                              "type": "Identifier",
-                                              "start": 574,
-                                              "end": 580,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 21,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 21,
-                                                  "column": 14
-                                                },
-                                                "identifierName": "center"
-                                              },
-                                              "name": "center"
-                                            },
-                                            "value": {
-                                              "type": "ArrayExpression",
-                                              "start": 582,
-                                              "end": 592,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 21,
-                                                  "column": 16
-                                                },
-                                                "end": {
-                                                  "line": 21,
-                                                  "column": 26
-                                                }
-                                              },
-                                              "elements": [
-                                                {
+                                                "method": false,
+                                                "shorthand": false,
+                                                "computed": false,
+                                                "key": {
                                                   "type": "Identifier",
-                                                  "start": 583,
-                                                  "end": 586,
+                                                  "start": 541,
+                                                  "end": 550,
                                                   "loc": {
                                                     "start": {
-                                                      "line": 21,
+                                                      "line": 18,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 18,
                                                       "column": 17
                                                     },
-                                                    "end": {
-                                                      "line": 21,
-                                                      "column": 20
-                                                    },
-                                                    "identifierName": "lat"
+                                                    "identifierName": "container"
                                                   },
-                                                  "name": "lat"
+                                                  "name": "container"
                                                 },
-                                                {
+                                                "value": {
                                                   "type": "Identifier",
-                                                  "start": 588,
-                                                  "end": 591,
+                                                  "start": 552,
+                                                  "end": 554,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 18,
+                                                      "column": 19
+                                                    },
+                                                    "end": {
+                                                      "line": 18,
+                                                      "column": 21
+                                                    },
+                                                    "identifierName": "id"
+                                                  },
+                                                  "name": "id"
+                                                }
+                                              },
+                                              {
+                                                "type": "ObjectProperty",
+                                                "start": 564,
+                                                "end": 567,
+                                                "loc": {
+                                                  "start": {
+                                                    "line": 19,
+                                                    "column": 8
+                                                  },
+                                                  "end": {
+                                                    "line": 19,
+                                                    "column": 11
+                                                  }
+                                                },
+                                                "method": false,
+                                                "shorthand": true,
+                                                "computed": false,
+                                                "key": {
+                                                  "type": "Identifier",
+                                                  "start": 564,
+                                                  "end": 567,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 19,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 19,
+                                                      "column": 11
+                                                    },
+                                                    "identifierName": "map"
+                                                  },
+                                                  "name": "map"
+                                                },
+                                                "value": {
+                                                  "type": "Identifier",
+                                                  "start": 564,
+                                                  "end": 567,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 19,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 19,
+                                                      "column": 11
+                                                    },
+                                                    "identifierName": "map"
+                                                  },
+                                                  "name": "map"
+                                                },
+                                                "extra": {
+                                                  "shorthand": true
+                                                }
+                                              },
+                                              {
+                                                "type": "ObjectProperty",
+                                                "start": 577,
+                                                "end": 581,
+                                                "loc": {
+                                                  "start": {
+                                                    "line": 20,
+                                                    "column": 8
+                                                  },
+                                                  "end": {
+                                                    "line": 20,
+                                                    "column": 12
+                                                  }
+                                                },
+                                                "method": false,
+                                                "shorthand": true,
+                                                "computed": false,
+                                                "key": {
+                                                  "type": "Identifier",
+                                                  "start": 577,
+                                                  "end": 581,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 20,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 20,
+                                                      "column": 12
+                                                    },
+                                                    "identifierName": "zoom"
+                                                  },
+                                                  "name": "zoom"
+                                                },
+                                                "value": {
+                                                  "type": "Identifier",
+                                                  "start": 577,
+                                                  "end": 581,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 20,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 20,
+                                                      "column": 12
+                                                    },
+                                                    "identifierName": "zoom"
+                                                  },
+                                                  "name": "zoom"
+                                                },
+                                                "extra": {
+                                                  "shorthand": true
+                                                }
+                                              },
+                                              {
+                                                "type": "ObjectProperty",
+                                                "start": 591,
+                                                "end": 609,
+                                                "loc": {
+                                                  "start": {
+                                                    "line": 21,
+                                                    "column": 8
+                                                  },
+                                                  "end": {
+                                                    "line": 21,
+                                                    "column": 26
+                                                  }
+                                                },
+                                                "method": false,
+                                                "shorthand": false,
+                                                "computed": false,
+                                                "key": {
+                                                  "type": "Identifier",
+                                                  "start": 591,
+                                                  "end": 597,
                                                   "loc": {
                                                     "start": {
                                                       "line": 21,
-                                                      "column": 22
+                                                      "column": 8
                                                     },
                                                     "end": {
                                                       "line": 21,
-                                                      "column": 25
+                                                      "column": 14
                                                     },
-                                                    "identifierName": "lng"
+                                                    "identifierName": "center"
                                                   },
-                                                  "name": "lng"
+                                                  "name": "center"
+                                                },
+                                                "value": {
+                                                  "type": "ArrayExpression",
+                                                  "start": 599,
+                                                  "end": 609,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 21,
+                                                      "column": 16
+                                                    },
+                                                    "end": {
+                                                      "line": 21,
+                                                      "column": 26
+                                                    }
+                                                  },
+                                                  "elements": [
+                                                    {
+                                                      "type": "Identifier",
+                                                      "start": 600,
+                                                      "end": 603,
+                                                      "loc": {
+                                                        "start": {
+                                                          "line": 21,
+                                                          "column": 17
+                                                        },
+                                                        "end": {
+                                                          "line": 21,
+                                                          "column": 20
+                                                        },
+                                                        "identifierName": "lng"
+                                                      },
+                                                      "name": "lng"
+                                                    },
+                                                    {
+                                                      "type": "Identifier",
+                                                      "start": 605,
+                                                      "end": 608,
+                                                      "loc": {
+                                                        "start": {
+                                                          "line": 21,
+                                                          "column": 22
+                                                        },
+                                                        "end": {
+                                                          "line": 21,
+                                                          "column": 25
+                                                        },
+                                                        "identifierName": "lat"
+                                                      },
+                                                      "name": "lat"
+                                                    }
+                                                  ]
                                                 }
-                                              ]
-                                            }
+                                              }
+                                            ]
                                           }
                                         ]
                                       }
-                                    ]
-                                  }
+                                    }
+                                  ],
+                                  "kind": "const"
                                 },
                                 {
                                   "type": "ReturnStatement",
-                                  "start": 610,
-                                  "end": 621,
+                                  "start": 627,
+                                  "end": 648,
                                   "loc": {
                                     "start": {
                                       "line": 23,
@@ -1068,13 +1103,13 @@
                                     },
                                     "end": {
                                       "line": 23,
-                                      "column": 17
+                                      "column": 27
                                     }
                                   },
                                   "argument": {
-                                    "type": "Identifier",
-                                    "start": 617,
-                                    "end": 620,
+                                    "type": "ObjectExpression",
+                                    "start": 634,
+                                    "end": 647,
                                     "loc": {
                                       "start": {
                                         "line": 23,
@@ -1082,11 +1117,121 @@
                                       },
                                       "end": {
                                         "line": 23,
-                                        "column": 16
-                                      },
-                                      "identifierName": "map"
+                                        "column": 26
+                                      }
                                     },
-                                    "name": "map"
+                                    "properties": [
+                                      {
+                                        "type": "ObjectProperty",
+                                        "start": 636,
+                                        "end": 639,
+                                        "loc": {
+                                          "start": {
+                                            "line": 23,
+                                            "column": 15
+                                          },
+                                          "end": {
+                                            "line": 23,
+                                            "column": 18
+                                          }
+                                        },
+                                        "method": false,
+                                        "shorthand": true,
+                                        "computed": false,
+                                        "key": {
+                                          "type": "Identifier",
+                                          "start": 636,
+                                          "end": 639,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 15
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 18
+                                            },
+                                            "identifierName": "map"
+                                          },
+                                          "name": "map"
+                                        },
+                                        "value": {
+                                          "type": "Identifier",
+                                          "start": 636,
+                                          "end": 639,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 15
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 18
+                                            },
+                                            "identifierName": "map"
+                                          },
+                                          "name": "map"
+                                        },
+                                        "extra": {
+                                          "shorthand": true
+                                        }
+                                      },
+                                      {
+                                        "type": "ObjectProperty",
+                                        "start": 641,
+                                        "end": 645,
+                                        "loc": {
+                                          "start": {
+                                            "line": 23,
+                                            "column": 20
+                                          },
+                                          "end": {
+                                            "line": 23,
+                                            "column": 24
+                                          }
+                                        },
+                                        "method": false,
+                                        "shorthand": true,
+                                        "computed": false,
+                                        "key": {
+                                          "type": "Identifier",
+                                          "start": 641,
+                                          "end": 645,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 20
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 24
+                                            },
+                                            "identifierName": "view"
+                                          },
+                                          "name": "view"
+                                        },
+                                        "value": {
+                                          "type": "Identifier",
+                                          "start": 641,
+                                          "end": 645,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 20
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 24
+                                            },
+                                            "identifierName": "view"
+                                          },
+                                          "name": "view"
+                                        },
+                                        "extra": {
+                                          "shorthand": true
+                                        }
+                                      }
+                                    ]
                                   }
                                 }
                               ],
@@ -1111,8 +1256,8 @@
       },
       {
         "type": "Identifier",
-        "start": 634,
-        "end": 656,
+        "start": 661,
+        "end": 683,
         "loc": {
           "start": {
             "line": 27,
@@ -1125,8 +1270,8 @@
         },
         "declaration": {
           "type": "Identifier",
-          "start": 649,
-          "end": 655,
+          "start": 676,
+          "end": 682,
           "loc": {
             "start": {
               "line": 27,
@@ -1146,8 +1291,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 676,
-        "end": 705,
+        "start": 703,
+        "end": 732,
         "loc": {
           "start": {
             "line": 31,
@@ -1162,8 +1307,8 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 683,
-          "end": 705,
+          "start": 710,
+          "end": 732,
           "loc": {
             "start": {
               "line": 31,
@@ -1177,8 +1322,8 @@
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 689,
-              "end": 704,
+              "start": 716,
+              "end": 731,
               "loc": {
                 "start": {
                   "line": 31,
@@ -1191,8 +1336,8 @@
               },
               "id": {
                 "type": "Identifier",
-                "start": 689,
-                "end": 693,
+                "start": 716,
+                "end": 720,
                 "loc": {
                   "start": {
                     "line": 31,
@@ -1209,8 +1354,8 @@
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 696,
-                "end": 704,
+                "start": 723,
+                "end": 731,
                 "loc": {
                   "start": {
                     "line": 31,
@@ -1235,8 +1380,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n * @private\n",
-              "start": 657,
-              "end": 675,
+              "start": 684,
+              "end": 702,
               "loc": {
                 "start": {
                   "line": 28,
@@ -1255,8 +1400,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n * @private\n",
-            "start": 657,
-            "end": 675,
+            "start": 684,
+            "end": 702,
             "loc": {
               "start": {
                 "line": 28,
@@ -1272,8 +1417,8 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 634,
-        "end": 656,
+        "start": 661,
+        "end": 683,
         "loc": {
           "start": {
             "line": 27,
@@ -1287,7 +1432,7 @@
         "declaration": {
           "type": "VariableDeclaration",
           "start": 244,
-          "end": 632,
+          "end": 659,
           "loc": {
             "start": {
               "line": 10,
@@ -1302,7 +1447,7 @@
             {
               "type": "VariableDeclarator",
               "start": 250,
-              "end": 631,
+              "end": 658,
               "loc": {
                 "start": {
                   "line": 10,
@@ -1334,7 +1479,7 @@
               "init": {
                 "type": "ArrowFunctionExpression",
                 "start": 259,
-                "end": 631,
+                "end": 658,
                 "loc": {
                   "start": {
                     "line": 10,
@@ -1388,7 +1533,7 @@
                 "body": {
                   "type": "ArrowFunctionExpression",
                   "start": 270,
-                  "end": 631,
+                  "end": 658,
                   "loc": {
                     "start": {
                       "line": 10,
@@ -1476,7 +1621,7 @@
                   "body": {
                     "type": "BlockStatement",
                     "start": 294,
-                    "end": 631,
+                    "end": 658,
                     "loc": {
                       "start": {
                         "line": 10,
@@ -1591,7 +1736,7 @@
                       {
                         "type": "ReturnStatement",
                         "start": 336,
-                        "end": 629,
+                        "end": 656,
                         "loc": {
                           "start": {
                             "line": 12,
@@ -1605,7 +1750,7 @@
                         "argument": {
                           "type": "CallExpression",
                           "start": 343,
-                          "end": 628,
+                          "end": 655,
                           "loc": {
                             "start": {
                               "line": 12,
@@ -1777,7 +1922,7 @@
                             {
                               "type": "ArrowFunctionExpression",
                               "start": 412,
-                              "end": 627,
+                              "end": 654,
                               "loc": {
                                 "start": {
                                   "line": 13,
@@ -1848,7 +1993,7 @@
                               "body": {
                                 "type": "BlockStatement",
                                 "start": 432,
-                                "end": 627,
+                                "end": 654,
                                 "loc": {
                                   "start": {
                                     "line": 13,
@@ -2017,9 +2162,9 @@
                                     "kind": "const"
                                   },
                                   {
-                                    "type": "ExpressionStatement",
+                                    "type": "VariableDeclaration",
                                     "start": 506,
-                                    "end": 603,
+                                    "end": 620,
                                     "loc": {
                                       "start": {
                                         "line": 17,
@@ -2030,310 +2175,345 @@
                                         "column": 9
                                       }
                                     },
-                                    "expression": {
-                                      "type": "CallExpression",
-                                      "start": 506,
-                                      "end": 602,
-                                      "loc": {
-                                        "start": {
-                                          "line": 17,
-                                          "column": 6
-                                        },
-                                        "end": {
-                                          "line": 22,
-                                          "column": 8
-                                        }
-                                      },
-                                      "callee": {
-                                        "type": "Identifier",
-                                        "start": 506,
-                                        "end": 513,
+                                    "declarations": [
+                                      {
+                                        "type": "VariableDeclarator",
+                                        "start": 512,
+                                        "end": 619,
                                         "loc": {
                                           "start": {
                                             "line": 17,
-                                            "column": 6
+                                            "column": 12
                                           },
                                           "end": {
-                                            "line": 17,
-                                            "column": 13
-                                          },
-                                          "identifierName": "MapView"
+                                            "line": 22,
+                                            "column": 8
+                                          }
                                         },
-                                        "name": "MapView"
-                                      },
-                                      "arguments": [
-                                        {
-                                          "type": "ObjectExpression",
-                                          "start": 514,
-                                          "end": 601,
+                                        "id": {
+                                          "type": "Identifier",
+                                          "start": 512,
+                                          "end": 516,
                                           "loc": {
                                             "start": {
                                               "line": 17,
-                                              "column": 14
+                                              "column": 12
+                                            },
+                                            "end": {
+                                              "line": 17,
+                                              "column": 16
+                                            },
+                                            "identifierName": "view"
+                                          },
+                                          "name": "view"
+                                        },
+                                        "init": {
+                                          "type": "NewExpression",
+                                          "start": 519,
+                                          "end": 619,
+                                          "loc": {
+                                            "start": {
+                                              "line": 17,
+                                              "column": 19
                                             },
                                             "end": {
                                               "line": 22,
-                                              "column": 7
+                                              "column": 8
                                             }
                                           },
-                                          "properties": [
-                                            {
-                                              "type": "ObjectProperty",
-                                              "start": 524,
-                                              "end": 537,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 18,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 18,
-                                                  "column": 21
-                                                }
+                                          "callee": {
+                                            "type": "Identifier",
+                                            "start": 523,
+                                            "end": 530,
+                                            "loc": {
+                                              "start": {
+                                                "line": 17,
+                                                "column": 23
                                               },
-                                              "method": false,
-                                              "shorthand": false,
-                                              "computed": false,
-                                              "key": {
-                                                "type": "Identifier",
-                                                "start": 524,
-                                                "end": 533,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 18,
-                                                    "column": 8
-                                                  },
-                                                  "end": {
-                                                    "line": 18,
-                                                    "column": 17
-                                                  },
-                                                  "identifierName": "container"
-                                                },
-                                                "name": "container"
+                                              "end": {
+                                                "line": 17,
+                                                "column": 30
                                               },
-                                              "value": {
-                                                "type": "Identifier",
-                                                "start": 535,
-                                                "end": 537,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 18,
-                                                    "column": 19
-                                                  },
-                                                  "end": {
-                                                    "line": 18,
-                                                    "column": 21
-                                                  },
-                                                  "identifierName": "id"
-                                                },
-                                                "name": "id"
-                                              }
+                                              "identifierName": "MapView"
                                             },
+                                            "name": "MapView"
+                                          },
+                                          "arguments": [
                                             {
-                                              "type": "ObjectProperty",
-                                              "start": 547,
-                                              "end": 550,
+                                              "type": "ObjectExpression",
+                                              "start": 531,
+                                              "end": 618,
                                               "loc": {
                                                 "start": {
-                                                  "line": 19,
-                                                  "column": 8
+                                                  "line": 17,
+                                                  "column": 31
                                                 },
                                                 "end": {
-                                                  "line": 19,
-                                                  "column": 11
+                                                  "line": 22,
+                                                  "column": 7
                                                 }
                                               },
-                                              "method": false,
-                                              "shorthand": true,
-                                              "computed": false,
-                                              "key": {
-                                                "type": "Identifier",
-                                                "start": 547,
-                                                "end": 550,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 19,
-                                                    "column": 8
+                                              "properties": [
+                                                {
+                                                  "type": "ObjectProperty",
+                                                  "start": 541,
+                                                  "end": 554,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 18,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 18,
+                                                      "column": 21
+                                                    }
                                                   },
-                                                  "end": {
-                                                    "line": 19,
-                                                    "column": 11
-                                                  },
-                                                  "identifierName": "map"
-                                                },
-                                                "name": "map"
-                                              },
-                                              "value": {
-                                                "type": "Identifier",
-                                                "start": 547,
-                                                "end": 550,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 19,
-                                                    "column": 8
-                                                  },
-                                                  "end": {
-                                                    "line": 19,
-                                                    "column": 11
-                                                  },
-                                                  "identifierName": "map"
-                                                },
-                                                "name": "map"
-                                              },
-                                              "extra": {
-                                                "shorthand": true
-                                              }
-                                            },
-                                            {
-                                              "type": "ObjectProperty",
-                                              "start": 560,
-                                              "end": 564,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 20,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 20,
-                                                  "column": 12
-                                                }
-                                              },
-                                              "method": false,
-                                              "shorthand": true,
-                                              "computed": false,
-                                              "key": {
-                                                "type": "Identifier",
-                                                "start": 560,
-                                                "end": 564,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 20,
-                                                    "column": 8
-                                                  },
-                                                  "end": {
-                                                    "line": 20,
-                                                    "column": 12
-                                                  },
-                                                  "identifierName": "zoom"
-                                                },
-                                                "name": "zoom"
-                                              },
-                                              "value": {
-                                                "type": "Identifier",
-                                                "start": 560,
-                                                "end": 564,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 20,
-                                                    "column": 8
-                                                  },
-                                                  "end": {
-                                                    "line": 20,
-                                                    "column": 12
-                                                  },
-                                                  "identifierName": "zoom"
-                                                },
-                                                "name": "zoom"
-                                              },
-                                              "extra": {
-                                                "shorthand": true
-                                              }
-                                            },
-                                            {
-                                              "type": "ObjectProperty",
-                                              "start": 574,
-                                              "end": 592,
-                                              "loc": {
-                                                "start": {
-                                                  "line": 21,
-                                                  "column": 8
-                                                },
-                                                "end": {
-                                                  "line": 21,
-                                                  "column": 26
-                                                }
-                                              },
-                                              "method": false,
-                                              "shorthand": false,
-                                              "computed": false,
-                                              "key": {
-                                                "type": "Identifier",
-                                                "start": 574,
-                                                "end": 580,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 21,
-                                                    "column": 8
-                                                  },
-                                                  "end": {
-                                                    "line": 21,
-                                                    "column": 14
-                                                  },
-                                                  "identifierName": "center"
-                                                },
-                                                "name": "center"
-                                              },
-                                              "value": {
-                                                "type": "ArrayExpression",
-                                                "start": 582,
-                                                "end": 592,
-                                                "loc": {
-                                                  "start": {
-                                                    "line": 21,
-                                                    "column": 16
-                                                  },
-                                                  "end": {
-                                                    "line": 21,
-                                                    "column": 26
-                                                  }
-                                                },
-                                                "elements": [
-                                                  {
+                                                  "method": false,
+                                                  "shorthand": false,
+                                                  "computed": false,
+                                                  "key": {
                                                     "type": "Identifier",
-                                                    "start": 583,
-                                                    "end": 586,
+                                                    "start": 541,
+                                                    "end": 550,
                                                     "loc": {
                                                       "start": {
-                                                        "line": 21,
+                                                        "line": 18,
+                                                        "column": 8
+                                                      },
+                                                      "end": {
+                                                        "line": 18,
                                                         "column": 17
                                                       },
-                                                      "end": {
-                                                        "line": 21,
-                                                        "column": 20
-                                                      },
-                                                      "identifierName": "lat"
+                                                      "identifierName": "container"
                                                     },
-                                                    "name": "lat"
+                                                    "name": "container"
                                                   },
-                                                  {
+                                                  "value": {
                                                     "type": "Identifier",
-                                                    "start": 588,
-                                                    "end": 591,
+                                                    "start": 552,
+                                                    "end": 554,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 18,
+                                                        "column": 19
+                                                      },
+                                                      "end": {
+                                                        "line": 18,
+                                                        "column": 21
+                                                      },
+                                                      "identifierName": "id"
+                                                    },
+                                                    "name": "id"
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ObjectProperty",
+                                                  "start": 564,
+                                                  "end": 567,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 19,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 19,
+                                                      "column": 11
+                                                    }
+                                                  },
+                                                  "method": false,
+                                                  "shorthand": true,
+                                                  "computed": false,
+                                                  "key": {
+                                                    "type": "Identifier",
+                                                    "start": 564,
+                                                    "end": 567,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 19,
+                                                        "column": 8
+                                                      },
+                                                      "end": {
+                                                        "line": 19,
+                                                        "column": 11
+                                                      },
+                                                      "identifierName": "map"
+                                                    },
+                                                    "name": "map"
+                                                  },
+                                                  "value": {
+                                                    "type": "Identifier",
+                                                    "start": 564,
+                                                    "end": 567,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 19,
+                                                        "column": 8
+                                                      },
+                                                      "end": {
+                                                        "line": 19,
+                                                        "column": 11
+                                                      },
+                                                      "identifierName": "map"
+                                                    },
+                                                    "name": "map"
+                                                  },
+                                                  "extra": {
+                                                    "shorthand": true
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ObjectProperty",
+                                                  "start": 577,
+                                                  "end": 581,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 20,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 20,
+                                                      "column": 12
+                                                    }
+                                                  },
+                                                  "method": false,
+                                                  "shorthand": true,
+                                                  "computed": false,
+                                                  "key": {
+                                                    "type": "Identifier",
+                                                    "start": 577,
+                                                    "end": 581,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 20,
+                                                        "column": 8
+                                                      },
+                                                      "end": {
+                                                        "line": 20,
+                                                        "column": 12
+                                                      },
+                                                      "identifierName": "zoom"
+                                                    },
+                                                    "name": "zoom"
+                                                  },
+                                                  "value": {
+                                                    "type": "Identifier",
+                                                    "start": 577,
+                                                    "end": 581,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 20,
+                                                        "column": 8
+                                                      },
+                                                      "end": {
+                                                        "line": 20,
+                                                        "column": 12
+                                                      },
+                                                      "identifierName": "zoom"
+                                                    },
+                                                    "name": "zoom"
+                                                  },
+                                                  "extra": {
+                                                    "shorthand": true
+                                                  }
+                                                },
+                                                {
+                                                  "type": "ObjectProperty",
+                                                  "start": 591,
+                                                  "end": 609,
+                                                  "loc": {
+                                                    "start": {
+                                                      "line": 21,
+                                                      "column": 8
+                                                    },
+                                                    "end": {
+                                                      "line": 21,
+                                                      "column": 26
+                                                    }
+                                                  },
+                                                  "method": false,
+                                                  "shorthand": false,
+                                                  "computed": false,
+                                                  "key": {
+                                                    "type": "Identifier",
+                                                    "start": 591,
+                                                    "end": 597,
                                                     "loc": {
                                                       "start": {
                                                         "line": 21,
-                                                        "column": 22
+                                                        "column": 8
                                                       },
                                                       "end": {
                                                         "line": 21,
-                                                        "column": 25
+                                                        "column": 14
                                                       },
-                                                      "identifierName": "lng"
+                                                      "identifierName": "center"
                                                     },
-                                                    "name": "lng"
+                                                    "name": "center"
+                                                  },
+                                                  "value": {
+                                                    "type": "ArrayExpression",
+                                                    "start": 599,
+                                                    "end": 609,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 21,
+                                                        "column": 16
+                                                      },
+                                                      "end": {
+                                                        "line": 21,
+                                                        "column": 26
+                                                      }
+                                                    },
+                                                    "elements": [
+                                                      {
+                                                        "type": "Identifier",
+                                                        "start": 600,
+                                                        "end": 603,
+                                                        "loc": {
+                                                          "start": {
+                                                            "line": 21,
+                                                            "column": 17
+                                                          },
+                                                          "end": {
+                                                            "line": 21,
+                                                            "column": 20
+                                                          },
+                                                          "identifierName": "lng"
+                                                        },
+                                                        "name": "lng"
+                                                      },
+                                                      {
+                                                        "type": "Identifier",
+                                                        "start": 605,
+                                                        "end": 608,
+                                                        "loc": {
+                                                          "start": {
+                                                            "line": 21,
+                                                            "column": 22
+                                                          },
+                                                          "end": {
+                                                            "line": 21,
+                                                            "column": 25
+                                                          },
+                                                          "identifierName": "lat"
+                                                        },
+                                                        "name": "lat"
+                                                      }
+                                                    ]
                                                   }
-                                                ]
-                                              }
+                                                }
+                                              ]
                                             }
                                           ]
                                         }
-                                      ]
-                                    }
+                                      }
+                                    ],
+                                    "kind": "const"
                                   },
                                   {
                                     "type": "ReturnStatement",
-                                    "start": 610,
-                                    "end": 621,
+                                    "start": 627,
+                                    "end": 648,
                                     "loc": {
                                       "start": {
                                         "line": 23,
@@ -2341,13 +2521,13 @@
                                       },
                                       "end": {
                                         "line": 23,
-                                        "column": 17
+                                        "column": 27
                                       }
                                     },
                                     "argument": {
-                                      "type": "Identifier",
-                                      "start": 617,
-                                      "end": 620,
+                                      "type": "ObjectExpression",
+                                      "start": 634,
+                                      "end": 647,
                                       "loc": {
                                         "start": {
                                           "line": 23,
@@ -2355,11 +2535,121 @@
                                         },
                                         "end": {
                                           "line": 23,
-                                          "column": 16
-                                        },
-                                        "identifierName": "map"
+                                          "column": 26
+                                        }
                                       },
-                                      "name": "map"
+                                      "properties": [
+                                        {
+                                          "type": "ObjectProperty",
+                                          "start": 636,
+                                          "end": 639,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 15
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 18
+                                            }
+                                          },
+                                          "method": false,
+                                          "shorthand": true,
+                                          "computed": false,
+                                          "key": {
+                                            "type": "Identifier",
+                                            "start": 636,
+                                            "end": 639,
+                                            "loc": {
+                                              "start": {
+                                                "line": 23,
+                                                "column": 15
+                                              },
+                                              "end": {
+                                                "line": 23,
+                                                "column": 18
+                                              },
+                                              "identifierName": "map"
+                                            },
+                                            "name": "map"
+                                          },
+                                          "value": {
+                                            "type": "Identifier",
+                                            "start": 636,
+                                            "end": 639,
+                                            "loc": {
+                                              "start": {
+                                                "line": 23,
+                                                "column": 15
+                                              },
+                                              "end": {
+                                                "line": 23,
+                                                "column": 18
+                                              },
+                                              "identifierName": "map"
+                                            },
+                                            "name": "map"
+                                          },
+                                          "extra": {
+                                            "shorthand": true
+                                          }
+                                        },
+                                        {
+                                          "type": "ObjectProperty",
+                                          "start": 641,
+                                          "end": 645,
+                                          "loc": {
+                                            "start": {
+                                              "line": 23,
+                                              "column": 20
+                                            },
+                                            "end": {
+                                              "line": 23,
+                                              "column": 24
+                                            }
+                                          },
+                                          "method": false,
+                                          "shorthand": true,
+                                          "computed": false,
+                                          "key": {
+                                            "type": "Identifier",
+                                            "start": 641,
+                                            "end": 645,
+                                            "loc": {
+                                              "start": {
+                                                "line": 23,
+                                                "column": 20
+                                              },
+                                              "end": {
+                                                "line": 23,
+                                                "column": 24
+                                              },
+                                              "identifierName": "view"
+                                            },
+                                            "name": "view"
+                                          },
+                                          "value": {
+                                            "type": "Identifier",
+                                            "start": 641,
+                                            "end": 645,
+                                            "loc": {
+                                              "start": {
+                                                "line": 23,
+                                                "column": 20
+                                              },
+                                              "end": {
+                                                "line": 23,
+                                                "column": 24
+                                              },
+                                              "identifierName": "view"
+                                            },
+                                            "name": "view"
+                                          },
+                                          "extra": {
+                                            "shorthand": true
+                                          }
+                                        }
+                                      ]
                                     }
                                   }
                                 ],
@@ -2400,8 +2690,8 @@
             {
               "type": "CommentBlock",
               "value": "*\n * @private\n",
-              "start": 657,
-              "end": 675,
+              "start": 684,
+              "end": 702,
               "loc": {
                 "start": {
                   "line": 28,
@@ -2419,8 +2709,8 @@
           {
             "type": "CommentBlock",
             "value": "*\n * @private\n",
-            "start": 657,
-            "end": 675,
+            "start": 684,
+            "end": 702,
             "loc": {
               "start": {
                 "line": 28,
@@ -2457,8 +2747,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n * @private\n",
-      "start": 657,
-      "end": 675,
+      "start": 684,
+      "end": 702,
       "loc": {
         "start": {
           "line": 28,
@@ -4053,6 +4343,115 @@
     },
     {
       "type": {
+        "label": "const",
+        "keyword": "const",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "const",
+      "start": 506,
+      "end": 511,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 6
+        },
+        "end": {
+          "line": 17,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "view",
+      "start": 512,
+      "end": 516,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 12
+        },
+        "end": {
+          "line": 17,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 517,
+      "end": 518,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 17
+        },
+        "end": {
+          "line": 17,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "new",
+        "keyword": "new",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "new",
+      "start": 519,
+      "end": 522,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 19
+        },
+        "end": {
+          "line": 17,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
         "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
@@ -4064,16 +4463,16 @@
         "binop": null
       },
       "value": "MapView",
-      "start": 506,
-      "end": 513,
+      "start": 523,
+      "end": 530,
       "loc": {
         "start": {
           "line": 17,
-          "column": 6
+          "column": 23
         },
         "end": {
           "line": 17,
-          "column": 13
+          "column": 30
         }
       }
     },
@@ -4089,16 +4488,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 513,
-      "end": 514,
+      "start": 530,
+      "end": 531,
       "loc": {
         "start": {
           "line": 17,
-          "column": 13
+          "column": 30
         },
         "end": {
           "line": 17,
-          "column": 14
+          "column": 31
         }
       }
     },
@@ -4114,16 +4513,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 514,
-      "end": 515,
+      "start": 531,
+      "end": 532,
       "loc": {
         "start": {
           "line": 17,
-          "column": 14
+          "column": 31
         },
         "end": {
           "line": 17,
-          "column": 15
+          "column": 32
         }
       }
     },
@@ -4140,8 +4539,8 @@
         "binop": null
       },
       "value": "container",
-      "start": 524,
-      "end": 533,
+      "start": 541,
+      "end": 550,
       "loc": {
         "start": {
           "line": 18,
@@ -4166,8 +4565,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 533,
-      "end": 534,
+      "start": 550,
+      "end": 551,
       "loc": {
         "start": {
           "line": 18,
@@ -4192,8 +4591,8 @@
         "binop": null
       },
       "value": "id",
-      "start": 535,
-      "end": 537,
+      "start": 552,
+      "end": 554,
       "loc": {
         "start": {
           "line": 18,
@@ -4218,8 +4617,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 537,
-      "end": 538,
+      "start": 554,
+      "end": 555,
       "loc": {
         "start": {
           "line": 18,
@@ -4244,8 +4643,8 @@
         "binop": null
       },
       "value": "map",
-      "start": 547,
-      "end": 550,
+      "start": 564,
+      "end": 567,
       "loc": {
         "start": {
           "line": 19,
@@ -4270,8 +4669,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 550,
-      "end": 551,
+      "start": 567,
+      "end": 568,
       "loc": {
         "start": {
           "line": 19,
@@ -4296,8 +4695,8 @@
         "binop": null
       },
       "value": "zoom",
-      "start": 560,
-      "end": 564,
+      "start": 577,
+      "end": 581,
       "loc": {
         "start": {
           "line": 20,
@@ -4322,8 +4721,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 564,
-      "end": 565,
+      "start": 581,
+      "end": 582,
       "loc": {
         "start": {
           "line": 20,
@@ -4348,8 +4747,8 @@
         "binop": null
       },
       "value": "center",
-      "start": 574,
-      "end": 580,
+      "start": 591,
+      "end": 597,
       "loc": {
         "start": {
           "line": 21,
@@ -4374,8 +4773,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 580,
-      "end": 581,
+      "start": 597,
+      "end": 598,
       "loc": {
         "start": {
           "line": 21,
@@ -4400,8 +4799,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 582,
-      "end": 583,
+      "start": 599,
+      "end": 600,
       "loc": {
         "start": {
           "line": 21,
@@ -4425,9 +4824,9 @@
         "postfix": false,
         "binop": null
       },
-      "value": "lat",
-      "start": 583,
-      "end": 586,
+      "value": "lng",
+      "start": 600,
+      "end": 603,
       "loc": {
         "start": {
           "line": 21,
@@ -4452,8 +4851,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 586,
-      "end": 587,
+      "start": 603,
+      "end": 604,
       "loc": {
         "start": {
           "line": 21,
@@ -4477,9 +4876,9 @@
         "postfix": false,
         "binop": null
       },
-      "value": "lng",
-      "start": 588,
-      "end": 591,
+      "value": "lat",
+      "start": 605,
+      "end": 608,
       "loc": {
         "start": {
           "line": 21,
@@ -4504,8 +4903,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 591,
-      "end": 592,
+      "start": 608,
+      "end": 609,
       "loc": {
         "start": {
           "line": 21,
@@ -4530,8 +4929,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 592,
-      "end": 593,
+      "start": 609,
+      "end": 610,
       "loc": {
         "start": {
           "line": 21,
@@ -4555,8 +4954,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 600,
-      "end": 601,
+      "start": 617,
+      "end": 618,
       "loc": {
         "start": {
           "line": 22,
@@ -4580,8 +4979,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 601,
-      "end": 602,
+      "start": 618,
+      "end": 619,
       "loc": {
         "start": {
           "line": 22,
@@ -4606,8 +5005,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 602,
-      "end": 603,
+      "start": 619,
+      "end": 620,
       "loc": {
         "start": {
           "line": 22,
@@ -4634,8 +5033,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 610,
-      "end": 616,
+      "start": 627,
+      "end": 633,
       "loc": {
         "start": {
           "line": 23,
@@ -4644,6 +5043,31 @@
         "end": {
           "line": 23,
           "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 634,
+      "end": 635,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 13
+        },
+        "end": {
+          "line": 23,
+          "column": 14
         }
       }
     },
@@ -4660,16 +5084,93 @@
         "binop": null
       },
       "value": "map",
-      "start": 617,
-      "end": 620,
+      "start": 636,
+      "end": 639,
       "loc": {
         "start": {
           "line": 23,
-          "column": 13
+          "column": 15
         },
         "end": {
           "line": 23,
-          "column": 16
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 639,
+      "end": 640,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 18
+        },
+        "end": {
+          "line": 23,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "view",
+      "start": 641,
+      "end": 645,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 20
+        },
+        "end": {
+          "line": 23,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 646,
+      "end": 647,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 25
+        },
+        "end": {
+          "line": 23,
+          "column": 26
         }
       }
     },
@@ -4686,16 +5187,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 620,
-      "end": 621,
+      "start": 647,
+      "end": 648,
       "loc": {
         "start": {
           "line": 23,
-          "column": 16
+          "column": 26
         },
         "end": {
           "line": 23,
-          "column": 17
+          "column": 27
         }
       }
     },
@@ -4711,8 +5212,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 626,
-      "end": 627,
+      "start": 653,
+      "end": 654,
       "loc": {
         "start": {
           "line": 24,
@@ -4736,8 +5237,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 627,
-      "end": 628,
+      "start": 654,
+      "end": 655,
       "loc": {
         "start": {
           "line": 24,
@@ -4762,8 +5263,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 628,
-      "end": 629,
+      "start": 655,
+      "end": 656,
       "loc": {
         "start": {
           "line": 24,
@@ -4787,8 +5288,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 630,
-      "end": 631,
+      "start": 657,
+      "end": 658,
       "loc": {
         "start": {
           "line": 25,
@@ -4813,8 +5314,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 631,
-      "end": 632,
+      "start": 658,
+      "end": 659,
       "loc": {
         "start": {
           "line": 25,
@@ -4841,8 +5342,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 634,
-      "end": 640,
+      "start": 661,
+      "end": 667,
       "loc": {
         "start": {
           "line": 27,
@@ -4869,8 +5370,8 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 641,
-      "end": 648,
+      "start": 668,
+      "end": 675,
       "loc": {
         "start": {
           "line": 27,
@@ -4895,8 +5396,8 @@
         "binop": null
       },
       "value": "create",
-      "start": 649,
-      "end": 655,
+      "start": 676,
+      "end": 682,
       "loc": {
         "start": {
           "line": 27,
@@ -4921,8 +5422,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 655,
-      "end": 656,
+      "start": 682,
+      "end": 683,
       "loc": {
         "start": {
           "line": 27,
@@ -4937,8 +5438,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n * @private\n",
-      "start": 657,
-      "end": 675,
+      "start": 684,
+      "end": 702,
       "loc": {
         "start": {
           "line": 28,
@@ -4965,8 +5466,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 676,
-      "end": 682,
+      "start": 703,
+      "end": 709,
       "loc": {
         "start": {
           "line": 31,
@@ -4993,8 +5494,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 683,
-      "end": 688,
+      "start": 710,
+      "end": 715,
       "loc": {
         "start": {
           "line": 31,
@@ -5019,8 +5520,8 @@
         "binop": null
       },
       "value": "name",
-      "start": 689,
-      "end": 693,
+      "start": 716,
+      "end": 720,
       "loc": {
         "start": {
           "line": 31,
@@ -5046,8 +5547,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 694,
-      "end": 695,
+      "start": 721,
+      "end": 722,
       "loc": {
         "start": {
           "line": 31,
@@ -5073,8 +5574,8 @@
         "updateContext": null
       },
       "value": "create",
-      "start": 696,
-      "end": 704,
+      "start": 723,
+      "end": 731,
       "loc": {
         "start": {
           "line": 31,
@@ -5099,8 +5600,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 704,
-      "end": 705,
+      "start": 731,
+      "end": 732,
       "loc": {
         "start": {
           "line": 31,
@@ -5125,8 +5626,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 706,
-      "end": 706,
+      "start": 733,
+      "end": 733,
       "loc": {
         "start": {
           "line": 32,

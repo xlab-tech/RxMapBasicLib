@@ -22,7 +22,7 @@ Npm install @rxmap\basiclib —save
 ### CDN
 ```
 <head>
-<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/basiclib@1.0.0’ defer/>
+<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/basiclib@1.2.1’ defer/>
 </head>
 
 ```
@@ -32,6 +32,7 @@ Nombre de la librearia: RxMapsBasicLib
 Soporta las siguientes librerias de Mapas:
 - [Google Maps](https://cloud.google.com/maps-platform/)
 - [leaflet](https://leafletjs.com)
+- [Esri](https://developers.arcgis.com/javascript/)
 
 
 ## Acciones

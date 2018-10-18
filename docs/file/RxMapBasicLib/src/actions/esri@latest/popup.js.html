@@ -38,6 +38,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-esri-latest">src/actions/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawMarker">drawMarker</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPoint">drawPoint</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-popup">popup</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-actions-google-latest">src/actions/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-create">create</a></span></span></li>
@@ -53,6 +54,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setCenter">setCenter</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-addData">addData</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-common">src/observers/common</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-esri-latest">src/observers/esri@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-center">center</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-click">click</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-observers-google-latest">src/observers/google@latest</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-center">center</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-click">click</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="function/index.html#static-function-gps">gps</a></span></span></li>
@@ -67,8 +71,38 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/actions/esri@latest/popup.js</h1>
-<pre class="source-code line-number raw-source-code"></pre>
-<p data-ice="emptySourceCode">Sorry, this documentation does not provide source code.</p>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// Create a marker and set its position.
+const addPopup = (graphics, content) =&gt; {
+  const { attributes } = graphics;
+  let contentString = content;
+  if (typeof content === &apos;function&apos;) {
+    contentString = content(attributes);
+  }
+  // eslint-disable-next-line
+  graphics.popupTemplate = {
+    content: contentString,
+  };
+};
+
+const popup = context =&gt; (content) =&gt; {
+  const { value, name } = context.lastExecution;
+  if (name === &apos;marker&apos;) {
+    addPopup(value, content);
+  } else if (name === &apos;addData&apos;) {
+    value.forEach((marker) =&gt; {
+      addPopup(marker, content);
+    });
+  }
+  return context.lastExecution.value;
+};
+
+export default popup;
+/**
+ * @private
+*/
+export const name = &apos;popup&apos;;
+</code></pre>
+
 </div>
 
 <footer class="footer">

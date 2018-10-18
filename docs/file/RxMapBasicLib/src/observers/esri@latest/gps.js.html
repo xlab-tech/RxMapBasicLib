@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">rxMapBasicLib/src/actions/leaflet@latest/create.js | @rxmap/basiclib</title>
+  <title data-ice="title">rxMapBasicLib/src/observers/esri@latest/gps.js | @rxmap/basiclib</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -70,22 +70,17 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/actions/leaflet@latest/create.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-const create = context =&gt; (id, lat, lng, zoom) =&gt; {
-  const L = context.library;
-  const map = L.map(id).setView([lat, lng], zoom);
-  L.tileLayer(&apos;http://{s}.tile.osm.org/{z}/{x}/{y}.png&apos;, {
-    attribution: &apos;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&apos;,
-  }).addTo(map);
-  return map;
-};
+<div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/observers/esri@latest/gps.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import gps from &apos;../common/gps&apos;;
 
-export default create;
+/**
+ * @external {gps}  function/index.html#static-function-gps
+ */
+export default gps;
 /**
  * @private
 */
-export const name = &apos;create&apos;;
+export const name = &apos;gps&apos;;
 </code></pre>
 
 </div>

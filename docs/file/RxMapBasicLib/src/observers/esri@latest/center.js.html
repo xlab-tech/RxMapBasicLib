@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">rxMapBasicLib/src/actions/leaflet@latest/create.js | @rxmap/basiclib</title>
+  <title data-ice="title">rxMapBasicLib/src/observers/esri@latest/center.js | @rxmap/basiclib</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -70,22 +70,40 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/actions/leaflet@latest/create.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
-const create = context =&gt; (id, lat, lng, zoom) =&gt; {
-  const L = context.library;
-  const map = L.map(id).setView([lat, lng], zoom);
-  L.tileLayer(&apos;http://{s}.tile.osm.org/{z}/{x}/{y}.png&apos;, {
-    attribution: &apos;&amp;copy; &lt;a href=&quot;http://osm.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors&apos;,
-  }).addTo(map);
-  return map;
+<div class="content" data-ice="content"><h1 data-ice="title">rxMapBasicLib/src/observers/esri@latest/center.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { fromEventPattern } from &apos;rxjs/internal/observable/fromEventPattern&apos;;
+import { map } from &apos;rxjs/internal/operators/map&apos;;
+import { switchMap } from &apos;rxjs/internal/operators/switchMap&apos;;
+import { from } from &apos;rxjs/internal/observable/from&apos;;
+
+const center = context =&gt; () =&gt; {
+  const esriLoader = context.library;
+  const esri = context.source.getMap();
+
+  return from(esriLoader.loadModules([
+    &apos;esri/core/watchUtils&apos;,
+  ])).pipe(
+    switchMap(([watchUtils]) =&gt; {
+      const addClickHandler = handler =&gt; watchUtils.whenTrue(esri.view, &apos;stationary&apos;, handler);
+      const removeClickHandler = (handler, listener) =&gt; listener.remove();
+      return fromEventPattern(
+        addClickHandler,
+        removeClickHandler,
+      ).pipe(
+        map(() =&gt; {
+          const _center = esri.view.center;
+          return { lat: _center.latitude, lng: _center.longitude };
+        }),
+      );
+    }),
+  );
 };
 
-export default create;
+export default center;
 /**
  * @private
 */
-export const name = &apos;create&apos;;
+export const name = &apos;center&apos;;
 </code></pre>
 
 </div>

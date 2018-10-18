@@ -12,6 +12,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/observers/esri@latest/center.js~center",
+    "function/index.html#static-function-center",
+    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/esri@latest/center.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/google@latest/center.js~center",
     "function/index.html#static-function-center",
     "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/google@latest/center.js</span>",
@@ -21,6 +27,12 @@ window.esdocSearchIndex = [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/leaflet@latest/center.js~center",
     "function/index.html#static-function-center",
     "<span>center</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/leaflet@latest/center.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/observers/esri@latest/click.js~click",
+    "function/index.html#static-function-click",
+    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/esri@latest/click.js</span>",
     "function"
   ],
   [
@@ -136,6 +148,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-observers",
     "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
     "variable"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/popup.js~popup",
+    "function/index.html#static-function-popup",
+    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/popup.js</span>",
+    "function"
   ],
   [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/popup.js~popup",
@@ -376,6 +394,30 @@ window.esdocSearchIndex = [
     "file/rxMapBasicLib/src/observers/common/gps.js.html",
     "rxMapBasicLib/src/observers/common/gps.js",
     "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/esri@latest/center.js",
+    "file/rxMapBasicLib/src/observers/esri@latest/center.js.html",
+    "rxMapBasicLib/src/observers/esri@latest/center.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/esri@latest/click.js",
+    "file/rxMapBasicLib/src/observers/esri@latest/click.js.html",
+    "rxMapBasicLib/src/observers/esri@latest/click.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/esri@latest/gps.js",
+    "file/rxMapBasicLib/src/observers/esri@latest/gps.js.html",
+    "rxMapBasicLib/src/observers/esri@latest/gps.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/observers/esri@latest/gps.js~gps",
+    "function/index.html#static-function-gps",
+    "rxMapBasicLib/src/observers/esri@latest/gps.js~gps",
+    "external"
   ],
   [
     "rxmapbasiclib/src/observers/google@latest/center.js",
