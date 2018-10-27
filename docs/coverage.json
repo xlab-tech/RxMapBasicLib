@@ -1,7 +1,7 @@
 {
-  "coverage": "50.79%",
-  "expectCount": 63,
-  "actualCount": 32,
+  "coverage": "47.67%",
+  "expectCount": 86,
+  "actualCount": 41,
   "files": {
     "rxMapBasicLib/src/actions/common/addData.js": {
       "expectCount": 1,
@@ -20,18 +20,25 @@
       "actualCount": 2,
       "undocumentLines": []
     },
+    "rxMapBasicLib/src/actions/esri@latest/find.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        4
+      ]
+    },
     "rxMapBasicLib/src/actions/esri@latest/marker.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        5
+        6
       ]
     },
     "rxMapBasicLib/src/actions/esri@latest/point.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        5
+        6
       ]
     },
     "rxMapBasicLib/src/actions/esri@latest/popup.js": {
@@ -42,11 +49,25 @@
         14
       ]
     },
+    "rxMapBasicLib/src/actions/esri@latest/remove.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        3
+      ]
+    },
     "rxMapBasicLib/src/actions/esri@latest/setCenter.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
         5
+      ]
+    },
+    "rxMapBasicLib/src/actions/esri@latest/update.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
       ]
     },
     "rxMapBasicLib/src/actions/google@latest/addData.js": {
@@ -59,6 +80,13 @@
       "actualCount": 2,
       "undocumentLines": []
     },
+    "rxMapBasicLib/src/actions/google@latest/find.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
+      ]
+    },
     "rxMapBasicLib/src/actions/google@latest/marker.js": {
       "expectCount": 2,
       "actualCount": 2,
@@ -68,7 +96,7 @@
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        5
+        6
       ]
     },
     "rxMapBasicLib/src/actions/google@latest/popup.js": {
@@ -79,11 +107,25 @@
         14
       ]
     },
+    "rxMapBasicLib/src/actions/google@latest/remove.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        3
+      ]
+    },
     "rxMapBasicLib/src/actions/google@latest/setCenter.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
         4
+      ]
+    },
+    "rxMapBasicLib/src/actions/google@latest/update.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        6
       ]
     },
     "rxMapBasicLib/src/actions/leaflet@latest/addData.js": {
@@ -96,6 +138,13 @@
       "actualCount": 1,
       "undocumentLines": [
         2
+      ]
+    },
+    "rxMapBasicLib/src/actions/leaflet@latest/find.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
       ]
     },
     "rxMapBasicLib/src/actions/leaflet@latest/marker.js": {
@@ -120,11 +169,25 @@
         11
       ]
     },
+    "rxMapBasicLib/src/actions/leaflet@latest/remove.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        3
+      ]
+    },
     "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js": {
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
         4
+      ]
+    },
+    "rxMapBasicLib/src/actions/leaflet@latest/update.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        5
       ]
     },
     "rxMapBasicLib/src/index.js": {
@@ -162,7 +225,7 @@
       "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        5
+        6
       ]
     },
     "rxMapBasicLib/src/observers/esri@latest/gps.js": {
@@ -208,11 +271,28 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "rxMapBasicLib/src/utils/esriStyle.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        10,
+        21
+      ]
+    },
     "rxMapBasicLib/src/utils/extractProperties.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
         2
+      ]
+    },
+    "rxMapBasicLib/src/utils/googleStyle.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        12
       ]
     },
     "rxMapBasicLib/src/utils/transformPointGoogle.js": {

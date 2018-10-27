@@ -108,9 +108,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/find.js~find",
+    "function/index.html#static-function-find",
+    "<span>find</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/find.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/find.js~find",
+    "function/index.html#static-function-find",
+    "<span>find</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/find.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/find.js~find",
+    "function/index.html#static-function-find",
+    "<span>find</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/find.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/index.js~func",
     "function/index.html#static-function-func",
     "<span>func</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/index.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/utils/googlestyle.js~getstyle",
+    "function/index.html#static-function-getStyle",
+    "<span>getStyle</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/googleStyle.js</span>",
     "function"
   ],
   [
@@ -123,6 +147,12 @@ window.esdocSearchIndex = [
     "@rxmap/basiclib/rxmapbasiclib/src/observers/common/gps.js~gps",
     "function/index.html#static-function-gps",
     "<span>gps</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/observers/common/gps.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/utils/googlestyle.js~icon",
+    "function/index.html#static-function-icon",
+    "<span>icon</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/googleStyle.js</span>",
     "function"
   ],
   [
@@ -150,6 +180,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/utils/esristyle.js~picturemarker",
+    "function/index.html#static-function-pictureMarker",
+    "<span>pictureMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/esriStyle.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/popup.js~popup",
     "function/index.html#static-function-popup",
     "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/popup.js</span>",
@@ -168,6 +204,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/remove.js~remove",
+    "function/index.html#static-function-remove",
+    "<span>remove</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/remove.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/remove.js~remove",
+    "function/index.html#static-function-remove",
+    "<span>remove</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/remove.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/remove.js~remove",
+    "function/index.html#static-function-remove",
+    "<span>remove</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/remove.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/setcenter.js~setcenter",
     "function/index.html#static-function-setCenter",
     "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/setCenter.js</span>",
@@ -183,6 +237,30 @@ window.esdocSearchIndex = [
     "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/setcenter.js~setcenter",
     "function/index.html#static-function-setCenter",
     "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/setCenter.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/utils/esristyle.js~simplemarker",
+    "function/index.html#static-function-simpleMarker",
+    "<span>simpleMarker</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/utils/esriStyle.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/esri@latest/update.js~update",
+    "function/index.html#static-function-update",
+    "<span>update</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/update.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/google@latest/update.js~update",
+    "function/index.html#static-function-update",
+    "<span>update</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/update.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/basiclib/rxmapbasiclib/src/actions/leaflet@latest/update.js~update",
+    "function/index.html#static-function-update",
+    "<span>update</span> <span class=\"search-result-import-path\">@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/update.js</span>",
     "function"
   ],
   [
@@ -270,6 +348,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/esri@latest/find.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/find.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/find.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/esri@latest/marker.js",
     "file/rxMapBasicLib/src/actions/esri@latest/marker.js.html",
     "rxMapBasicLib/src/actions/esri@latest/marker.js",
@@ -288,9 +372,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/esri@latest/remove.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/remove.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/esri@latest/setcenter.js",
     "file/rxMapBasicLib/src/actions/esri@latest/setCenter.js.html",
     "rxMapBasicLib/src/actions/esri@latest/setCenter.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/esri@latest/update.js",
+    "file/rxMapBasicLib/src/actions/esri@latest/update.js.html",
+    "rxMapBasicLib/src/actions/esri@latest/update.js",
     "file"
   ],
   [
@@ -312,6 +408,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/google@latest/find.js",
+    "file/rxMapBasicLib/src/actions/google@latest/find.js.html",
+    "rxMapBasicLib/src/actions/google@latest/find.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/google@latest/marker.js",
     "file/rxMapBasicLib/src/actions/google@latest/marker.js.html",
     "rxMapBasicLib/src/actions/google@latest/marker.js",
@@ -330,9 +432,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/google@latest/remove.js",
+    "file/rxMapBasicLib/src/actions/google@latest/remove.js.html",
+    "rxMapBasicLib/src/actions/google@latest/remove.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/google@latest/setcenter.js",
     "file/rxMapBasicLib/src/actions/google@latest/setCenter.js.html",
     "rxMapBasicLib/src/actions/google@latest/setCenter.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/google@latest/update.js",
+    "file/rxMapBasicLib/src/actions/google@latest/update.js.html",
+    "rxMapBasicLib/src/actions/google@latest/update.js",
     "file"
   ],
   [
@@ -354,6 +468,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/leaflet@latest/find.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/find.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/leaflet@latest/marker.js",
     "file/rxMapBasicLib/src/actions/leaflet@latest/marker.js.html",
     "rxMapBasicLib/src/actions/leaflet@latest/marker.js",
@@ -372,9 +492,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmapbasiclib/src/actions/leaflet@latest/remove.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/remove.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/actions/leaflet@latest/setcenter.js",
     "file/rxMapBasicLib/src/actions/leaflet@latest/setCenter.js.html",
     "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/actions/leaflet@latest/update.js",
+    "file/rxMapBasicLib/src/actions/leaflet@latest/update.js.html",
+    "rxMapBasicLib/src/actions/leaflet@latest/update.js",
     "file"
   ],
   [
@@ -468,9 +600,21 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "rxmapbasiclib/src/utils/esristyle.js",
+    "file/rxMapBasicLib/src/utils/esriStyle.js.html",
+    "rxMapBasicLib/src/utils/esriStyle.js",
+    "file"
+  ],
+  [
     "rxmapbasiclib/src/utils/extractproperties.js",
     "file/rxMapBasicLib/src/utils/extractProperties.js.html",
     "rxMapBasicLib/src/utils/extractProperties.js",
+    "file"
+  ],
+  [
+    "rxmapbasiclib/src/utils/googlestyle.js",
+    "file/rxMapBasicLib/src/utils/googleStyle.js.html",
+    "rxMapBasicLib/src/utils/googleStyle.js",
     "file"
   ],
   [

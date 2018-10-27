@@ -17,9 +17,11 @@ const update = context => (options) => {
   let elements = object;
 
   let _style = style;
+  let typeId = false;
   if (typeof style === 'string') {
     _style = source.getDataType(style);
     if (_style) {
+      typeId = style;
       _style = _style.style;
     }
   }
@@ -35,8 +37,13 @@ const update = context => (options) => {
     elements.forEach(element => element.setPosition(center));
   }
   if (properties) {
-    // eslint-disable-next-line
-    elements.forEach((elem) => { elem.properties = properties; });
+    elements.forEach((elem) => {
+      if (elem.properties['@rxmapDataType']) {
+        properties['@rxmapDataType'] = elem.properties['@rxmapDataType'];
+      }
+      // eslint-disable-next-line
+      elem.properties = properties;
+    });
   }
   if (_style && _style.icon) {
     // eslint-disable-next-line
@@ -44,7 +51,13 @@ const update = context => (options) => {
     elements.forEach(elem => elem.setIcon(_icon));
   } else if (_style) {
     // eslint-disable-next-line
-    elements.forEach(elem => elem.setOptions(getStyle(_style)));
+    elements.forEach(elem => {
+      elem.setOptions(getStyle(_style));
+      if (typeId) {
+        // eslint-disable-next-line
+        elem.properties['@rxmapDataType'] = typeId;
+      }
+    });
   }
   return elements;
 };

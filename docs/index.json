@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/common/addData.js",
-    "content": "\nconst addData = context => (typeId, data) => {\n  const { source } = context;\n  const type = source.getDataType(typeId);\n  if (!type) {\n    throw new Error(`Not type ${typeId} register`);\n  }\n  switch (type.geomType) {\n    case 'point':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.point(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n    case 'marker':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.marker(element, type.style, element), source)\n          .subscribe((last, all) => resolve(all));\n      });\n\n    default:\n      return null;\n  }\n};\n\nexport default addData;\n",
+    "content": "\nconst addData = context => (typeId, data) => {\n  const { source } = context;\n  const type = source.getDataType(typeId);\n  if (!type) {\n    throw new Error(`Not type ${typeId} register`);\n  }\n  switch (type.geomType) {\n    case 'point':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.point(element, type.style, { ...element, '@rxmapDataType': typeId }), source)\n          .subscribe((last, all) => resolve(all));\n      });\n    case 'marker':\n      return new Promise((resolve) => {\n        data.reduce((map, element) => map.marker(element, type.style, { ...element, '@rxmapDataType': typeId }), source)\n          .subscribe((last, all) => resolve(all));\n      });\n\n    default:\n      return null;\n  }\n};\n\nexport default addData;\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/common/addData.js",
     "access": "public",
@@ -189,10 +189,10 @@
   {
     "__docId__": 8,
     "kind": "file",
-    "name": "rxMapBasicLib/src/actions/esri@latest/marker.js",
-    "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\n\nconst drawMarker = context => (point, options = {}, properties = {}) => {\n  const esriLoader = context.library;\n  const center = leafletPoint(point);\n  return esriLoader.loadModules([\n    'esri/symbols/PictureMarkerSymbol',\n    'esri/Graphic',\n    'esri/geometry/Point',\n  ]).then(([PictureMarkerSymbol, Graphic, Point]) => {\n    const esri = context.source.getMap();\n    const iconUrl = options.icon || 'https://unpkg.com/leaflet@1.3.4/dist/images/marker-icon.png';\n    const iconWidth = options.size ? options.size.width : 20;\n    const iconHeight = options.size ? options.size.height : 25;\n    const pictureMarkerSymbol = new PictureMarkerSymbol(iconUrl, iconWidth, iconHeight);\n\n    const graphic = new Graphic({\n      geometry: new Point(center[1], center[0]),\n      symbol: pictureMarkerSymbol,\n      attributes: extractProperties(properties),\n    });\n    esri.view.graphics.add(graphic);\n    return graphic;\n  });\n};\n\nexport default drawMarker;\n/**\n * @private\n*/\nexport const name = 'marker';\n",
+    "name": "rxMapBasicLib/src/actions/esri@latest/find.js",
+    "content": "\nimport transformPoint from '../../utils/transformPointGoogle';\n\nconst find = context => (field, condition, native = false) => {\n  const esri = context.source.getMap();\n  const graphics = esri.view.graphics._items;\n  let elements = [];\n  if (field === 'position' || field === 'coord') {\n    const point = transformPoint(condition);\n    elements = graphics.filter(graphic => graphic.geometry.latitude === point.lat && graphic.geometry.longitude === point.lng);\n  } else {\n    elements = graphics.filter(graphic => graphic.attributes && graphic.attributes[field] && graphic.attributes[field].match(condition));\n  }\n  return native ? elements : elements.map(graphic => graphic.attributes);\n};\n\nexport default find;\n/**\n * @private\n*/\nexport const name = 'find';\n",
     "static": true,
-    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/find.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -201,15 +201,15 @@
     "__docId__": 9,
     "kind": "variable",
     "name": "name",
-    "memberof": "rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/find.js",
     "static": true,
-    "longname": "rxMapBasicLib/src/actions/esri@latest/marker.js~name",
+    "longname": "rxMapBasicLib/src/actions/esri@latest/find.js~name",
     "access": "private",
     "export": true,
-    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/find.js",
     "importStyle": "{name}",
     "description": "",
-    "lineNumber": 33,
+    "lineNumber": 21,
     "ignore": true,
     "type": {
       "types": [
@@ -220,18 +220,18 @@
   {
     "__docId__": 10,
     "kind": "function",
-    "name": "drawMarker",
-    "memberof": "rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "name": "find",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/find.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "rxMapBasicLib/src/actions/esri@latest/marker.js~drawMarker",
+    "longname": "rxMapBasicLib/src/actions/esri@latest/find.js~find",
     "access": "public",
     "export": true,
-    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js",
-    "importStyle": "drawMarker",
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/find.js",
+    "importStyle": "find",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 4,
     "undocument": true,
     "params": [
       {
@@ -250,10 +250,10 @@
   {
     "__docId__": 11,
     "kind": "file",
-    "name": "rxMapBasicLib/src/actions/esri@latest/point.js",
-    "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\n\nconst drawPoint = context => (point, style = {}, properties = {}) => {\n  const esriLoader = context.library;\n  const center = leafletPoint(point);\n\n  return esriLoader.loadModules([\n    'esri/symbols/SimpleMarkerSymbol',\n    'esri/Graphic',\n    'esri/geometry/Point',\n    'esri/Color',\n  ]).then(([SimpleMarkerSymbol, Graphic, Point, Color]) => {\n    const esri = context.source.getMap();\n    const fillColor = new Color(style.fillColor || '#FF0000');\n    fillColor.a = style.fillOpacity || 0.35;\n    const color = new Color(style.color || '#FF0000');\n    color.a = style.opacity || 1;\n\n    const markerSymbol = new SimpleMarkerSymbol({\n      color: fillColor,\n      style: 'point',\n      size: style.radius || 5,\n      outline: {\n        color,\n        width: style.weight || 1,\n      },\n    });\n\n    const graphic = new Graphic({\n      geometry: new Point(center[1], center[0]),\n      symbol: markerSymbol,\n      attributes: extractProperties(properties),\n    });\n    esri.view.graphics.add(graphic);\n\n    return graphic;\n  });\n};\n\nexport default drawPoint;\n/**\n * @private\n*/\nexport const name = 'point';\n",
+    "name": "rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\nimport { pictureMarker } from '../../utils/esriStyle';\n\nconst drawMarker = context => (point, options = {}, properties = {}) => {\n  const esriLoader = context.library;\n  const center = leafletPoint(point);\n  return esriLoader.loadModules([\n    'esri/Graphic',\n  ]).then(([Graphic]) => {\n    const esri = context.source.getMap();\n    const geometry = {\n      type: 'point',\n      longitude: center[1],\n      latitude: center[0],\n    };\n    const graphic = new Graphic({\n      geometry,\n      symbol: pictureMarker(options),\n      attributes: extractProperties(properties),\n    });\n    esri.view.graphics.add(graphic);\n    return graphic;\n  });\n};\n\nexport default drawMarker;\n/**\n * @private\n*/\nexport const name = 'marker';\n",
     "static": true,
-    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/point.js",
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/marker.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -262,15 +262,15 @@
     "__docId__": 12,
     "kind": "variable",
     "name": "name",
-    "memberof": "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/marker.js",
     "static": true,
-    "longname": "rxMapBasicLib/src/actions/esri@latest/point.js~name",
+    "longname": "rxMapBasicLib/src/actions/esri@latest/marker.js~name",
     "access": "private",
     "export": true,
-    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js",
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js",
     "importStyle": "{name}",
     "description": "",
-    "lineNumber": 46,
+    "lineNumber": 32,
     "ignore": true,
     "type": {
       "types": [
@@ -281,18 +281,18 @@
   {
     "__docId__": 13,
     "kind": "function",
-    "name": "drawPoint",
-    "memberof": "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "name": "drawMarker",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/marker.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "rxMapBasicLib/src/actions/esri@latest/point.js~drawPoint",
+    "longname": "rxMapBasicLib/src/actions/esri@latest/marker.js~drawMarker",
     "access": "public",
     "export": true,
-    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js",
-    "importStyle": "drawPoint",
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/marker.js",
+    "importStyle": "drawMarker",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true,
     "params": [
       {
@@ -311,6 +311,67 @@
   {
     "__docId__": 14,
     "kind": "file",
+    "name": "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\nimport { simpleMarker } from '../../utils/esriStyle';\n\nconst drawPoint = context => (point, style = {}, properties = {}) => {\n  const esriLoader = context.library;\n  const center = leafletPoint(point);\n\n  return esriLoader.loadModules([\n    'esri/Graphic',\n  ]).then(([Graphic]) => {\n    const esri = context.source.getMap();\n    const geometry = {\n      type: 'point',\n      longitude: center[1],\n      latitude: center[0],\n    };\n    const graphic = new Graphic({\n      geometry,\n      symbol: simpleMarker(style),\n      attributes: extractProperties(properties),\n    });\n    esri.view.graphics.add(graphic);\n\n    return graphic;\n  });\n};\n\nexport default drawPoint;\n/**\n * @private\n*/\nexport const name = 'point';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/point.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 15,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/point.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 34,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "function",
+    "name": "drawPoint",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/point.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/point.js~drawPoint",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/point.js",
+    "importStyle": "drawPoint",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 17,
+    "kind": "file",
     "name": "rxMapBasicLib/src/actions/esri@latest/popup.js",
     "content": "// Create a marker and set its position.\nconst addPopup = (graphics, content) => {\n  const { attributes } = graphics;\n  let contentString = content;\n  if (typeof content === 'function') {\n    contentString = content(attributes);\n  }\n  // eslint-disable-next-line\n  graphics.popupTemplate = {\n    content: contentString,\n  };\n};\n\nconst popup = context => (content) => {\n  const { value, name } = context.lastExecution;\n  if (name === 'marker') {\n    addPopup(value, content);\n  } else if (name === 'addData') {\n    value.forEach((marker) => {\n      addPopup(marker, content);\n    });\n  }\n  return context.lastExecution.value;\n};\n\nexport default popup;\n/**\n * @private\n*/\nexport const name = 'popup';\n",
     "static": true,
@@ -320,7 +381,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 15,
+    "__docId__": 18,
     "kind": "function",
     "name": "addPopup",
     "memberof": "rxMapBasicLib/src/actions/esri@latest/popup.js",
@@ -353,7 +414,7 @@
     "ignore": true
   },
   {
-    "__docId__": 16,
+    "__docId__": 19,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/esri@latest/popup.js",
@@ -373,7 +434,7 @@
     }
   },
   {
-    "__docId__": 17,
+    "__docId__": 20,
     "kind": "function",
     "name": "popup",
     "memberof": "rxMapBasicLib/src/actions/esri@latest/popup.js",
@@ -403,7 +464,68 @@
     }
   },
   {
-    "__docId__": 18,
+    "__docId__": 21,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "content": "\n\nconst remove = context => (all = false) => {\n  const { value, name } = context.lastExecution;\n  const { view } = context.source.getMap();\n  let items = [];\n  if (all) {\n    items = [...view.graphics._items];\n  }\n  if (name === 'find') {\n    items = value;\n  }\n  items.forEach(item => view.graphics.remove(item));\n  return true;\n};\n\nexport default remove;\n/**\n * @private\n*/\nexport const name = 'remove';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 22,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/remove.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 21,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 23,
+    "kind": "function",
+    "name": "remove",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/remove.js~remove",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/remove.js",
+    "importStyle": "remove",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/esri@latest/setCenter.js",
     "content": "\n\nimport leafletPoint from '../../utils/transformPointLeaflet';\n\nconst setCenter = context => (options) => {\n  const { zoom } = options;\n  const point = leafletPoint(options, true);\n  const esriLoader = context.library;\n\n\n  return esriLoader.loadModules(['esri/geometry/Point']).then(([Point]) => {\n    const esri = context.source.getMap();\n    if (point) {\n      esri.view.center = new Point(point[1], point[0]);\n    }\n    if (zoom) {\n      esri.view.zoom = zoom;\n    }\n    return context.lastExecution.value;\n  });\n};\n\nexport default setCenter;\n/**\n * @private\n*/\nexport const name = 'setCenter';\n",
@@ -414,7 +536,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 19,
+    "__docId__": 25,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/esri@latest/setCenter.js",
@@ -434,7 +556,7 @@
     }
   },
   {
-    "__docId__": 20,
+    "__docId__": 26,
     "kind": "function",
     "name": "setCenter",
     "memberof": "rxMapBasicLib/src/actions/esri@latest/setCenter.js",
@@ -464,7 +586,68 @@
     }
   },
   {
-    "__docId__": 21,
+    "__docId__": 27,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/esri@latest/update.js",
+    "content": "\n\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport { simpleMarker, pictureMarker } from '../../utils/esriStyle';\n\nconst update = context => (options) => {\n  const { source } = context;\n  const { view } = source.getMap();\n  const { value, name } = context.lastExecution;\n  const {\n    point,\n    style,\n    properties,\n    object,\n  } = options;\n  const center = leafletPoint(point, true);\n  let elements = object;\n\n  let _style = style;\n  if (typeof style === 'string') {\n    _style = source.getDataType(style);\n    if (_style) {\n      _style = _style.style;\n    }\n  }\n\n  if (name === 'find') {\n    elements = value;\n  }\n  if (!Array.isArray(elements)) {\n    elements = [elements];\n  }\n\n  const newElements = elements.map(element => element.clone());\n\n  if (center) {\n    const geometry = {\n      type: 'point',\n      longitude: center[1],\n      latitude: center[0],\n    };\n    // eslint-disable-next-line\n    newElements.forEach((element) => { element.geometry = geometry; });\n  }\n  if (properties) {\n    // eslint-disable-next-line\n    newElements.forEach((elem) => { elem.attributes = properties; });\n  }\n  if (_style && _style.icon) {\n    // eslint-disable-next-line\n    newElements.forEach((elem) => { elem.symbol = pictureMarker(_style); });\n  } else if (_style) {\n    // eslint-disable-next-line\n    newElements.forEach((elem) => { elem.symbol = simpleMarker(_style); });\n  }\n  elements.forEach(item => view.graphics.remove(item));\n  newElements.forEach(item => view.graphics.add(item));\n  return newElements;\n};\n\nexport default update;\n/**\n * @private\n*/\nexport const name = 'update';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/esri@latest/update.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 28,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/update.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/update.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/update.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 65,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "function",
+    "name": "update",
+    "memberof": "rxMapBasicLib/src/actions/esri@latest/update.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/esri@latest/update.js~update",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/esri@latest/update.js",
+    "importStyle": "update",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 30,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/addData.js",
     "content": "import addData from '../common/addData';\n\n/**\n * @external {addData}  function/index.html#static-function-addData\n */\nexport default addData;\n/**\n * @private\n*/\nexport const name = 'addData';\n",
@@ -475,7 +658,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 22,
+    "__docId__": 31,
     "kind": "external",
     "name": "addData",
     "externalLink": "function/index.html#static-function-addData",
@@ -487,7 +670,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 23,
+    "__docId__": 32,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/addData.js",
@@ -507,7 +690,7 @@
     }
   },
   {
-    "__docId__": 24,
+    "__docId__": 33,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/create.js",
     "content": "\n/**\n * Acción para crear el mapa\n * @param {String} id Id del elemento sobre el que se creara el mapa\n * @param {Number} lat Latitud\n * @param {Number} lng Longitud\n * @param {Number} zoom Zoom\n * @returns {Object} devuelve el mapa creado\n */\nconst create = context => (id, lat, lng, zoom) => {\n  const googleMaps = context.library.maps;\n  const _map = new googleMaps.Map(document.getElementById(id), {\n    center: { lat, lng },\n    zoom,\n  });\n  return _map;\n};\n\nexport default create;\n/**\n * @private\n*/\nexport const name = 'create';\n",
@@ -518,7 +701,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 25,
+    "__docId__": 34,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/create.js",
@@ -538,7 +721,7 @@
     }
   },
   {
-    "__docId__": 26,
+    "__docId__": 35,
     "kind": "function",
     "name": "create",
     "memberof": "rxMapBasicLib/src/actions/google@latest/create.js",
@@ -610,10 +793,71 @@
     }
   },
   {
-    "__docId__": 27,
+    "__docId__": 36,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/google@latest/find.js",
+    "content": "\n\nimport googlePoint from '../../utils/transformPointGoogle';\n\nconst find = context => (field, condition, native = false) => {\n  const _map = context.source.getMap();\n  let elements = [];\n  if (field === 'position' || field === 'coord') {\n    const point = googlePoint(condition);\n    elements = _map._elements.filter(element => element.getPosition() === point);\n  } else {\n    elements = _map._elements.filter(element => element.properties && element.properties[field] && element.properties[field].match(condition));\n  }\n  return native ? elements : elements.map(element => element.properties);\n};\n\nexport default find;\n/**\n * @private\n*/\nexport const name = 'find';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/find.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 37,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/find.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/find.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/find.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 21,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 38,
+    "kind": "function",
+    "name": "find",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/find.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/find.js~find",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/find.js",
+    "importStyle": "find",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 39,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/marker.js",
-    "content": "\nimport googlePoint from '../../utils/transformPointGoogle';\nimport extractProperties from '../../utils/extractProperties';\n\n/**\n * Funcion que permite crear un marcador en el mapa\n *\n * @param {Object|Array} point Posicion del mapa\n * @param {Object} [options] opcions del Marcador\n * @param {String} [options.icon] icono del Marcador\n * @param {Object} [options.size] tamaño del Marcador\n * @param {Number} [options.size.with] alto del Marcador\n * @param {Number} [options.size.height] ancho del Marcador\n * @param {Object} [properties] propiedades / features del marcador\n * @returns {Object} Marcador\n */\nconst drawMarker = context => (point, options = {}, properties = {}) => {\n  const googleMaps = context.library.maps;\n  const map = context.source.getMap();\n  const markerOptions = {\n    position: googlePoint(point),\n    map,\n  };\n  if (options && options.icon) {\n    const image = {\n      url: options.icon,\n      // This marker is 20 pixels wide by 32 pixels high.\n      scaledSize: options.size ? new googleMaps.Size(options.size.width, options.size.height) : null,\n      // The origin for this image is (0, 0).\n      origin: new googleMaps.Point(0, 0),\n      // The anchor for this image is the base of the flagpole at (0, 32).\n      // anchor: new googleMaps.Point(0, 32),\n    };\n    markerOptions.icon = image;\n  }\n\n  const markerMap = new googleMaps.Marker(markerOptions);\n  markerMap.properties = extractProperties(properties);\n  return markerMap;\n};\n\nexport default drawMarker;\n/**\n * @private\n*/\nexport const name = 'marker';\n",
+    "content": "\nimport googlePoint from '../../utils/transformPointGoogle';\nimport extractProperties from '../../utils/extractProperties';\nimport { icon } from '../../utils/googleStyle';\n\n/**\n * Funcion que permite crear un marcador en el mapa\n *\n * @param {Object|Array} point Posicion del mapa\n * @param {Object} [options] opcions del Marcador\n * @param {String} [options.icon] icono del Marcador\n * @param {Object} [options.size] tamaño del Marcador\n * @param {Number} [options.size.with] alto del Marcador\n * @param {Number} [options.size.height] ancho del Marcador\n * @param {Object} [properties] propiedades / features del marcador\n * @returns {Object} Marcador\n */\nconst drawMarker = context => (point, options = {}, properties = {}) => {\n  const googleMaps = context.library.maps;\n  const map = context.source.getMap();\n  if (!map._elements) {\n    map._elements = [];\n  }\n  const markerOptions = {\n    position: googlePoint(point),\n    map,\n  };\n  if (options && options.icon) {\n    markerOptions.icon = icon(googleMaps, options);\n  }\n  const markerMap = new googleMaps.Marker(markerOptions);\n  markerMap.properties = extractProperties(properties);\n  map._elements.push(markerMap);\n  return markerMap;\n};\n\nexport default drawMarker;\n/**\n * @private\n*/\nexport const name = 'marker';\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/marker.js",
     "access": "public",
@@ -621,7 +865,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 28,
+    "__docId__": 40,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/marker.js",
@@ -632,7 +876,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js",
     "importStyle": "{name}",
     "description": "",
-    "lineNumber": 46,
+    "lineNumber": 41,
     "ignore": true,
     "type": {
       "types": [
@@ -641,7 +885,7 @@
     }
   },
   {
-    "__docId__": 29,
+    "__docId__": 41,
     "kind": "function",
     "name": "drawMarker",
     "memberof": "rxMapBasicLib/src/actions/google@latest/marker.js",
@@ -654,7 +898,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/marker.js",
     "importStyle": "drawMarker",
     "description": "Funcion que permite crear un marcador en el mapa",
-    "lineNumber": 17,
+    "lineNumber": 18,
     "unknown": [
       {
         "tagName": "@returns",
@@ -744,10 +988,10 @@
     }
   },
   {
-    "__docId__": 30,
+    "__docId__": 42,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/point.js",
-    "content": "\nimport googlePoint from '../../utils/transformPointGoogle';\nimport extractProperties from '../../utils/extractProperties';\n\nconst drawPoint = context => (point, style, properties) => {\n  // TODO: calcular el radio desde pixels a metros\n  const googleMaps = context.library.maps;\n  const _map = context.source.getMap();\n  const circle = new googleMaps.Circle({\n    strokeColor: style.color || '#FF0000',\n    strokeOpacity: style.opacity || 1,\n    strokeWeight: style.weight || 1,\n    fillColor: style.fillColor || '#FF0000',\n    fillOpacity: style.fillOpacity || 0.35,\n    map: _map,\n    center: googlePoint(point),\n    radius: style.radius * 100 || 500,\n  });\n\n  circle.properties = extractProperties(properties);\n  return circle;\n};\n\nexport default drawPoint;\n/**\n * @private\n*/\nexport const name = 'point';\n",
+    "content": "\nimport googlePoint from '../../utils/transformPointGoogle';\nimport extractProperties from '../../utils/extractProperties';\nimport { getStyle } from '../../utils/googleStyle';\n\nconst drawPoint = context => (point, style, properties) => {\n  // TODO: calcular el radio desde pixels a metros\n  const googleMaps = context.library.maps;\n  const _map = context.source.getMap();\n  if (!_map._elements) {\n    _map._elements = [];\n  }\n  const circle = new googleMaps.Circle({\n    map: _map,\n    center: googlePoint(point),\n    ...getStyle(style),\n  });\n  circle.properties = extractProperties(properties);\n  _map._elements.push(circle);\n\n  return circle;\n};\n\nexport default drawPoint;\n/**\n * @private\n*/\nexport const name = 'point';\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/point.js",
     "access": "public",
@@ -755,7 +999,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 31,
+    "__docId__": 43,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/point.js",
@@ -775,7 +1019,7 @@
     }
   },
   {
-    "__docId__": 32,
+    "__docId__": 44,
     "kind": "function",
     "name": "drawPoint",
     "memberof": "rxMapBasicLib/src/actions/google@latest/point.js",
@@ -788,7 +1032,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/point.js",
     "importStyle": "drawPoint",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true,
     "params": [
       {
@@ -805,7 +1049,7 @@
     }
   },
   {
-    "__docId__": 33,
+    "__docId__": 45,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/popup.js",
     "content": "// Create a marker and set its position.\n\nconst addPopup = (googleMaps, marker, content) => {\n  const { properties } = marker;\n  let contentString = content;\n  if (typeof content === 'function') {\n    contentString = content(properties);\n  }\n  return new googleMaps.InfoWindow({\n    content: contentString,\n  });\n};\n\nconst popup = context => (content) => {\n  const googleMaps = context.library.maps;\n  const map = context.source.getMap();\n  const { value, name } = context.lastExecution;\n  if (name === 'marker') {\n    const infowindow = addPopup(googleMaps, value, content);\n    value.addListener('click', () => {\n      infowindow.open(map, value);\n    });\n  } else if (name === 'addData') {\n    value.forEach((marker) => {\n      const infoWindow = addPopup(googleMaps, marker, content);\n      marker.addListener('click', () => {\n        infoWindow.setPosition(marker.getCenter());\n        infoWindow.open(map);\n      });\n    });\n  }\n  return context.lastExecution.value;\n};\n\nexport default popup;\n/**\n * @private\n*/\nexport const name = 'popup';\n",
@@ -816,7 +1060,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 34,
+    "__docId__": 46,
     "kind": "function",
     "name": "addPopup",
     "memberof": "rxMapBasicLib/src/actions/google@latest/popup.js",
@@ -859,7 +1103,7 @@
     "ignore": true
   },
   {
-    "__docId__": 35,
+    "__docId__": 47,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/popup.js",
@@ -879,7 +1123,7 @@
     }
   },
   {
-    "__docId__": 36,
+    "__docId__": 48,
     "kind": "function",
     "name": "popup",
     "memberof": "rxMapBasicLib/src/actions/google@latest/popup.js",
@@ -909,7 +1153,68 @@
     }
   },
   {
-    "__docId__": 37,
+    "__docId__": 49,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/google@latest/remove.js",
+    "content": "\n\nconst remove = context => (all = false) => {\n  const { value, name } = context.lastExecution;\n  const _map = context.source.getMap();\n  let items = [];\n  if (all) {\n    _map._elements.forEach(element => element.setMap(null));\n    _map._elements = [];\n  }\n  if (name === 'find') {\n    items = value;\n  }\n  items.forEach(item => item.setMap(null));\n  _map._elements = _map._elements.filter(element => items.includes(element));\n  return true;\n};\n\nexport default remove;\n/**\n * @private\n*/\nexport const name = 'remove';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/remove.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/remove.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/remove.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/remove.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 23,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "remove",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/remove.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/remove.js~remove",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/remove.js",
+    "importStyle": "remove",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/google@latest/setCenter.js",
     "content": "\nimport googlePoint from '../../utils/transformPointGoogle';\n\nconst setCenter = context => (options) => {\n  const { zoom } = options;\n  const map = context.source.getMap();\n  const oldCenter = map.getCenter();\n  const center = googlePoint(options, true) || { lat: oldCenter.lat, lng: oldCenter.lng };\n  map.setCenter(center);\n  map.setZoom(zoom || map.getZoom());\n  return context.lastExecution.value;\n};\n\nexport default setCenter;\n/**\n * @private\n*/\nexport const name = 'setCenter';\n",
@@ -920,7 +1225,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 38,
+    "__docId__": 53,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/google@latest/setCenter.js",
@@ -940,7 +1245,7 @@
     }
   },
   {
-    "__docId__": 39,
+    "__docId__": 54,
     "kind": "function",
     "name": "setCenter",
     "memberof": "rxMapBasicLib/src/actions/google@latest/setCenter.js",
@@ -970,7 +1275,68 @@
     }
   },
   {
-    "__docId__": 40,
+    "__docId__": 55,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/google@latest/update.js",
+    "content": "\n\nimport googlePoint from '../../utils/transformPointGoogle';\nimport { icon, getStyle } from '../../utils/googleStyle';\n\nconst update = context => (options) => {\n  const { source } = context;\n  const _map = source.getMap();\n  const { value, name } = context.lastExecution;\n  const {\n    point,\n    style,\n    properties,\n    object,\n  } = options;\n  const center = googlePoint(point, true);\n  let elements = object;\n\n  let _style = style;\n  if (typeof style === 'string') {\n    _style = source.getDataType(style);\n    if (_style) {\n      _style = _style.style;\n    }\n  }\n\n  if (name === 'find') {\n    elements = value;\n  }\n  if (!Array.isArray(elements)) {\n    elements = [elements];\n  }\n\n  if (center) {\n    elements.forEach(element => element.setPosition(center));\n  }\n  if (properties) {\n    // eslint-disable-next-line\n    elements.forEach((elem) => { elem.properties = properties; });\n  }\n  if (_style && _style.icon) {\n    // eslint-disable-next-line\n    const _icon = icon(_map, _style);\n    elements.forEach(elem => elem.setIcon(_icon));\n  } else if (_style) {\n    // eslint-disable-next-line\n    elements.forEach(elem => elem.setOptions(getStyle(_style)));\n  }\n  return elements;\n};\n\nexport default update;\n/**\n * @private\n*/\nexport const name = 'update';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/google@latest/update.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 56,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/update.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/update.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/update.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 56,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "update",
+    "memberof": "rxMapBasicLib/src/actions/google@latest/update.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/google@latest/update.js~update",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/google@latest/update.js",
+    "importStyle": "update",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/addData.js",
     "content": "import addData from '../common/addData';\n\n/**\n * @external {addData}  function/index.html#static-function-addData\n */\nexport default addData;\n/**\n * @private\n*/\nexport const name = 'addData';\n",
@@ -981,7 +1347,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 41,
+    "__docId__": 59,
     "kind": "external",
     "name": "addData",
     "externalLink": "function/index.html#static-function-addData",
@@ -993,7 +1359,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 42,
+    "__docId__": 60,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/addData.js",
@@ -1013,7 +1379,7 @@
     }
   },
   {
-    "__docId__": 43,
+    "__docId__": 61,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/create.js",
     "content": "\nconst create = context => (id, lat, lng, zoom) => {\n  const L = context.library;\n  const map = L.map(id).setView([lat, lng], zoom);\n  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors',\n  }).addTo(map);\n  return map;\n};\n\nexport default create;\n/**\n * @private\n*/\nexport const name = 'create';\n",
@@ -1024,7 +1390,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 44,
+    "__docId__": 62,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/create.js",
@@ -1044,7 +1410,7 @@
     }
   },
   {
-    "__docId__": 45,
+    "__docId__": 63,
     "kind": "function",
     "name": "create",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/create.js",
@@ -1074,7 +1440,68 @@
     }
   },
   {
-    "__docId__": 46,
+    "__docId__": 64,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "content": "\n\nimport leafletPoint from '../../utils/transformPointLeaflet';\n\nconst find = context => (field, condition, native = false) => {\n  const _map = context.source.getMap();\n  const layers = Object.values(_map._layers);\n  let elements = [];\n  if (field === 'position' || field === 'coord') {\n    const point = leafletPoint(condition);\n    elements = layers.filter(layer => layer._latlng === point);\n  } else {\n    elements = layers.filter(layer => layer.properties && layer.properties[field] && layer.properties[field].match(condition));\n  }\n  return native ? elements : elements.map(layer => layer.properties);\n};\n\nexport default find;\n/**\n * @private\n*/\nexport const name = 'find';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 65,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/find.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 22,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "find",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/find.js~find",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/find.js",
+    "importStyle": "find",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/marker.js",
     "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\n\nconst drawMarker = context => (point, options = {}, properties = {}) => {\n  const L = context.library;\n  const center = leafletPoint(point);\n  const _map = context.source.getMap();\n  let markerOptions = {};\n  if (options && options.icon) {\n    const myIcon = L.icon({\n      iconUrl: options.icon,\n      iconSize: options.size ? [options.size.width, options.size.height] : null,\n    });\n    markerOptions = {\n      icon: myIcon,\n    };\n  }\n\n  const marker = L.marker(center, markerOptions);\n  marker.properties = extractProperties(properties);\n  marker.addTo(_map);\n  return marker;\n};\n\nexport default drawMarker;\n/**\n * @private\n*/\nexport const name = 'marker';\n",
@@ -1085,7 +1512,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 47,
+    "__docId__": 68,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/marker.js",
@@ -1105,7 +1532,7 @@
     }
   },
   {
-    "__docId__": 48,
+    "__docId__": 69,
     "kind": "function",
     "name": "drawMarker",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/marker.js",
@@ -1135,7 +1562,7 @@
     }
   },
   {
-    "__docId__": 49,
+    "__docId__": 70,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/point.js",
     "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\nimport extractProperties from '../../utils/extractProperties';\n\nconst drawPoint = context => (point, style, properties) => {\n  const L = context.library;\n  // TODO: fixed default styles\n  const center = leafletPoint(point);\n  const _map = context.source.getMap();\n  const marker = L.circleMarker(center, style);\n  marker.properties = extractProperties(properties);\n  marker.addTo(_map);\n  return marker;\n};\n\nexport default drawPoint;\n/**\n * @private\n*/\nexport const name = 'point';\n",
@@ -1146,7 +1573,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 50,
+    "__docId__": 71,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/point.js",
@@ -1166,7 +1593,7 @@
     }
   },
   {
-    "__docId__": 51,
+    "__docId__": 72,
     "kind": "function",
     "name": "drawPoint",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/point.js",
@@ -1196,7 +1623,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 73,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/popup.js",
     "content": "\nconst addPopup = (marker, content) => {\n  const { properties } = marker;\n  let contentString = content;\n  if (typeof content === 'function') {\n    contentString = content(properties);\n  }\n  marker.bindPopup(contentString);\n};\n\nconst popup = context => (content) => {\n  const { value, name } = context.lastExecution;\n  if (name === 'marker') {\n    addPopup(value, content);\n  } else if (name === 'addData') {\n    value.forEach(marker => addPopup(marker, content));\n  }\n  return context.lastExecution.value;\n};\n\nexport default popup;\n/**\n * @private\n*/\nexport const name = 'popup';\n",
@@ -1207,7 +1634,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 74,
     "kind": "function",
     "name": "addPopup",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/popup.js",
@@ -1240,7 +1667,7 @@
     "ignore": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 75,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/popup.js",
@@ -1260,7 +1687,7 @@
     }
   },
   {
-    "__docId__": 55,
+    "__docId__": 76,
     "kind": "function",
     "name": "popup",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/popup.js",
@@ -1290,7 +1717,68 @@
     }
   },
   {
-    "__docId__": 56,
+    "__docId__": 77,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "content": "\n\nconst remove = context => (all = false) => {\n  const { value, name } = context.lastExecution;\n  const _map = context.source.getMap();\n  let items = [];\n  if (all) {\n    const layers = Object.values(_map._layers);\n    items = layers.filter(layer => layer._latlng);\n  }\n  if (name === 'find') {\n    items = value;\n  }\n  items.forEach(item => item.remove());\n  return true;\n};\n\nexport default remove;\n/**\n * @private\n*/\nexport const name = 'remove';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 78,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/remove.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 22,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "function",
+    "name": "remove",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/remove.js~remove",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/remove.js",
+    "importStyle": "remove",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 80,
     "kind": "file",
     "name": "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
     "content": "\nimport leafletPoint from '../../utils/transformPointLeaflet';\n\nconst setCenter = context => (options) => {\n  const { zoom } = options;\n  const map = context.source.getMap();\n  const center = leafletPoint(options, true) || { lat: map.center.lat, lng: map.center.lng };\n  map.setView(center, zoom || map.zoom);\n  return context.lastExecution.value;\n};\n\nexport default setCenter;\n/**\n * @private\n*/\nexport const name = 'setCenter';\n",
@@ -1301,7 +1789,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 81,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
@@ -1321,7 +1809,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 82,
     "kind": "function",
     "name": "setCenter",
     "memberof": "rxMapBasicLib/src/actions/leaflet@latest/setCenter.js",
@@ -1351,10 +1839,71 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 83,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "content": "\n\nimport leafletPoint from '../../utils/transformPointLeaflet';\n\nconst update = context => (options) => {\n  const L = context.library;\n  const { source } = context;\n  const { value, name } = context.lastExecution;\n  const {\n    point,\n    style,\n    properties,\n    object,\n  } = options;\n  const center = leafletPoint(point, true);\n  let element = object;\n  let _style = style;\n\n  if (name === 'find') {\n    element = value;\n  }\n  if (!Array.isArray(element)) {\n    element = [element];\n  }\n\n  if (properties) {\n    element.filter(elem => elem.properties).forEach((elem) => {\n      // eslint-disable-next-line\n      elem.properties = properties;\n    });\n  }\n\n  if (center) {\n    element.forEach(elem => elem.setLatLng(center));\n  }\n\n  if (typeof style === 'string') {\n    _style = source.getDataType(style);\n    if (_style) {\n      _style = _style.style;\n    }\n  }\n\n  if (_style && _style.icon) {\n    const myIcon = L.icon({\n      iconUrl: _style.icon,\n      iconSize: _style.size ? [_style.size.width, _style.size.height] : null,\n    });\n    element.filter(elem => elem.setIcon)\n      .forEach(elem => elem.setIcon(myIcon));\n    return element;\n  }\n\n  if (_style) {\n    element.forEach(elem => elem.setStyle(_style));\n  }\n\n  element.filter(elem => elem.redraw)\n    .forEach(elem => elem.redraw());\n\n  return element;\n};\n\nexport default update;\n/**\n * @private\n*/\nexport const name = 'update';\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 84,
+    "kind": "variable",
+    "name": "name",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/update.js~name",
+    "access": "private",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "importStyle": "{name}",
+    "description": "",
+    "lineNumber": 68,
+    "ignore": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "function",
+    "name": "update",
+    "memberof": "rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/actions/leaflet@latest/update.js~update",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/actions/leaflet@latest/update.js",
+    "importStyle": "update",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 86,
     "kind": "file",
     "name": "rxMapBasicLib/src/index.js",
-    "content": "\nexport const name = 'RxMapBasicLib';\nexport const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];\nexport const observers = ['gps', 'center', 'click'];\nexport const func = (type, mapLib, version, key) => import(\n  /* webpackMode: \"lazy\" */\n  /* webpackInclude: /(actions|observers).+@/ */\n  `./${type}/${mapLib}@${version}/${key}`,\n);\n\nexport default [\n  name,\n  {\n    observers,\n    actions,\n  },\n  func,\n];\n",
+    "content": "\nexport const name = 'RxMapBasicLib';\nexport const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter', 'find', 'remove', 'update'];\nexport const observers = ['gps', 'center', 'click'];\nexport const func = (type, mapLib, version, key) => import(\n  /* webpackMode: \"lazy\" */\n  /* webpackInclude: /(actions|observers).+@/ */\n  `./${type}/${mapLib}@${version}/${key}`,\n);\n\nexport default [\n  name,\n  {\n    observers,\n    actions,\n  },\n  func,\n];\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/index.js",
     "access": "public",
@@ -1362,7 +1911,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 60,
+    "__docId__": 87,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/index.js",
@@ -1382,7 +1931,7 @@
     }
   },
   {
-    "__docId__": 61,
+    "__docId__": 88,
     "kind": "variable",
     "name": "actions",
     "memberof": "rxMapBasicLib/src/index.js",
@@ -1402,7 +1951,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 89,
     "kind": "variable",
     "name": "observers",
     "memberof": "rxMapBasicLib/src/index.js",
@@ -1422,7 +1971,7 @@
     }
   },
   {
-    "__docId__": 63,
+    "__docId__": 90,
     "kind": "function",
     "name": "func",
     "memberof": "rxMapBasicLib/src/index.js",
@@ -1466,7 +2015,7 @@
     "return": null
   },
   {
-    "__docId__": 64,
+    "__docId__": 91,
     "kind": "file",
     "name": "rxMapBasicLib/src/index.umd.js",
     "content": "import * as lib from './index';\n\n/**\n * Recupera el path de una url\n * @param {String} src\n * @private\n */\nconst getOrigin = (src) => {\n  const url = new URL(src);\n  return `${url.origin}/`;\n};\n\n/**\n * Recupera el Path del script actual\n * @private\n */\nconst getPath = () => {\n  if (document.currentScript) {\n    return getOrigin(document.currentScript.src);\n  }\n  const scripts = document.getElementsByTagName('script');\n  return getOrigin(scripts[scripts.length - 1]);\n};\n\n// eslint-disable-next-line\n__webpack_public_path__ = getPath();\n\n\nexport const {\n  name,\n  actions,\n  observers,\n  func,\n} = lib;\n\nexport default [\n  name,\n  {\n    observers,\n    actions,\n  },\n  func,\n];\n",
@@ -1477,7 +2026,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 65,
+    "__docId__": 92,
     "kind": "function",
     "name": "getOrigin",
     "memberof": "rxMapBasicLib/src/index.umd.js",
@@ -1511,7 +2060,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 93,
     "kind": "function",
     "name": "getPath",
     "memberof": "rxMapBasicLib/src/index.umd.js",
@@ -1534,7 +2083,7 @@
     }
   },
   {
-    "__docId__": 67,
+    "__docId__": 94,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/index.umd.js",
@@ -1554,7 +2103,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 95,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/common/gps.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\n\nconst gps = () => () => {\n  const watchPosition = handler => (navigator.geolocation ? navigator.geolocation.watchPosition(handler) : () => { });\n  const clearPosition = handler => (navigator.geolocation ? navigator.geolocation.clearWatch(handler) : () => { });\n\n  return fromEventPattern(\n    watchPosition,\n    clearPosition,\n  ).pipe(map(position => position.coords));\n};\n\nexport default gps;\n",
@@ -1565,7 +2114,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 69,
+    "__docId__": 96,
     "kind": "function",
     "name": "gps",
     "memberof": "rxMapBasicLib/src/observers/common/gps.js",
@@ -1588,7 +2137,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 97,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/esri@latest/center.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\nimport { switchMap } from 'rxjs/internal/operators/switchMap';\nimport { from } from 'rxjs/internal/observable/from';\n\nconst center = context => () => {\n  const esriLoader = context.library;\n  const esri = context.source.getMap();\n\n  return from(esriLoader.loadModules([\n    'esri/core/watchUtils',\n  ])).pipe(\n    switchMap(([watchUtils]) => {\n      const addClickHandler = handler => watchUtils.whenTrue(esri.view, 'stationary', handler);\n      const removeClickHandler = (handler, listener) => listener.remove();\n      return fromEventPattern(\n        addClickHandler,\n        removeClickHandler,\n      ).pipe(\n        map(() => {\n          const _center = esri.view.center;\n          return { lat: _center.latitude, lng: _center.longitude };\n        }),\n      );\n    }),\n  );\n};\n\nexport default center;\n/**\n * @private\n*/\nexport const name = 'center';\n",
@@ -1599,7 +2148,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 71,
+    "__docId__": 98,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/esri@latest/center.js",
@@ -1619,7 +2168,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 99,
     "kind": "function",
     "name": "center",
     "memberof": "rxMapBasicLib/src/observers/esri@latest/center.js",
@@ -1649,10 +2198,10 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 100,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/esri@latest/click.js",
-    "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\nimport { mergeMap } from 'rxjs/internal/operators/mergeMap';\n\nconst click = context => () => {\n  const esri = context.source.getMap();\n  const { value, name } = context.lastExecution;\n\n  const addClickHandler = handler => esri.view.on('click', handler);\n  const removeClickHandler = (handler, listener) => listener.remove();\n\n  const $strem = fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  );\n\n  const mapFunction = event => ({ lat: event.mapPoint.latitude, lng: event.mapPoint.longitude });\n\n  if (name === 'marker') {\n    const mergeMapFunction = event => esri.view.hitTest(event).then((response) => {\n      const graphic = response.results.filter(obj => obj === value);\n      return graphic;\n    });\n\n    return $strem.pipe(\n      mergeMap(mergeMapFunction),\n    );\n  }\n\n  return $strem.pipe(map(mapFunction));\n};\n\nexport default click;\n/**\n * @private\n*/\nexport const name = 'click';\n",
+    "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\nimport { filter } from 'rxjs/internal/operators/filter';\nimport { mergeMap } from 'rxjs/internal/operators/mergeMap';\n\nconst click = context => () => {\n  const esri = context.source.getMap();\n  const { value, name } = context.lastExecution;\n\n  const addClickHandler = handler => esri.view.on('click', handler);\n  const removeClickHandler = (handler, listener) => listener.remove();\n\n  const $strem = fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  );\n  const mapFunction = event => ({ lat: event.mapPoint.latitude, lng: event.mapPoint.longitude });\n\n  if (name === 'marker' || name === 'addData') {\n    const mergeMapFunction = event => esri.view.hitTest(event).then((response) => {\n      let filterFunction = obj => obj.graphic === value;\n      if (Array.isArray(value)) {\n        filterFunction = obj => value.includes(obj.graphic);\n      }\n      const graphic = response.results.filter(filterFunction)\n        .map(el => el.graphic)\n        .map(el => el.attributes)\n        .shift();\n\n      if (graphic && Object.keys(graphic).length > 0) {\n        event.stopPropagation();\n        return graphic;\n      }\n      return null;\n    });\n\n    return $strem.pipe(\n      mergeMap(mergeMapFunction),\n      filter(el => el !== null),\n    );\n  }\n\n  return $strem.pipe(map(mapFunction));\n};\n\nexport default click;\n/**\n * @private\n*/\nexport const name = 'click';\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/observers/esri@latest/click.js",
     "access": "public",
@@ -1660,7 +2209,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 74,
+    "__docId__": 101,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/esri@latest/click.js",
@@ -1671,7 +2220,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/observers/esri@latest/click.js",
     "importStyle": "{name}",
     "description": "",
-    "lineNumber": 37,
+    "lineNumber": 50,
     "ignore": true,
     "type": {
       "types": [
@@ -1680,7 +2229,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 102,
     "kind": "function",
     "name": "click",
     "memberof": "rxMapBasicLib/src/observers/esri@latest/click.js",
@@ -1693,7 +2242,7 @@
     "importPath": "@rxmap/basiclib/rxMapBasicLib/src/observers/esri@latest/click.js",
     "importStyle": "click",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true,
     "params": [
       {
@@ -1710,7 +2259,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 103,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/esri@latest/gps.js",
     "content": "import gps from '../common/gps';\n\n/**\n * @external {gps}  function/index.html#static-function-gps\n */\nexport default gps;\n/**\n * @private\n*/\nexport const name = 'gps';\n",
@@ -1721,7 +2270,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 77,
+    "__docId__": 104,
     "kind": "external",
     "name": "gps",
     "externalLink": "function/index.html#static-function-gps",
@@ -1733,7 +2282,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 78,
+    "__docId__": 105,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/esri@latest/gps.js",
@@ -1753,7 +2302,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 106,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/google@latest/center.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\n\nconst center = context => () => {\n  const googleMaps = context.library.maps;\n  const map_ = context.source.getMap();\n\n  const addClickHandler = handler => map_.addListener('center_changed', handler);\n  const removeClickHandler = (handler, listener) => googleMaps.center.removeListener(listener);\n\n\n  return fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  ).pipe(map(() => {\n    const _center = map_.getCenter();\n    return { lat: _center.lat(), lng: _center.lng() };\n  }));\n};\n\nexport default center;\n/**\n * @private\n*/\nexport const name = 'center';\n",
@@ -1764,7 +2313,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 80,
+    "__docId__": 107,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/google@latest/center.js",
@@ -1784,7 +2333,7 @@
     }
   },
   {
-    "__docId__": 81,
+    "__docId__": 108,
     "kind": "function",
     "name": "center",
     "memberof": "rxMapBasicLib/src/observers/google@latest/center.js",
@@ -1814,7 +2363,7 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 109,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/google@latest/click.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\n\nconst click = context => () => {\n  const map_ = context.source.getMap();\n  const { value, name } = context.lastExecution;\n  let object = map_;\n  let mapFunction = evt => ({ lat: evt[0].latLng.lat(), lng: evt[0].latLng.lng() });\n\n  if (name === 'marker') {\n    object = value;\n    mapFunction = evt => (evt[1].properties || evt[1]);\n  } else if (name === 'addData') {\n    object = value;\n    mapFunction = evt => (evt[1].properties || evt[1]);\n  }\n\n  if (!Array.isArray(object)) {\n    object = [object];\n  }\n  const addClickHandler = handler => object.map(element => element.addListener('click', evt => handler(evt, element)));\n  const removeClickHandler = (handler, listener) => listener.forEach(element => element.remove());\n\n  return fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  ).pipe(map(mapFunction));\n};\n\nexport default click;\n/**\n * @private\n*/\nexport const name = 'click';\n",
@@ -1825,7 +2374,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 83,
+    "__docId__": 110,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/google@latest/click.js",
@@ -1845,7 +2394,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 111,
     "kind": "function",
     "name": "click",
     "memberof": "rxMapBasicLib/src/observers/google@latest/click.js",
@@ -1875,7 +2424,7 @@
     }
   },
   {
-    "__docId__": 85,
+    "__docId__": 112,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/google@latest/gps.js",
     "content": "import gps from '../common/gps';\n\n/**\n * @external {gps}  function/index.html#static-function-gps\n */\nexport default gps;\n/**\n * @private\n*/\nexport const name = 'gps';\n",
@@ -1886,7 +2435,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 86,
+    "__docId__": 113,
     "kind": "external",
     "name": "gps",
     "externalLink": "function/index.html#static-function-gps",
@@ -1898,7 +2447,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 87,
+    "__docId__": 114,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/google@latest/gps.js",
@@ -1918,7 +2467,7 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 115,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/leaflet@latest/center.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\n\nconst center = context => () => {\n  const map_ = context.source.getMap();\n  const addClickHandler = handler => map_.on('move', handler);\n  const removeClickHandler = handler => map_.off('move', handler);\n\n  return fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  ).pipe(map(() => map_.getCenter()));\n};\n\nexport default center;\n/**\n * @private\n*/\nexport const name = 'center';\n",
@@ -1929,7 +2478,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 89,
+    "__docId__": 116,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/leaflet@latest/center.js",
@@ -1949,7 +2498,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 117,
     "kind": "function",
     "name": "center",
     "memberof": "rxMapBasicLib/src/observers/leaflet@latest/center.js",
@@ -1979,7 +2528,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 118,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/leaflet@latest/click.js",
     "content": "import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';\nimport { map } from 'rxjs/internal/operators/map';\n\nconst click = context => () => {\n  const L = context.library;\n  const map_ = context.source.getMap();\n  const { value, name } = context.lastExecution;\n  let object = map_;\n  let mapFunction = evt => evt.latlng;\n\n  if (name === 'marker') {\n    object = value;\n    mapFunction = (evt) => {\n      L.DomEvent.stopPropagation(evt);\n      return evt.target.properties || evt.target;\n    };\n  } else if (name === 'addData') {\n    object = value;\n    mapFunction = (evt) => {\n      L.DomEvent.stopPropagation(evt);\n      return evt.target.properties || evt.target;\n    };\n  }\n\n  if (!Array.isArray(object)) {\n    object = [object];\n  }\n\n  const addClickHandler = handler => object.map(element => element.on('click', handler));\n  const removeClickHandler = handler => object.forEach(element => element.off('click', handler));\n\n  return fromEventPattern(\n    addClickHandler,\n    removeClickHandler,\n  ).pipe(map(mapFunction));\n};\n\nexport default click;\n\n/**\n * @private\n*/\nexport const name = 'click';\n",
@@ -1990,7 +2539,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 92,
+    "__docId__": 119,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/leaflet@latest/click.js",
@@ -2010,7 +2559,7 @@
     }
   },
   {
-    "__docId__": 93,
+    "__docId__": 120,
     "kind": "function",
     "name": "click",
     "memberof": "rxMapBasicLib/src/observers/leaflet@latest/click.js",
@@ -2040,7 +2589,7 @@
     }
   },
   {
-    "__docId__": 94,
+    "__docId__": 121,
     "kind": "file",
     "name": "rxMapBasicLib/src/observers/leaflet@latest/gps.js",
     "content": "import gps from '../common/gps';\n\n/**\n * @external {gps}  function/index.html#static-function-gps\n */\nexport default gps;\n\n/**\n * @private\n*/\nexport const name = 'gps';\n",
@@ -2051,7 +2600,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 95,
+    "__docId__": 122,
     "kind": "external",
     "name": "gps",
     "externalLink": "function/index.html#static-function-gps",
@@ -2063,7 +2612,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 96,
+    "__docId__": 123,
     "kind": "variable",
     "name": "name",
     "memberof": "rxMapBasicLib/src/observers/leaflet@latest/gps.js",
@@ -2083,7 +2632,111 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 124,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/utils/esriStyle.js",
+    "content": "\nconst hexToRgb = (hex, transparent) => {\n  const shorthandRegex = /^#?([a-f\\d])([a-f\\d])([a-f\\d])$/i;\n  let _hex = hex;\n  _hex = _hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);\n  const result = /^#?([a-f\\d]{2})([a-f\\d]{2})([a-f\\d]{2})$/i.exec(_hex);\n  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), transparent] : null;\n};\n\nexport const simpleMarker = style => ({\n  type: 'simple-marker',\n  color: hexToRgb(style.fillColor || '#FF0000', style.fillOpacity || 0.35),\n  style: 'point',\n  size: style.radius || 5,\n  outline: {\n    color: hexToRgb(style.color || '#FF0000', style.opacity || 1),\n    width: style.weight || 1,\n  },\n});\n\nexport const pictureMarker = (options) => {\n  const iconUrl = options.icon || 'https://unpkg.com/leaflet@1.3.4/dist/images/marker-icon.png';\n  const iconWidth = options.size ? options.size.width : 20;\n  const iconHeight = options.size ? options.size.height : 25;\n  return {\n    type: 'picture-marker',\n    url: iconUrl,\n    width: `${iconWidth}px`,\n    height: `${iconHeight}px`,\n  };\n};\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/utils/esriStyle.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 125,
+    "kind": "function",
+    "name": "hexToRgb",
+    "memberof": "rxMapBasicLib/src/utils/esriStyle.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/utils/esriStyle.js~hexToRgb",
+    "access": "public",
+    "export": false,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/utils/esriStyle.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "hex",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "transparent",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "function",
+    "name": "simpleMarker",
+    "memberof": "rxMapBasicLib/src/utils/esriStyle.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/utils/esriStyle.js~simpleMarker",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/utils/esriStyle.js",
+    "importStyle": "{simpleMarker}",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [
+      {
+        "name": "style",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 127,
+    "kind": "function",
+    "name": "pictureMarker",
+    "memberof": "rxMapBasicLib/src/utils/esriStyle.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/utils/esriStyle.js~pictureMarker",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/utils/esriStyle.js",
+    "importStyle": "{pictureMarker}",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"type\": string, \"url\": *, \"width\": *, \"height\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 128,
     "kind": "file",
     "name": "rxMapBasicLib/src/utils/extractProperties.js",
     "content": "\nconst extractProperties = (item) => {\n  if (!item || Array.isArray(item)) {\n    return {};\n  }\n  if (item.properties) {\n    return extractProperties(item.properties);\n  }\n  if (item.attributes) {\n    return extractProperties(item.attributes);\n  }\n  if (item.fields) {\n    return extractProperties(item.fields);\n  }\n  return item;\n};\n\nexport default extractProperties;\n",
@@ -2094,7 +2747,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 98,
+    "__docId__": 129,
     "kind": "function",
     "name": "extractProperties",
     "memberof": "rxMapBasicLib/src/utils/extractProperties.js",
@@ -2124,10 +2777,79 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 130,
+    "kind": "file",
+    "name": "rxMapBasicLib/src/utils/googleStyle.js",
+    "content": "\nexport const icon = (googleMaps, options) => ({\n  url: options.icon,\n  // This marker is 20 pixels wide by 32 pixels high.\n  scaledSize: options.size ? new googleMaps.Size(options.size.width, options.size.height) : null,\n  // The origin for this image is (0, 0).\n  origin: new googleMaps.Point(0, 0),\n  // The anchor for this image is the base of the flagpole at (0, 32).\n  // anchor: new googleMaps.Point(0, 32),\n});\n\nexport const getStyle = style => ({\n  strokeColor: style.color || '#FF0000',\n  strokeOpacity: style.opacity || 1,\n  strokeWeight: style.weight || 1,\n  fillColor: style.fillColor || '#FF0000',\n  fillOpacity: style.fillOpacity || 0.35,\n  radius: style.radius * 100 || 500,\n});\n",
+    "static": true,
+    "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/utils/googleStyle.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 131,
+    "kind": "function",
+    "name": "icon",
+    "memberof": "rxMapBasicLib/src/utils/googleStyle.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/utils/googleStyle.js~icon",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/utils/googleStyle.js",
+    "importStyle": "{icon}",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "googleMaps",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 132,
+    "kind": "function",
+    "name": "getStyle",
+    "memberof": "rxMapBasicLib/src/utils/googleStyle.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "rxMapBasicLib/src/utils/googleStyle.js~getStyle",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/basiclib/rxMapBasicLib/src/utils/googleStyle.js",
+    "importStyle": "{getStyle}",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "style",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 133,
     "kind": "file",
     "name": "rxMapBasicLib/src/utils/transformPointGoogle.js",
-    "content": "const googlePoint = (item, noMandatory) => {\n  if (!item) {\n    throw new Error('Geometry Param is mandatory');\n  }\n  if (Array.isArray(item)) {\n    return { lat: item[0], lng: item[1] };\n  }\n  if (item.lat && item.lng) {\n    return item;\n  }\n  if (item.lat && item.lon) {\n    return { lat: item.lat, lng: item.lon };\n  }\n  if (item.latitude && item.longitude) {\n    return { lat: item.latitude, lng: item.longitude };\n  }\n  if (item.latitud && item.longitud) {\n    return { lat: item.latitud, lng: item.longitud };\n  }\n  if (item.position) {\n    return googlePoint(item.position);\n  }\n  if (item.location) {\n    return googlePoint(item.location);\n  }\n  if (item.center) {\n    return googlePoint(item.center);\n  }\n  if (noMandatory) {\n    return null;\n  }\n  throw new Error('Geometry is mandatory');\n};\n\nexport default googlePoint;\n",
+    "content": "const googlePoint = (item, noMandatory) => {\n  if (!item) {\n    if (noMandatory) {\n      return null;\n    }\n    throw new Error('Geometry Param is mandatory');\n  }\n  if (Array.isArray(item)) {\n    return { lat: item[0], lng: item[1] };\n  }\n  if (item.lat && item.lng) {\n    return item;\n  }\n  if (item.lat && item.lon) {\n    return { lat: item.lat, lng: item.lon };\n  }\n  if (item.latitude && item.longitude) {\n    return { lat: item.latitude, lng: item.longitude };\n  }\n  if (item.latitud && item.longitud) {\n    return { lat: item.latitud, lng: item.longitud };\n  }\n  if (item.position) {\n    return googlePoint(item.position);\n  }\n  if (item.location) {\n    return googlePoint(item.location);\n  }\n  if (item.center) {\n    return googlePoint(item.center);\n  }\n  if (noMandatory) {\n    return null;\n  }\n  throw new Error('Geometry is mandatory');\n};\n\nexport default googlePoint;\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/utils/transformPointGoogle.js",
     "access": "public",
@@ -2135,7 +2857,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 100,
+    "__docId__": 134,
     "kind": "function",
     "name": "googlePoint",
     "memberof": "rxMapBasicLib/src/utils/transformPointGoogle.js",
@@ -2171,10 +2893,10 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 135,
     "kind": "file",
     "name": "rxMapBasicLib/src/utils/transformPointLeaflet.js",
-    "content": "const leafletPoint = (item, noMandatory) => {\n  if (!item) {\n    throw new Error('Geometry Param is mandatory');\n  }\n  if (Array.isArray(item)) {\n    return item;\n  }\n  if (item.lat && item.lng) {\n    return [item.lat, item.lng];\n  }\n  if (item.lat && item.lon) {\n    return [item.lat, item.lon];\n  }\n  if (item.latitude && item.longitude) {\n    return [item.latitude, item.longitude];\n  }\n  if (item.latitud && item.longitud) {\n    return [item.latitud, item.longitud];\n  }\n  if (item.position) {\n    return leafletPoint(item.position);\n  }\n  if (item.location) {\n    return leafletPoint(item.location);\n  }\n  if (item.center) {\n    return leafletPoint(item.center);\n  }\n  if (noMandatory) {\n    return null;\n  }\n  throw new Error('Geometry is mandatory');\n};\n\nexport default leafletPoint;\n",
+    "content": "const leafletPoint = (item, noMandatory) => {\n  if (!item) {\n    if (noMandatory) {\n      return null;\n    }\n    throw new Error('Geometry Param is mandatory');\n  }\n  if (Array.isArray(item)) {\n    return item;\n  }\n  if (item.lat && item.lng) {\n    return [item.lat, item.lng];\n  }\n  if (item.lat && item.lon) {\n    return [item.lat, item.lon];\n  }\n  if (item.latitude && item.longitude) {\n    return [item.latitude, item.longitude];\n  }\n  if (item.latitud && item.longitud) {\n    return [item.latitud, item.longitud];\n  }\n  if (item.position) {\n    return leafletPoint(item.position);\n  }\n  if (item.location) {\n    return leafletPoint(item.location);\n  }\n  if (item.center) {\n    return leafletPoint(item.center);\n  }\n  if (noMandatory) {\n    return null;\n  }\n  throw new Error('Geometry is mandatory');\n};\n\nexport default leafletPoint;\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/src/utils/transformPointLeaflet.js",
     "access": "public",
@@ -2182,7 +2904,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 102,
+    "__docId__": 136,
     "kind": "function",
     "name": "leafletPoint",
     "memberof": "rxMapBasicLib/src/utils/transformPointLeaflet.js",
@@ -2219,14 +2941,14 @@
   },
   {
     "kind": "index",
-    "content": "# @RxMap/basicLib\n[![Build Status](https://travis-ci.org/xlab-tech/RxMapBasicLib.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMapBasicLib)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bdfe588c855944a983847719b102f2f6)](https://www.codacy.com/app/xlab/RxMapBasicLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMapBasicLib&amp;utm_campaign=Badge_Grade)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMapBasicLib/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMapBasicLib?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/dev-status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n\nLibreria de acciones y observadores basicas para [RxMap](https://github.com/xlab-tech/RxMap).\n\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\basiclib —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/basiclib@1.0.0’ defer/>\n</head>\n\n```\n\nNombre de la librearia: RxMapsBasicLib\n\nSoporta las siguientes librerias de Mapas:\n- [Google Maps](https://cloud.google.com/maps-platform/)\n- [leaflet](https://leafletjs.com)\n\n\n## Acciones\n\n- create:\n\n  Permite crear un mapa basico, pasandole lat, long y zoom\n  ```\n    RxMap.create('map', 51.505, -0.09, 13);\n  ```\n\n- marker:\n\n  Permite crear un marcador en un punto concreto\n  Se le puede pasar el icono y el tamaño del icono a mostrar como marcador\n  ```\n    RxMap.marker({ lat: 52.1, lng: -0.09 },{},{test:'asfdaf'});\n\n    RxMap.observer('click')\n    .marker((data => ({ lat: data.lat, lng: data.lng })))\n    .subscribe(data => console.log(data));\n\n  ```\n\n- point:\n\n  Permite añadir un punto ( circulo ) en un punto concreto.\n  se le puden pasar los estilos con el que se quiere pintar.\n  ```\n    RxMap.point({ lat: 52.1, lng: -0.09 },{fillColor:'#ff'});\n\n  ```\n\n- popup:\n\n  Permite añadir un popup a un marker o un point. y mostar la infromación que se quiera.\n  ```\n    RxMap.marker({ lat: 51.5, lng: -0.09 })\n      .popup('adios Mundo');\n\n    RxMap.marker({ lat: 52.1, lng: -0.09 },{},{test:'asfdaf'})\n      .popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);\n  ```\n\n- setCenter:\n\n  Permite mover el mapa a un punto que se quiera.\n  ```\n    RxMap.observer('gps')\n     .pipe(take(1))\n     .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))\n     .subscribe(data => console.log('GPS', data));\n\n  ```\n\n- addData:\n\n  Permite añadir datos al mapa en lote ( marker, points) con un mismo estilo.\n  ```\n    RxMap.addData('mar', dataMar);\n    RxMap.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);\n \n    RxMap.addData('pre', dataPre)\n      .observer('click')\n      .subscribe(data => console.log('subscribe CLICK DATA PRE', data));\n  ```\n\n## Observadores\n\n- center:\n\n  Permite observar cuando se mueve el mapa.\n  ```\n    RxMap.observer('center')\n      .pipe(take(5))\n      .subscribe(data => console.log('subscribe Center', data));\n\n  ```\n\n- click:\n\n  Permite observar cuando se hace click sobre el mapa, o un marker o un point.\n  ```\n    RxMap.observer('click')\n      .marker((data => ({ lat: data.lat, lng: data.lng })))\n      .subscribe(data => console.log('subscribe CLICK', data));\n\n    RxMap.addData('pre', dataPre)\n      .observer('click')\n      .subscribe(data => console.log('subscribe CLICK DATA PRE', data));\n  ```\n\n- gps:\n\n  Permite observar el gps del dispositivo.\n  ```\n    RxMap.observer('gps')\n      .pipe(take(1))\n      .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))\n      .subscribe(data => console.log('GPS', data));\n\n  ```",
+    "content": "# @RxMap/basicLib\n[![Build Status](https://travis-ci.org/xlab-tech/RxMapBasicLib.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMapBasicLib)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bdfe588c855944a983847719b102f2f6)](https://www.codacy.com/app/xlab/RxMapBasicLib?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMapBasicLib&amp;utm_campaign=Badge_Grade)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMapBasicLib/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMapBasicLib?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMapBasicLib/dev-status.svg)](https://david-dm.org/xlab-tech/RxMapBasicLib?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n\nLibreria de acciones y observadores basicos para [RxMap](https://github.com/xlab-tech/RxMap).\n\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\basiclib —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/basiclib@1.2.1’ defer/>\n</head>\n\n```\n\nNombre de la librearia: RxMapsBasicLib\n\nSoporta las siguientes librerias de Mapas:\n- [Google Maps](https://cloud.google.com/maps-platform/)\n- [leaflet](https://leafletjs.com)\n- [Esri](https://developers.arcgis.com/javascript/)\n\n\n## Acciones\n\n- create:\n\n  Permite crear un mapa basico, pasandole lat, long y zoom\n  ```\n    RxMap.create('map', 51.505, -0.09, 13);\n  ```\n\n- marker:\n\n  Permite crear un marcador en un punto concreto\n  Se le puede pasar el icono y el tamaño del icono a mostrar como marcador\n  ```\n    RxMap.marker({ lat: 52.1, lng: -0.09 },{},{test:'asfdaf'});\n\n    RxMap.observer('click')\n    .marker((data => ({ lat: data.lat, lng: data.lng })))\n    .subscribe(data => console.log(data));\n\n  ```\n\n- point:\n\n  Permite añadir un punto ( circulo ) en un punto concreto.\n  se le puden pasar los estilos con el que se quiere pintar.\n  ```\n    RxMap.point({ lat: 52.1, lng: -0.09 },{fillColor:'#ff'});\n\n  ```\n\n- popup:\n\n  Permite añadir un popup a un marker o un point. y mostar la infromación que se quiera.\n  ```\n    RxMap.marker({ lat: 51.5, lng: -0.09 })\n      .popup('adios Mundo');\n\n    RxMap.marker({ lat: 52.1, lng: -0.09 },{},{test:'asfdaf'})\n      .popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);\n  ```\n\n- find:\n  Permite buscar objetos por sus atributos o por su geometria, soporta \n  regex al buscar por atributos\n  ```\n   RxMap.find('position',{lat:3,lng:4}).subscribe((res)=>console.log())\n\n   RxMap.find('test','').subscribe((res)=>console.log())\n\n  ```\n- remove:\n  Permite borrar objetos puedes borrar desde una busqueda o se pueden borrar \n  todos. Si se hacen desde una busqueda es necesario añadir true como tercer \n  parametro en la funcion find\n\n  ```\n   RxMap.find('position',{lat:3,lng:4},true).remove();\n  ```\n\n  Borrar Todos\n  ```\n  RxMap.remove(true);\n  ```\n- update:\n  Permite actualizar la posicion de los elementos, sus propiedades o su estilo.\n  Si se hacen desde una busqueda es necesario añadir true como tercer\n  parametro en la funcion find\n\n  update acepta un objecto con las siguientes opciones point, style, properties, las\n  opciones son opcionales.\n  En stye se puede pasar un objeto con el stilo o un texto con el nombre de un data Type\n\n  ```\n   RxMap.find('@rxmapDataType', 'test', true).update({ style: 'pre' });\n   RxMap.find('id', 'prueba', true).update({ style: 'pre' });\n   \n  ```\n\n\n- setCenter:\n\n  Permite mover el mapa a un punto que se quiera.\n  ```\n    RxMap.observer('gps')\n     .pipe(take(1))\n     .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))\n     .subscribe(data => console.log('GPS', data));\n\n  ```\n\n- addData:\n\n  Permite añadir datos al mapa en lote ( marker, points) con un mismo estilo.\n  ```\n    RxMap.addData('mar', dataMar);\n    RxMap.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);\n \n    RxMap.addData('pre', dataPre)\n      .observer('click')\n      .subscribe(data => console.log('subscribe CLICK DATA PRE', data));\n  ```\n\n## Observadores\n\n- center:\n\n  Permite observar cuando se mueve el mapa.\n  ```\n    RxMap.observer('center')\n      .pipe(take(5))\n      .subscribe(data => console.log('subscribe Center', data));\n\n  ```\n\n- click:\n\n  Permite observar cuando se hace click sobre el mapa, o un marker o un point.\n  ```\n    RxMap.observer('click')\n      .marker((data => ({ lat: data.lat, lng: data.lng })))\n      .subscribe(data => console.log('subscribe CLICK', data));\n\n    RxMap.addData('pre', dataPre)\n      .observer('click')\n      .subscribe(data => console.log('subscribe CLICK DATA PRE', data));\n  ```\n\n- gps:\n\n  Permite observar el gps del dispositivo.\n  ```\n    RxMap.observer('gps')\n      .pipe(take(1))\n      .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))\n      .subscribe(data => console.log('GPS', data));\n\n  ```",
     "longname": "/Users/vrubinat/Documents/xlab.tech/rxMapBasicLib/README.md",
     "name": "./README.md",
     "static": true,
     "access": "public"
   },
   {
-    "__docId__": 103,
+    "__docId__": 137,
     "kind": "testFile",
     "name": "test/actions/create.spec.js",
     "content": "/* global describe,it,beforeEach */\nimport { expect } from 'chai';\nimport createGoogle from '../../src/actions/google@latest/create';\nimport createLeafet from '../../src/actions/leaflet@latest/create';\nimport google from '../mocks/google';\nimport leaflet from '../mocks/leaflet';\n\ndescribe('Create', () => {\n  beforeEach(() => {\n    document.body.innerHTML = '<div id=\"test\"></div>';\n  });\n  describe('google', () => {\n    const context = {};\n    context.library = google;\n    it('google', async () => {\n      const map = createGoogle(context)('test', 5, 4, 10);\n      expect(map.center.lat).to.have.eq(5);\n      expect(map.center.lng).to.have.eq(4);\n      expect(map.id).to.have.eq(document.getElementById('test'));\n      expect(map.zoom).to.have.eq(10);\n    });\n  });\n  describe('leaflet', () => {\n    const context = {};\n    context.library = leaflet;\n    it('leaflet', () => {\n      const map = createLeafet(context)('test', 5, 4, 10);\n      expect(map.getCenter().lat).to.have.eq(5);\n      expect(map.getCenter().lng).to.have.eq(4);\n      expect(document.getElementById('test').children.length).to.have.eq(2);\n      expect(map.getZoom()).to.have.eq(10);\n    });\n  });\n});\n",
@@ -2237,7 +2959,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 104,
+    "__docId__": 138,
     "kind": "test",
     "name": "describe0",
     "testId": 0,
@@ -2250,7 +2972,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 105,
+    "__docId__": 139,
     "kind": "test",
     "name": "describe1",
     "testId": 1,
@@ -2263,7 +2985,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 106,
+    "__docId__": 140,
     "kind": "test",
     "name": "it2",
     "testId": 2,
@@ -2276,7 +2998,7 @@
     "lineNumber": 15
   },
   {
-    "__docId__": 107,
+    "__docId__": 141,
     "kind": "test",
     "name": "describe3",
     "testId": 3,
@@ -2289,7 +3011,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 108,
+    "__docId__": 142,
     "kind": "test",
     "name": "it4",
     "testId": 4,
@@ -2302,7 +3024,7 @@
     "lineNumber": 26
   },
   {
-    "__docId__": 109,
+    "__docId__": 143,
     "kind": "testFile",
     "name": "test/utils/extractProperties.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport extractProperties from '../../src/utils/extractProperties';\n\ndescribe('extractProperties', () => {\n  it('properties', () => {\n    const prop = { a: 5 };\n    const p = {\n      properties: prop,\n    };\n    const _p = extractProperties(p);\n    expect(_p).to.eq(prop);\n  });\n  it('attributes', () => {\n    const prop = { a: 5 };\n    const p = {\n      attributes: prop,\n    };\n    const _p = extractProperties(p);\n    expect(_p).to.eq(prop);\n  });\n  it('fields', () => {\n    const prop = { a: 5 };\n    const p = {\n      fields: prop,\n    };\n    const _p = extractProperties(p);\n    expect(_p).to.eq(prop);\n  });\n  it('no data', () => {\n    const _p = extractProperties();\n    // eslint-disable-next-line no-unused-expressions\n    expect(_p).to.be.empty;\n  });\n});\n",
@@ -2313,7 +3035,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 110,
+    "__docId__": 144,
     "kind": "test",
     "name": "describe5",
     "testId": 5,
@@ -2326,7 +3048,7 @@
     "lineNumber": 5
   },
   {
-    "__docId__": 111,
+    "__docId__": 145,
     "kind": "test",
     "name": "it6",
     "testId": 6,
@@ -2339,7 +3061,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 112,
+    "__docId__": 146,
     "kind": "test",
     "name": "it7",
     "testId": 7,
@@ -2352,7 +3074,7 @@
     "lineNumber": 14
   },
   {
-    "__docId__": 113,
+    "__docId__": 147,
     "kind": "test",
     "name": "it8",
     "testId": 8,
@@ -2365,7 +3087,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 114,
+    "__docId__": 148,
     "kind": "test",
     "name": "it9",
     "testId": 9,
@@ -2378,7 +3100,7 @@
     "lineNumber": 30
   },
   {
-    "__docId__": 115,
+    "__docId__": 149,
     "kind": "testFile",
     "name": "test/utils/transformPoint.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport leafletPoint from '../../src/utils/transformPointLeaflet';\nimport googlePoint from '../../src/utils/transformPointGoogle';\n\ndescribe('transformPoint', () => {\n  describe('transformPoint Google', () => {\n    it('err', () => {\n      expect(googlePoint).to.throw();\n    });\n    it('err mandatory', () => {\n      try {\n        googlePoint({});\n      } catch (err) {\n        expect(err).to.instanceOf(Error);\n      }\n    });\n    it('no mandatory', () => {\n      const t = googlePoint({}, true);\n      // eslint-disable-next-line no-unused-expressions\n      expect(t).to.be.null;\n    });\n    it('array', () => {\n      const p = googlePoint([1, 2]);\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('latlng', () => {\n      const p = googlePoint({ lat: 1, lng: 2 });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('latlon', () => {\n      const p = googlePoint({ lat: 1, lon: 2 });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('latitudlongitud', () => {\n      const p = googlePoint({ latitud: 1, longitud: 2 });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('latitudelongitude', () => {\n      const p = googlePoint({ latitude: 1, longitude: 2 });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('position', () => {\n      const p = googlePoint({ position: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('location', () => {\n      const p = googlePoint({ location: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n    it('center', () => {\n      const p = googlePoint({ center: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq({ lat: 1, lng: 2 });\n    });\n  });\n  describe('transformPoint Leaflet', () => {\n    it('err', () => {\n      expect(leafletPoint).to.throw();\n    });\n    it('err mandatory', () => {\n      try {\n        leafletPoint({});\n      } catch (err) {\n        expect(err).to.instanceOf(Error);\n      }\n    });\n    it('array', () => {\n      const p = leafletPoint([1, 2]);\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('latlng', () => {\n      const p = leafletPoint({ lat: 1, lng: 2 });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('latlon', () => {\n      const p = leafletPoint({ lat: 1, lon: 2 });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('latitudlongitud', () => {\n      const p = leafletPoint({ latitud: 1, longitud: 2 });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('latitudelongitude', () => {\n      const p = leafletPoint({ latitude: 1, longitude: 2 });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('position', () => {\n      const p = leafletPoint({ position: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('location', () => {\n      const p = leafletPoint({ location: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('center', () => {\n      const p = leafletPoint({ center: { latitude: 1, longitude: 2 } });\n      expect(p).to.deep.eq([1, 2]);\n    });\n    it('no mandatory', () => {\n      const t = leafletPoint({}, true);\n      // eslint-disable-next-line no-unused-expressions\n      expect(t).to.be.null;\n    });\n  });\n});\n",
@@ -2389,7 +3111,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 116,
+    "__docId__": 150,
     "kind": "test",
     "name": "describe10",
     "testId": 10,
@@ -2402,7 +3124,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 117,
+    "__docId__": 151,
     "kind": "test",
     "name": "describe11",
     "testId": 11,
@@ -2415,7 +3137,7 @@
     "lineNumber": 7
   },
   {
-    "__docId__": 118,
+    "__docId__": 152,
     "kind": "test",
     "name": "it12",
     "testId": 12,
@@ -2428,7 +3150,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 119,
+    "__docId__": 153,
     "kind": "test",
     "name": "it13",
     "testId": 13,
@@ -2441,7 +3163,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 120,
+    "__docId__": 154,
     "kind": "test",
     "name": "it14",
     "testId": 14,
@@ -2454,7 +3176,7 @@
     "lineNumber": 18
   },
   {
-    "__docId__": 121,
+    "__docId__": 155,
     "kind": "test",
     "name": "it15",
     "testId": 15,
@@ -2467,7 +3189,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 122,
+    "__docId__": 156,
     "kind": "test",
     "name": "it16",
     "testId": 16,
@@ -2480,7 +3202,7 @@
     "lineNumber": 27
   },
   {
-    "__docId__": 123,
+    "__docId__": 157,
     "kind": "test",
     "name": "it17",
     "testId": 17,
@@ -2493,7 +3215,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 124,
+    "__docId__": 158,
     "kind": "test",
     "name": "it18",
     "testId": 18,
@@ -2506,7 +3228,7 @@
     "lineNumber": 35
   },
   {
-    "__docId__": 125,
+    "__docId__": 159,
     "kind": "test",
     "name": "it19",
     "testId": 19,
@@ -2519,7 +3241,7 @@
     "lineNumber": 39
   },
   {
-    "__docId__": 126,
+    "__docId__": 160,
     "kind": "test",
     "name": "it20",
     "testId": 20,
@@ -2532,7 +3254,7 @@
     "lineNumber": 43
   },
   {
-    "__docId__": 127,
+    "__docId__": 161,
     "kind": "test",
     "name": "it21",
     "testId": 21,
@@ -2545,7 +3267,7 @@
     "lineNumber": 47
   },
   {
-    "__docId__": 128,
+    "__docId__": 162,
     "kind": "test",
     "name": "it22",
     "testId": 22,
@@ -2558,7 +3280,7 @@
     "lineNumber": 51
   },
   {
-    "__docId__": 129,
+    "__docId__": 163,
     "kind": "test",
     "name": "describe23",
     "testId": 23,
@@ -2571,7 +3293,7 @@
     "lineNumber": 56
   },
   {
-    "__docId__": 130,
+    "__docId__": 164,
     "kind": "test",
     "name": "it24",
     "testId": 24,
@@ -2584,7 +3306,7 @@
     "lineNumber": 57
   },
   {
-    "__docId__": 131,
+    "__docId__": 165,
     "kind": "test",
     "name": "it25",
     "testId": 25,
@@ -2597,7 +3319,7 @@
     "lineNumber": 60
   },
   {
-    "__docId__": 132,
+    "__docId__": 166,
     "kind": "test",
     "name": "it26",
     "testId": 26,
@@ -2610,7 +3332,7 @@
     "lineNumber": 67
   },
   {
-    "__docId__": 133,
+    "__docId__": 167,
     "kind": "test",
     "name": "it27",
     "testId": 27,
@@ -2623,7 +3345,7 @@
     "lineNumber": 71
   },
   {
-    "__docId__": 134,
+    "__docId__": 168,
     "kind": "test",
     "name": "it28",
     "testId": 28,
@@ -2636,7 +3358,7 @@
     "lineNumber": 75
   },
   {
-    "__docId__": 135,
+    "__docId__": 169,
     "kind": "test",
     "name": "it29",
     "testId": 29,
@@ -2649,7 +3371,7 @@
     "lineNumber": 79
   },
   {
-    "__docId__": 136,
+    "__docId__": 170,
     "kind": "test",
     "name": "it30",
     "testId": 30,
@@ -2662,7 +3384,7 @@
     "lineNumber": 83
   },
   {
-    "__docId__": 137,
+    "__docId__": 171,
     "kind": "test",
     "name": "it31",
     "testId": 31,
@@ -2675,7 +3397,7 @@
     "lineNumber": 87
   },
   {
-    "__docId__": 138,
+    "__docId__": 172,
     "kind": "test",
     "name": "it32",
     "testId": 32,
@@ -2688,7 +3410,7 @@
     "lineNumber": 91
   },
   {
-    "__docId__": 139,
+    "__docId__": 173,
     "kind": "test",
     "name": "it33",
     "testId": 33,
@@ -2701,7 +3423,7 @@
     "lineNumber": 95
   },
   {
-    "__docId__": 140,
+    "__docId__": 174,
     "kind": "test",
     "name": "it34",
     "testId": 34,

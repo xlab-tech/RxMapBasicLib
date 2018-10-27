@@ -17,9 +17,11 @@ const update = context => (options) => {
   let elements = object;
 
   let _style = style;
+  let typeId = false;
   if (typeof style === 'string') {
     _style = source.getDataType(style);
     if (_style) {
+      typeId = style;
       _style = _style.style;
     }
   }
@@ -43,15 +45,26 @@ const update = context => (options) => {
     newElements.forEach((element) => { element.geometry = geometry; });
   }
   if (properties) {
-    // eslint-disable-next-line
-    newElements.forEach((elem) => { elem.attributes = properties; });
+    newElements.forEach((elem) => {
+      if (elem.attributes['@rxmapDataType']) {
+        properties['@rxmapDataType'] = elem.attributes['@rxmapDataType'];
+      }
+      // eslint-disable-next-line
+      elem.attributes = properties;
+    });
   }
   if (_style && _style.icon) {
     // eslint-disable-next-line
     newElements.forEach((elem) => { elem.symbol = pictureMarker(_style); });
   } else if (_style) {
-    // eslint-disable-next-line
-    newElements.forEach((elem) => { elem.symbol = simpleMarker(_style); });
+    newElements.forEach((elem) => {
+      // eslint-disable-next-line
+      elem.symbol = simpleMarker(_style);
+      if (typeId) {
+        // eslint-disable-next-line
+        elem.attributes['@rxmapDataType'] = typeId;
+      }
+    });
   }
   elements.forEach(item => view.graphics.remove(item));
   newElements.forEach(item => view.graphics.add(item));

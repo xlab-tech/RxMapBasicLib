@@ -25,6 +25,9 @@ const update = context => (options) => {
 
   if (properties) {
     element.filter(elem => elem.properties).forEach((elem) => {
+      if (elem.properties['@rxmapDataType']) {
+        properties['@rxmapDataType'] = elem.properties['@rxmapDataType'];
+      }
       // eslint-disable-next-line
       elem.properties = properties;
     });
@@ -34,9 +37,11 @@ const update = context => (options) => {
     element.forEach(elem => elem.setLatLng(center));
   }
 
+  let typeId = false;
   if (typeof style === 'string') {
     _style = source.getDataType(style);
     if (_style) {
+      typeId = style;
       _style = _style.style;
     }
   }
@@ -47,12 +52,24 @@ const update = context => (options) => {
       iconSize: _style.size ? [_style.size.width, _style.size.height] : null,
     });
     element.filter(elem => elem.setIcon)
-      .forEach(elem => elem.setIcon(myIcon));
+      .forEach((elem) => {
+        elem.setIcon(myIcon);
+        if (typeId) {
+          // eslint-disable-next-line
+          elem.properties['@rxmapDataType'] = typeId;
+        }
+      });
     return element;
   }
 
   if (_style) {
-    element.forEach(elem => elem.setStyle(_style));
+    element.forEach((elem) => {
+      elem.setStyle(_style);
+      if (typeId) {
+        // eslint-disable-next-line
+        elem.properties['@rxmapDataType'] = typeId;
+      }
+    });
   }
 
   element.filter(elem => elem.redraw)
