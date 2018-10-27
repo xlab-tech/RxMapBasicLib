@@ -4,7 +4,7 @@ import lib from './../src/index';
 registerLib(...lib);
 
 const config = {
-  type: 'leaflet',
+  type: 'google',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
   },
@@ -33,8 +33,8 @@ const config = {
       id: 'pre',
       geomType: 'point',
       style: {
-        color: '#0000ff ',
-        fillColor: '#0000ff ',
+        color: '#0000ff',
+        fillColor: '#0000ff',
         radius: 5,
         opacity: 1,
         fillOpacity: 0.5,
@@ -90,11 +90,11 @@ const load = async () => {
     .observer('click')
     .subscribe(data => console.log('subscribe CLICK MARKER', data));
 
-  Map.addData('pre', dataPre)
+  Map.addData('test', dataPre)
     .observer('click')
     .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
 
-  Map.point({
+  /*Map.point({
     lat: 42.1,
     lng: 2.42,
   }, {
@@ -104,8 +104,20 @@ const load = async () => {
       opacity: 1,
       fillOpacity: 0.5,
       weight: 1,
-    });
+    });*/
   Map.setCenter({ zoom: 8, lat: 51.53270552998373, lng: -0.08368492126464844 });
+  window.test = Map._sourceMap;
+  setTimeout(() => {
+    const p = Map.find('@rxmapDataType', 'test', true)
+      //.remove()
+      .update({ style: 'pre' })
+      .subscribe((res) => {
+        console.log(res);
+
+      });
+    // Map.find('test', 'dadfsadf', true).remove()
+    // Map.remove(true);
+  }, 4000);
   //Map.observer('click')
   //  .subscribe(data => console.log('subscribe Click', data));
 };

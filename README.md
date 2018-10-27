@@ -9,7 +9,7 @@
 
 [<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="64">](https://xlab.tech)
 
-Libreria de acciones y observadores basicas para [RxMap](https://github.com/xlab-tech/RxMap).
+Libreria de acciones y observadores basicos para [RxMap](https://github.com/xlab-tech/RxMap).
 
 
 ## Instalación
@@ -76,6 +76,44 @@ Soporta las siguientes librerias de Mapas:
     RxMap.marker({ lat: 52.1, lng: -0.09 },{},{test:'asfdaf'})
       .popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);
   ```
+
+- find:
+  Permite buscar objetos por sus atributos o por su geometria, soporta 
+  regex al buscar por atributos
+  ```
+   RxMap.find('position',{lat:3,lng:4}).subscribe((res)=>console.log())
+
+   RxMap.find('test','').subscribe((res)=>console.log())
+
+  ```
+- remove:
+  Permite borrar objetos puedes borrar desde una busqueda o se pueden borrar 
+  todos. Si se hacen desde una busqueda es necesario añadir true como tercer 
+  parametro en la funcion find
+
+  ```
+   RxMap.find('position',{lat:3,lng:4},true).remove();
+  ```
+
+  Borrar Todos
+  ```
+  RxMap.remove(true);
+  ```
+- update:
+  Permite actualizar la posicion de los elementos, sus propiedades o su estilo.
+  Si se hacen desde una busqueda es necesario añadir true como tercer
+  parametro en la funcion find
+
+  update acepta un objecto con las siguientes opciones point, style, properties, las
+  opciones son opcionales.
+  En stye se puede pasar un objeto con el stilo o un texto con el nombre de un data Type
+
+  ```
+   RxMap.find('@rxmapDataType', 'test', true).update({ style: 'pre' });
+   RxMap.find('id', 'prueba', true).update({ style: 'pre' });
+   
+  ```
+
 
 - setCenter:
 

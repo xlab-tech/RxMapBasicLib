@@ -1,6 +1,6 @@
 
 export const name = 'RxMapBasicLib';
-export const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];
+export const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter', 'find', 'remove', 'update'];
 export const observers = ['gps', 'center', 'click'];
 export const func = (type, mapLib, version, key) => import(
   /* webpackMode: "lazy" */

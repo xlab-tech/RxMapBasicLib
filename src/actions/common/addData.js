@@ -8,12 +8,12 @@ const addData = context => (typeId, data) => {
   switch (type.geomType) {
     case 'point':
       return new Promise((resolve) => {
-        data.reduce((map, element) => map.point(element, type.style, element), source)
+        data.reduce((map, element) => map.point(element, type.style, { ...element, '@rxmapDataType': typeId }), source)
           .subscribe((last, all) => resolve(all));
       });
     case 'marker':
       return new Promise((resolve) => {
-        data.reduce((map, element) => map.marker(element, type.style, element), source)
+        data.reduce((map, element) => map.marker(element, type.style, { ...element, '@rxmapDataType': typeId }), source)
           .subscribe((last, all) => resolve(all));
       });
 

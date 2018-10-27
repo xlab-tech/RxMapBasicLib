@@ -1,5 +1,8 @@
 const leafletPoint = (item, noMandatory) => {
   if (!item) {
+    if (noMandatory) {
+      return null;
+    }
     throw new Error('Geometry Param is mandatory');
   }
   if (Array.isArray(item)) {
